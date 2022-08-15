@@ -1,0 +1,52 @@
+.account {
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50vw;
+    height: 80vh;
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.account-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.lottie {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.account-input {
+    width: 90%;
+    margin-bottom: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.account-buttons {
+    width: 92%;
+    margin-bottom: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #00bcd4;
+    color: white;
+}
+
+.account-buttons:hover, .account-input:hover {
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.create-button {
+    background: green;
+}

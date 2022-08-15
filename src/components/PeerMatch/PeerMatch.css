@@ -1,0 +1,109 @@
+.PeerMatch {
+    width: 70%;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.PeerMatchImageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 31.3%;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.circle {
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.PeerMatchX {
+    background:hsl(35, 86%, 86%);
+    font-size: 20px;
+    font-family: "IM FELL Great Primer SC", serif;
+    color: rgb(252, 187, 66);
+}
+
+.PeerMatchHeart {
+    background: rgb(243, 210, 210);
+    color: #e36b97;
+    align-items: center;
+    justify-content: center;
+}
+
+.PeerMatchHeart:hover {
+    color: #fe005d;
+}
+
+.PeerMatchX:hover {
+    color: rgb(255, 167, 5);
+}
+
+.PeerMatchActionContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+}
+
+.PeerImages {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid gainsboro;
+    border-radius: 10%;
+    width: 28vw;
+    height: 65vh;
+}
+
+.PeerMatchDetails {
+    position: relative;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(247, 112, 112, 0.562);
+    top: 29.68vh;
+    right: 28vw;
+    width: 28vw;
+    height: 8%;
+    border-radius: 20px;
+    border-bottom-right-radius: 130px;
+    border-bottom-left-radius: 130px;
+    text-align: left;
+}
+
+.PeerMatchDetailsName {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-left: 1%;
+    color: white;
+}
+
+.PeerMatchDetailsBio {
+    font-size: 100%;
+    margin-top: 1%;
+    margin-left: 1%;
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(138, 138, 138);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.PeerMatchDetailsName, .PeerMatchDetailsBio {
+    margin-left: 10%;
+    font-family: "IM FELL Great Primer SC", serif;
+} 

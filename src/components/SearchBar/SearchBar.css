@@ -1,0 +1,29 @@
+.SearchBar {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 65% 15%;
+    border-radius: 5px;
+}
+
+.SearchBarInput {
+    height: 25%;
+    border: 2px solid black;
+    border-radius: 5px 0px 0px 5px;
+    padding: 5px;
+    color: black;
+    font-family: "IM FELL Great Primer SC", serif;
+}
+
+.SearchBarInput::placeholder {
+    color: black;
+    font-family: "IM FELL Great Primer SC", serif;
+}
+
+.SearchBarIcon {
+    height: 46%;
+    width: 70%;
+    position: relative;
+    right: 4%;
+    border: 2px solid black;
+    border-radius: 5px;
+}

@@ -1,0 +1,19 @@
+.Frame404 {
+    width: 98.9vw;
+    height: 95.9vh;
+    background-color: #f5f5f5;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div404 {
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    font-size: 20px;
+    font-style: italic;
+}

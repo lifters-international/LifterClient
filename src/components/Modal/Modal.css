@@ -1,0 +1,102 @@
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    justify-content: center;
+    align-items: center;
+}
+
+.Modalvisible {
+    display: flex;
+}
+
+.Modalhidden {
+    display: none;
+}
+
+.ModalContainer {
+    width: 50vw;
+    height: 50vh;
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+    gap: 0px;
+}
+
+.ModalTitleContainer {
+    width: 50vw;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+    display: grid;
+    grid-template-columns: 96% 4%;
+}
+
+.ModalTitleContainerClose {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    color: rgb(141, 141, 141);
+}
+
+.ModalTitleContainerClose:hover {
+    color: black;
+}
+
+.ModalButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: right;
+}
+
+.ModalButtonContainerCancel {
+    background: white;
+    border: 1px solid gainsboro;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    width: 55px;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.ModalButtonContainerCancel:hover {
+    border-color: rgb(110, 178, 255);
+}
+
+.ModalButtonContainerOk {
+    background: rgb(60, 151, 255);
+    border: 1px solid rgb(60, 151, 255);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 35px;
+    text-align: center;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 20px;
+}
+
+.ModalButtonContainerOk:hover {
+    background: rgb(110, 178, 255);
+    border: 1px solid rgb(110, 178, 255);
+}
+
+.ModalContentContainer {
+    height: 100%;
+}
