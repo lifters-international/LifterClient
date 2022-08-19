@@ -6,7 +6,7 @@ export const importSvg = (path: string): string => {
 }
 
 export const getApiUrl = () => {
-    return "http://localhost:5000/graphql"//"http://smooth-nails-crash-68-37-87-241.loca.lt/graphql";
+    return "http://localhost:5000/graphql";
 }
 
 export const getImageUploadApi = () => {

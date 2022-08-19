@@ -29,3 +29,5 @@ export { default as Modal } from "./Modal";
 export { default as Notify } from "./Notify";
 
 export { default as Preview } from "./Preview";
+
+export { default as Messages } from "./Messages";

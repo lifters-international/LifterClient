@@ -15,8 +15,19 @@ export type PeerContainerProps = {
 }
 
 const PeerContainer: React.FC<PeerContainerProps> = ( { userToken, id, username, age, bio, profilePicture, allowAction, next } : PeerContainerProps) => {
-    const shortenedBio = bio?.slice(0, 45) + "...";
+    const shortenedBio = bio?.slice(0, 45) + ( (bio?.length!) >= 45 ? "..." : "");
     const acceptDecline = useAcceptDeclineMatch();
+
+    const acceptMatch = async ( accept: boolean ) => {
+        acceptDecline.acceptDecline( userToken!, id!, accept, 
+            ( result ) =>{
+                console.log(result)
+            },
+            ( error ) => {
+                console.log(error)
+            }    
+        );
+    }
 
     return (
         <div className="PeerMatch">
@@ -33,36 +44,14 @@ const PeerContainer: React.FC<PeerContainerProps> = ( { userToken, id, username,
             <div className="PeerMatchActionContainer">
                 <div className="PeerMatchX circle" onClick={
                     allowAction ? () => {
-                        console.log("User clicked on X");
-                        acceptDecline.acceptDecline(
-                            userToken!, 
-                            id!, 
-                            false, 
-                            ( result ) =>{
-                                console.log(result)
-                            },
-                            ( error ) => {
-                                console.log(error)
-                            }
-                        )
+                        acceptMatch( false );
                         if (next) next();
                     }
                     : undefined
                 }>X</div>
                 <div className="PeerMatchHeart circle" onClick={
                     allowAction ? () => {
-                        console.log("USer clicked on Heart");
-                        acceptDecline.acceptDecline(
-                            userToken!, 
-                            id!, 
-                            true, 
-                            ( result ) =>{
-                                console.log(result)
-                            },
-                            ( error ) => {
-                                console.log(error)
-                            }
-                        )
+                        acceptMatch( true );
                         if (next) next();
                     }
                     : undefined

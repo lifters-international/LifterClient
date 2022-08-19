@@ -1,7 +1,7 @@
 import './App.css';
 import * as React from 'react';
 import { Route, Routes } from "react-router-dom";
-import { Home, NotFound404, CreateAccount, LogIn, Profile, Preview } from './components';
+import { Home, NotFound404, CreateAccount, LogIn, Profile, Preview, Messages } from './components';
 
 const App: React.FC = () => {
   return (
@@ -11,6 +11,7 @@ const App: React.FC = () => {
       <Route path="/logIn" element={<LogIn />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/preview" element={<Preview />} />
+      <Route path="/messages" element={<Messages />} />
       <Route path="*" element={<NotFound404 />} />
     </Routes>
   );
