@@ -11,3 +11,5 @@ export * from "./useSaveUserProfileChanges";
 export * from "./useGetUserMatches";
 
 export * from "./useAcceptDeclineMatch";
+
+export * from "./useUserMatchesSubscription";

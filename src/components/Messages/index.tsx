@@ -2,13 +2,16 @@ import * as React from 'react';
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import PeerMatchContainer from "../PeerMatch";
-import { Navigate } from "react-router-dom";
-import { useSessionHandler, useGetUserMatches } from '../../hooks';
+import ProfilePicture from "../ProfilePicture";
+import { Navigate, Link } from "react-router-dom";
+import { useSessionHandler, useGetUserMatches, useUserMatchesSubscription } from '../../hooks';
 import Error from '../Error';
 
+import "./Messages.css";
 
 const Messages: React.FC = () => {
     const authentication = useSessionHandler();
+    const userMatchesSubscription = useUserMatchesSubscription(authentication.token!);
 
     if ( authentication.loading ) return <Loading />;
 
@@ -21,6 +24,29 @@ const Messages: React.FC = () => {
     return (
         <>
             <NavBar token={authentication.token!}/>
+            <div className="UnMatchedPeersContainer">
+                <div className="UnMatchedPeersContainerContext">
+                    NEW MATCHES
+                    <div className="circle">{userMatchesSubscription.data.length}</div>
+                </div>
+                <div className="UnMatchedContain">
+                    {
+                        userMatchesSubscription.data.map((match, index) => {
+                            return (
+                                <Link 
+                                    key={`UnMatchedPeer${index}`} 
+                                    className="UnMatchedPeers" 
+                                    title={match.name} 
+                                    to={`/matches/${match.id}`}
+                                    target="_blank"
+                                >
+                                    <ProfilePicture image={match.profilePicture} alt={match.name +" picture"} />
+                                </Link>
+                            )
+                        })
+                    }
+                </div>
+            </div>
         </>
     )
 }

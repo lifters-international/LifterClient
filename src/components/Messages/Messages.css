@@ -1,0 +1,34 @@
+.UnMatchedPeersContainer {
+    border: 1px solid gainsboro;
+    overflow-x: auto;
+    width: 99.8vw;
+}
+
+.UnMatchedPeersContainerContext {
+    color: red;
+    font-family: "IM FELL Great Primer SC", serif;
+    margin-top: 10px;
+    display: flex;
+}
+
+.UnMatchedContain {
+    display: flex;
+    flex-direction: row;
+}
+
+.UnMatchedPeersContainerContext .circle {
+    height: 5px;
+    width: 5px;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -5px;
+    left: 5px;
+}

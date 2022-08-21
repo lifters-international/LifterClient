@@ -11,3 +11,5 @@ export * from "./UserData";
 export * from "./userInformationToSave";
 
 export * from "./userPasswordUpdateProps";
+
+export * from "./newUserMatches";

@@ -13,3 +13,7 @@ export * from "./updateUserPassword";
 export * from "./getUserMatches";
 
 export * from "./acceptDeclineMatch";
+
+export * from "./newUserMatchesSubscription";
+
+export * from "./getUserUnAcceptedMatches";

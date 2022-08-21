@@ -10,12 +10,13 @@ export type ProfilePictureType = {
 }
 
 export default class ProfilePicture extends React.Component<ProfilePictureType> {
+
     render() {
         return (
             <div className={`ProfilePicture ${this.props.containerClass || ""}`}
                 onClick={this.props.onClick}
             >
-                <img src={this.props.image} alt={ this.props.alt || "Profile"} className={this.props.imageClass || undefined }/>
+                <img src={this.props.image} alt={ this.props.alt || "Profile"} className={`ProfilePictureImage ${this.props.imageClass || "" }`}/>
             </div>
         )
     }

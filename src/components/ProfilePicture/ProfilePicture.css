@@ -1,6 +1,11 @@
 .ProfilePicture {
-    border: 1px solid red;
-    border-radius: 30px;
     padding: 5px;
     cursor: pointer;
+}
+
+.ProfilePictureImage {
+    border-radius: 30px;
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
 }
