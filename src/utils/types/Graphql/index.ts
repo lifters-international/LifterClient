@@ -13,3 +13,9 @@ export * from "./userInformationToSave";
 export * from "./userPasswordUpdateProps";
 
 export * from "./newUserMatches";
+
+export * from "./Message";
+
+export * from "./AcceptedUserMatches";
+
+export * from "./GetUserMessagesResult";

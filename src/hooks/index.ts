@@ -13,3 +13,7 @@ export * from "./useGetUserMatches";
 export * from "./useAcceptDeclineMatch";
 
 export * from "./useUserMatchesSubscription";
+
+export * from "./useUserAcceptedMatchesSubscription";
+
+export * from "./useGetUserMessages";

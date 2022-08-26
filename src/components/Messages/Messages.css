@@ -1,5 +1,6 @@
 .UnMatchedPeersContainer {
     border: 1px solid gainsboro;
+    border-radius: 5px;
     overflow-x: auto;
     width: 99.8vw;
 }
@@ -31,4 +32,13 @@
     position: relative;
     top: -5px;
     left: 5px;
+}
+
+.UnMatchedContainProfilePicture {
+    height: 70px;
+    width: 70px;
+}
+
+.UnMatchedPeersContainerContext, .UnMatchedPeers {
+    margin-left: 10px;
 }

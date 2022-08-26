@@ -1,0 +1,56 @@
+.MessageContainer {
+    margin-top: 20px;
+}
+
+.MessageMatchesProfilePicture {
+    width: 85px;
+    height: 85px;
+}
+
+.MessageHolder {
+    display: grid;
+    grid-template-columns: 25% 74.5%;	
+}
+
+.MessageHolderContext {
+    height: 78vh;
+    overflow-y: auto; 
+    border-top: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.MessageMatches {
+    border-bottom: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+    gap: 15px;
+}
+
+.MessageMatchesContextName {
+    font-weight: bold;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 20px;
+}
+
+.MessageMatchesContextMessage {
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 17px;
+    font-weight: normal;
+    color: rgb(139, 139, 139);
+    position: relative;
+    top: 5px;
+}
+
+.NoMessages {
+    font-weight: bold;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 30px;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    top: 45%;
+}

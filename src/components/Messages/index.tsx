@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Loading from "../Loading";
 import NavBar from "../NavBar";
-import PeerMatchContainer from "../PeerMatch";
 import ProfilePicture from "../ProfilePicture";
 import { Navigate, Link } from "react-router-dom";
-import { useSessionHandler, useGetUserMatches, useUserMatchesSubscription } from '../../hooks';
+import { useSessionHandler, useUserMatchesSubscription, useUserAcceptedMatchesSubscription } from '../../hooks';
+import MessageContainer from './MessageContainer';
 import Error from '../Error';
 
 import "./Messages.css";
@@ -12,6 +12,7 @@ import "./Messages.css";
 const Messages: React.FC = () => {
     const authentication = useSessionHandler();
     const userMatchesSubscription = useUserMatchesSubscription(authentication.token!);
+    const userAcceptedMatchesSubscription = useUserAcceptedMatchesSubscription(authentication.token!);
 
     if ( authentication.loading ) return <Loading />;
 
@@ -40,13 +41,18 @@ const Messages: React.FC = () => {
                                     to={`/matches/${match.id}`}
                                     target="_blank"
                                 >
-                                    <ProfilePicture image={match.profilePicture} alt={match.name +" picture"} />
+                                    <ProfilePicture image={match.profilePicture} alt={match.name +" picture"} imageClass="UnMatchedContainProfilePicture"/>
                                 </Link>
                             )
                         })
                     }
                 </div>
             </div>
+            <MessageContainer 
+                matches = {userAcceptedMatchesSubscription.data} 
+                
+                token={authentication.token!}
+            />   
         </>
     )
 }

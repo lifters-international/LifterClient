@@ -17,3 +17,7 @@ export * from "./acceptDeclineMatch";
 export * from "./newUserMatchesSubscription";
 
 export * from "./getUserUnAcceptedMatches";
+
+export * from "./getUserAcceptedMatches";
+
+export * from "./getUserMessages";
