@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "heroku-start": "nodemon --exec ts-node src/index.js --trace-warnings",
+    "heroku-start": "nodemon --exec react-scripts start --trace-warnings",
     "build": "react-scripts build",
     "tsc": "./node_modules/typescript/bin/tsc",
     "postinstall": "npm run tsc",
