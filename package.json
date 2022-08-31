@@ -29,7 +29,8 @@
     "ts-node": "^10.9.1"
   },
   "engines": {
-    "node": "16.15.1"
+    "node": "16.15.1",
+    "yarn": "1.22.19"
   },
   "scripts": {
     "start": "react-scripts start",
