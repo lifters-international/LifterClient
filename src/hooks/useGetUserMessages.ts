@@ -1,8 +1,7 @@
 import React from "react";
-import { io } from "socket.io-client";
 
 import { getUserMessages } from "../graphQlQuieries";
-import { GetUserMessagesResult, fetchGraphQl, Message, MessageWhoSent, getServerUrl, MessageMetaDataType } from "../utils";
+import { GetUserMessagesResult, fetchGraphQl, Message, MessageWhoSent, MessageMetaDataType, socket } from "../utils";
 
 export type UserMessagesState = {
     userMessages: Message[] | null;
@@ -24,26 +23,8 @@ export const useGetUserMessages = ( token: string, matchId: string ): UserMessag
     React.useEffect( () => {
         if ( token == null ) return;
 
-        fetchGraphQl( getUserMessages, { token, matchId }).then( result => {
+        fetchGraphQl( getUserMessages, { token, matchId }).then( result => { 
             let data :  GetUserMessagesResult = result.data;
-
-            const socket = io(getServerUrl() + "messages", {
-                query: {
-                    token
-                }
-            });
-    
-            socket.on("NewMessage", ( newMessage: { matchId: string, message: Message }) => {
-                if ( newMessage.matchId === matchId ) {
-                    console.log(newMessage)
-                    setMessageState(prevState => {
-                        return {
-                            ...prevState,
-                            userMessages: [...(prevState.userMessages || []), newMessage.message].sort( (a, b) => Number(a.createdAt) - Number(b.createdAt)),
-                        };
-                    } );
-                }
-            });
     
             setMessageState(prevState => {
                 return {
@@ -75,6 +56,17 @@ export const useGetUserMessages = ( token: string, matchId: string ): UserMessag
                         }
                     };
                 } );
+        
+                socket.on("NewMessage", ( newMessage: { matchId: string, message: Message }) => {
+                    if ( newMessage.matchId === matchId ) {
+                        setMessageState(prevState => {
+                            return {
+                                ...prevState,
+                                userMessages: [...(prevState.userMessages || []), newMessage.message].sort( (a, b) => Number(a.createdAt) - Number(b.createdAt)),
+                            };
+                        } );
+                    }
+                });
             }
         });
 

@@ -1,8 +1,7 @@
 import React from "react";
 
 import { getUserAcceptedMatches } from "../graphQlQuieries";
-import { AcceptedUserMatches, fetchGraphQl, getServerUrl } from "../utils";
-import { io } from "socket.io-client";
+import { AcceptedUserMatches, fetchGraphQl, socket } from "../utils";
 
 export type UserAcceptedMatchesSubscription = {
     loading: boolean;
@@ -10,7 +9,7 @@ export type UserAcceptedMatchesSubscription = {
     data: AcceptedUserMatches[];
 }
 
-export const useUserAcceptedMatchesSubscription = (token: string): UserAcceptedMatchesSubscription => {
+export const useUserAcceptedMatchesSubscription = (token: string ): UserAcceptedMatchesSubscription => {
     const [ state, setState ] = React.useState<UserAcceptedMatchesSubscription>({
         loading: false,
         error: [],
@@ -55,15 +54,11 @@ export const useUserAcceptedMatchesSubscription = (token: string): UserAcceptedM
 
         fetchChange();
 
-        const socket = io(getServerUrl() + "messages", {
-            query: {
-                token
-            }
-        });
-
-        socket.on("ChangeMatchesOrder", () => {
-            setChange(true);
-        })
+        if (socket != null ) {
+            socket.on("ChangeMatchesOrder", () => {
+                setChange(true);
+            });
+        }
 
     }, [token]);
 

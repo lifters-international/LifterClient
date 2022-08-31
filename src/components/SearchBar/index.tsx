@@ -19,7 +19,7 @@ const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
 
     return (
         <div className={`SearchBar ${props.className || ""}`}>
-            <input type="text" placeholder="Search Peers" ref={ref} onChange={props.onChange || undefined} className="SearchBarInput"/>
+            <input type="text" placeholder="Search Lifters" ref={ref} onChange={props.onChange || undefined} className="SearchBarInput"/>
             <Lottie
                 animationData={SearchIcon}
                 loop

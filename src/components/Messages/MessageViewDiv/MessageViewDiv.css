@@ -1,0 +1,24 @@
+.YouSentMessage, .TheySentMessage {
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.TheySentMessage {
+    background: black;
+    color: white;
+}
+
+.YouSentMessage {
+    background: rgb(29, 134, 253);
+    color: white;
+    float: right;
+}
+
+.MessageViewDivDidSee::first-letter {
+    text-transform: capitalize;
+}

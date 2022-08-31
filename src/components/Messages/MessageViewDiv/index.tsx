@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Message, MessageWhoSent, MessageMetaDataType } from "../../../utils";
+import { Message, MessageWhoSent, MessageMetaDataType, formatAMPM, capitalizeFirstLetter } from "../../../utils";
 
 import "./MessageViewDiv.css";
 
@@ -9,27 +9,29 @@ export type MessageViewDivProps = {
     lastMessage: boolean;
 } & Message;
 
-const MessageViewDiv: React.FC<MessageViewDivProps> = ( { id, status, metaDataType, message, createdAt, whoSent, CurrentWhoSent, lastMessage } : MessageViewDivProps) => {
+const MessageViewDiv: React.FC<MessageViewDivProps> = ( { id, status, metaDataType, message, createdAt, whoSent, CurrentWhoSent, lastMessage, timeRead } : MessageViewDivProps) => {
     return (
         <>
-            <div className={`MessageViewDiv ${whoSent === CurrentWhoSent ? "YouSent" : "TheySent"}`} data-id={id} id={`MessageViewDiv${id}`} title={createdAt.toString()}>
-                {
-                    metaDataType === MessageMetaDataType.TEXT ? (
-                        <div className="MessageViewDivText">{message}</div>
-                    ) : metaDataType === MessageMetaDataType.IMAGE ? (
-                        <div className="MessageViewDivImage">
-                            <img src={message} alt="message" />
-                        </div>
-                    ) : (
-                        <div className="MessageViewDivVideo">
-                            <video src={message} />
-                        </div>
-                    )
-                }
+            <div className={`MessageViewDiv`} data-id={id} id={`MessageViewDiv${id}`} >
+                <div className={whoSent === CurrentWhoSent ? "YouSentMessage" : "TheySentMessage"} title={
+                `
+                    ${new Date(createdAt).toUTCString()} Message has been: ${ capitalizeFirstLetter(status.toLowerCase()) }
+                `}>
+                    {
+                        metaDataType === MessageMetaDataType.TEXT ? (
+                            <div className="MessageViewDivText">{message}</div>
+                        ) : metaDataType === MessageMetaDataType.IMAGE ? (
+                            <div className="MessageViewDivImage">
+                                <img src={message} alt="message" />
+                            </div>
+                        ) : (
+                            <div className="MessageViewDivVideo">
+                                <video src={message} />
+                            </div>
+                        )
+                    }
+                </div>
             </div>
-            {
-                lastMessage ? <div className="MessageViewDivDidSee">{status.toLowerCase()}</div> : null
-            }
         </>
     );
 }

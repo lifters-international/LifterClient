@@ -1,5 +1,9 @@
 .PeerContainer {
     width: 11%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+}
+
+.PeerContainerPeer {
+    width: 95px;
+    margin-right: auto;
+    margin-left: auto;
 }

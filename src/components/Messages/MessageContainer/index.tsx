@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AcceptedUserMatches } from "../../../utils";
 import ProfilePicture from "../../ProfilePicture";
-
+import { Message, MessageWhoSent, MessageMetaDataType } from "../../../utils";
 import MessageBox from "../MessageBox";
 
 import "./MessageContainer.css";
@@ -18,16 +18,29 @@ export type MessageContainerCurrentView = {
     profilePicture: string;
 }
 
-const MessageContainer: React.FC<MessageContainerProps> = ({ token, matches }: MessageContainerProps) => {
-    const [ currentView, setCurrentView] = React.useState<MessageContainerCurrentView>( { currentMatchId: "", name: "", profilePicture: "" } );
+export type UserMessagesState = {
+    userMessages: Message[] | null;
+    loading: boolean;
+    whoSent: MessageWhoSent | null;
+    error: any;
+    sendReadMessage?: (messageId: string) => void;
+    sendMessage?: (token: string, matchId: string, message: string, metaDataType: MessageMetaDataType) => void;
+};
 
-    matches.sort( (a, b) => Number(b.date) - Number(a.date));
+
+const MessageContainer: React.FC<MessageContainerProps> = ({ token, matches }: MessageContainerProps) => {
+    const [currentView, setCurrentView] = React.useState<MessageContainerCurrentView>({ currentMatchId: "", name: "", profilePicture: "" });
+    matches.sort((a, b) => Number(b.date) - Number(a.date));
 
     return (
         <div className="MessageContainer">
             <div className="UnMatchedPeersContainerContext">
                 Messages
-                <div className="circle">{matches.length}</div>
+                <div className="circle">{matches.map(
+                    (match) => {
+                        return match.unreadMessages;
+                    }
+                ).reduce((a, b) => a + b, 0)}</div>
             </div>
             <div className="MessageHolder">
                 <div className="MessageHolderContext">
@@ -37,7 +50,7 @@ const MessageContainer: React.FC<MessageContainerProps> = ({ token, matches }: M
                         ) : (
                             matches.map((message: AcceptedUserMatches) => {
                                 let text = message.lastMessage?.message || "";
-                                const shortenedText = text.slice(0, 45) + ( (text.length!) >= 45 ? "..." : "");
+                                const shortenedText = text.slice(0, 45) + ((text.length!) >= 45 ? "..." : "");
 
                                 return (
                                     <div key={message.id} className="MessageMatches" onClick={

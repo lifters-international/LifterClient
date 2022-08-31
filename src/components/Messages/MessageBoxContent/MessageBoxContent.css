@@ -1,2 +1,14 @@
 .MessageBoxContent {
+    border-top: 1px solid gainsboro;
+}
+
+.Content {
+    max-height: 67vh;
+    overflow-y: auto;
+    display: grid;
+    flex-direction: column-reverse;
+}
+
+.divideTheySentYouSent {
+    margin-bottom: 10px;
 }

@@ -3,7 +3,7 @@ export const getApiUrl = () => {
 }
 
 export const getWSApiUrl = () => {
-    return "ws://localhost:5000/graphql";
+    return "ws://10.0.0.169:5000/graphql";
 }
 
 export const getImageUploadApi = () => {
@@ -11,5 +11,5 @@ export const getImageUploadApi = () => {
 }
 
 export const getServerUrl = () => {
-    return "http://localhost:5000/";
+    return "http://10.0.0.169:5000/";
 }

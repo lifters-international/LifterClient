@@ -9,6 +9,7 @@ export const getUserMessages = `
                 metaDataType
                 message
                 createdAt
+                timeRead
             }
         }
     }

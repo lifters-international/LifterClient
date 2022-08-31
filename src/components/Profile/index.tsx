@@ -100,7 +100,11 @@ const Profile: React.FC = () => {
     if (authentication.loading || signedInUser.loading) return <Loading />;
 
     if (authentication.error) {
-        if (authentication.error[0].message === "jwt malformed") return <Navigate to="/logIn" />;
+        if (
+            authentication.error[0].message === "jwt malformed"
+            || 
+            authentication.error[0].extensions.code === "BAD_USER_INPUT"
+        ) return <Navigate to="/logIn" />;
         else return <Error {...authentication.error[0]} reload={true} />;
     }
 

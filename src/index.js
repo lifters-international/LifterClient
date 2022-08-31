@@ -9,20 +9,11 @@ import { client } from "./utils";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  /*<React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>*/
-  /*
-  <ApolloProvider client={client}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ApolloProvider>*/
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
