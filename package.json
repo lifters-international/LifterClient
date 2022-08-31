@@ -29,11 +29,11 @@
     "ts-node": "^10.9.1"
   },
   "engines": {
-      "node": "16.15.1"
+    "node": "16.15.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "heroku-start": "nodemon --exec ts-node src/index.js --trace-warnings",
+    "heroku-start": "npm install --legacy-peer-deps && nodemon --exec ts-node src/index.js --trace-warnings",
     "build": "react-scripts build",
     "tsc": "./node_modules/typescript/bin/tsc",
     "postinstall": "npm run tsc",
