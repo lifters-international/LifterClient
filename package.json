@@ -36,7 +36,7 @@
     "heroku-start": "nodemon --exec ts-node src/index.js --trace-warnings",
     "build": "react-scripts build",
     "tsc": "./node_modules/typescript/bin/tsc",
-    "postinstall": "npm install --legacy-peer-deps && npm run tsc",
+    "postinstall": "npm run tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
