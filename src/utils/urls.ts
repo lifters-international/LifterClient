@@ -11,5 +11,6 @@ export const getImageUploadApi = () => {
 }
 
 export const getServerUrl = () => {
+    console.log(process.env.DOMAIN_NAME)
     return process.env.DOMAIN_NAME || "http://10.0.0.169:5000/";
 }
