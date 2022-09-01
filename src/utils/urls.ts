@@ -3,7 +3,7 @@ export const getApiUrl = () => {
 }
 
 export const getWSApiUrl = () => {
-    return  `ws://${process.env.REACT_APP_DOMAIN || "10.0.0.169:5000"}/graphql`;
+    return  `ws://${process.env.NODE_ENV === "production" ? "lifters-server.herokuapp.com" : "10.0.0.169:5000"}/graphql`;
 }
 
 export const getImageUploadApi = () => {
@@ -11,6 +11,6 @@ export const getImageUploadApi = () => {
 }
 
 export const getServerUrl = () => {
-    console.log(process.env.REACT_APP_DOMAIN_NAME)
-    return process.env.REACT_APP_DOMAIN_NAME || "http://10.0.0.169:5000/";
+    console.log( process.env )
+    return process.env.NODE_ENV === "production" ? "https://lifters-server.herokuapp.com/" : "http://10.0.0.169:5000/";
 }
