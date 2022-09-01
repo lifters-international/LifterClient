@@ -11,6 +11,5 @@ export const getImageUploadApi = () => {
 }
 
 export const getServerUrl = () => {
-    console.log( process.env )
     return process.env.NODE_ENV === "production" ? "https://lifters-server.herokuapp.com/" : "http://10.0.0.169:5000/";
 }
