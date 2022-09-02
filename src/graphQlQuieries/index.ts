@@ -12,6 +12,8 @@ export * from "./updateUserPassword";
 
 export * from "./getUserMatches";
 
+export * from "./getUserMatchDetails";
+
 export * from "./acceptDeclineMatch";
 
 export * from "./newUserMatchesSubscription";

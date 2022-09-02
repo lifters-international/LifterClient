@@ -17,3 +17,5 @@ export * from "./useUserMatchesSubscription";
 export * from "./useUserAcceptedMatchesSubscription";
 
 export * from "./useGetUserMessages";
+
+export * from "./useGetUserMatchDetails";
