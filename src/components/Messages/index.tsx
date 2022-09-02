@@ -54,7 +54,6 @@ const Messages: React.FC = () => {
                                     className="UnMatchedPeers" 
                                     title={match.name} 
                                     to={`/matches/${match.id}`}
-                                    target="_blank"
                                 >
                                     <ProfilePicture image={match.profilePicture} alt={match.name +" picture"} imageClass="UnMatchedContainProfilePicture"/>
                                 </Link>
