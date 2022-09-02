@@ -3,7 +3,7 @@ export const getApiUrl = () => {
 }
 
 export const getWSApiUrl = () => {
-    return  `ws://${process.env.NODE_ENV === "production" ? "lifters-server.herokuapp.com" : "10.0.0.169:5000"}/graphql`;
+    return  `wss://${process.env.NODE_ENV === "production" ? "lifters-server.herokuapp.com" : "10.0.0.169:5000"}/graphql`;
 }
 
 export const getImageUploadApi = () => {
