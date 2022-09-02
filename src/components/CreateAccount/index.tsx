@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie-player'
-import Pear from "../../assests/PearLogo.json";
+import LiftersNavBar from "../../assests/LifterNavBar.json";
 import Loading from "../Loading";
 import Notice from "../Notice";
 import Error from "../Error";
@@ -31,9 +31,9 @@ const CreateAccount: React.FC = () => {
             }
 
             <Lottie
-                animationData={Pear}
+                animationData={LiftersNavBar}
                 loop
-                speed={1}
+                speed={0.1}
                 play
                 className="lottie"
             />
