@@ -23,15 +23,15 @@ export const useGetUserMessages = ( token: string, matchId: string ): UserMessag
     React.useEffect( () => {
         if ( token == null ) return;
 
+        setMessageState(prevState => {
+            return {
+                ...prevState,
+                loading: true,
+            };
+        });
+        
         fetchGraphQl( getUserMessages, { token, matchId }).then( result => { 
             let data :  GetUserMessagesResult = result.data;
-    
-            setMessageState(prevState => {
-                return {
-                    ...prevState,
-                    loading: true,
-                };
-            });
             
             if ( result.errors ) {
                 setMessageState(prevState => {

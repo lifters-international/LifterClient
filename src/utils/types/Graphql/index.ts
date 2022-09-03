@@ -19,3 +19,5 @@ export * from "./Message";
 export * from "./AcceptedUserMatches";
 
 export * from "./GetUserMessagesResult";
+
+export * from "./SearchQueryResult";

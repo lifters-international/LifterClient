@@ -33,3 +33,5 @@ export { default as Preview } from "./Preview";
 export { default as Messages } from "./Messages";
 
 export { default as Matches } from "./Matches";
+
+export { default as Search } from "./Search";

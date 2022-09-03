@@ -18,6 +18,14 @@ export const useSignInUserData = (userToken: string) => {
 
     React.useEffect(() => {
         if (userToken == null) return;
+
+        setState(prevState => {
+            return {
+                ...prevState,
+                loading: true,
+            };
+        });
+        
         const fetchData = async () => {
             const result = await fetchGraphQl(getSignedInUserQuery, { token: userToken });
             const data: { getUser: UserData } = result.data;

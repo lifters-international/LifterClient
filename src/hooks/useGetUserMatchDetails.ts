@@ -8,7 +8,7 @@ export type GetUserMatchDetailsState = {
     user?: UserData;
 }
 
-export const useGetUserMatchDetails = (token: string, matchId: string): [GetUserMatchDetailsState, React.Dispatch<React.SetStateAction<GetUserMatchDetailsState>>] => {
+export const useGetUserMatchDetails = (token: string, matchId: string): GetUserMatchDetailsState => {
     const [ state, setState ] = React.useState<GetUserMatchDetailsState>({
         loading: true,
         error: []
@@ -45,6 +45,7 @@ export const useGetUserMatchDetails = (token: string, matchId: string): [GetUser
                 });
             }
         });
-    }, [token, matchId])
-    return [state, setState];
+    }, [token, matchId]);
+
+    return state;
 }

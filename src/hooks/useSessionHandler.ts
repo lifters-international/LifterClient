@@ -17,6 +17,13 @@ export const useSessionHandler = () => {
     });
 
     React.useState(() => {
+        setAuthentication(prevState => {
+            return {
+                ...prevState,
+                loading: true,
+            };
+        });
+        
         fetchGraphQl(
             userHasLoggedInMutation,
             {
