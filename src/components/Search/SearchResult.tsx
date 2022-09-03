@@ -23,7 +23,6 @@ const SearchResult: React.FC<SearchResultProps> = ( { query, token } : SearchRes
         return text.slice(0, length) + ( (text.length) >= length ? "..." : "");
     }
 
-    console.log(queryResult);
     return (
         <div>
             <h1>Search Result</h1>
@@ -35,6 +34,7 @@ const SearchResult: React.FC<SearchResultProps> = ( { query, token } : SearchRes
                                 <ProfilePicture image={user.profilePicture} alt={`${user.username}-profilePicture`} imageClass="ProfilePicture" />
                                 <div className="name center">{user.username}</div>
                                 <div className="bio center" title={user.bio}>{shortText(user.bio)}</div>
+                                <div className="homeGym center">{user.homeGymLocation}</div>
                                 <div className="X circle centerB" onClick={ () => acceptMatch(false, user.id) } >X</div>
                                 <div className="Heart circle centerB" onClick={ () => acceptMatch(true, user.id) } >
                                     <HeartFilled twoToneColor="#eb2f96" style={

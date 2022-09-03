@@ -7,4 +7,5 @@ export type UserData = {
     genderOfPrefense: string;
     bio: string;
     profilePicture: string;
+    homeGymLocation: string;
 }

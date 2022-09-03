@@ -23,7 +23,6 @@ const Profile: React.FC = () => {
     const imageContainerRef = React.useRef<HTMLDivElement>(null);
     const navigate = useNavigate();
 
-    console.log(signedInUser);
     const handleChangePasswordShow = () => {
         setShowChangePassword(true);
     }
@@ -200,17 +199,32 @@ const Profile: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="EditProfileInput">
-                        <label className="EditProfileInputTitle" htmlFor="age"> Age </label>
-                        <input className="EditProfileInputField" type="number" title="age" defaultValue={signedInUser.data!.age} onChange={
-                            (e) => {
-                                setUserData({
-                                    ...userData,
-                                    age: parseInt(e.target.value)
-                                })
+                    <div className="EditProfileInputJoin">
+                        <div className="EditProfileInput">
+                            <label className="EditProfileInputTitle" htmlFor="age"> Age </label>
+                            <input className="EditProfileInputField" type="number" title="age" defaultValue={signedInUser.data!.age} onChange={
+                                (e) => {
+                                    setUserData({
+                                        ...userData,
+                                        age: parseInt(e.target.value)
+                                    })
+                                }
                             }
-                        }
-                        />
+                            />
+                        </div>
+
+                        <div className="EditProfileInput">
+                            <label className="EditProfileInputTitle" htmlFor="homeGym"> Home Gym Location </label>
+                            <input className="EditProfileInputField" type="text" title="homeGym" defaultValue={signedInUser.data!.homeGymLocation} onChange={
+                                (e) => {
+                                    setUserData({
+                                        ...userData,
+                                        homeGymLocation: e.target.value
+                                    })
+                                }
+                            }
+                            />
+                        </div>
                     </div>
 
                     <div className="EditProfileBio">

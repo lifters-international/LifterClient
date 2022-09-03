@@ -6,4 +6,5 @@ export type userInformationToSave = {
     genderOfPrefense?: string;
     bio?: string;
     profilePicture?: string;
+    homeGymLocation?: string;
 }

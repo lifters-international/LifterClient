@@ -9,6 +9,7 @@ export const getSignedInUserQuery = `
             genderOfPrefense
             bio
             profilePicture
+            homeGymLocation
         }
     }
 `

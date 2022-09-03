@@ -9,6 +9,7 @@ export const searchQuery = `
             genderOfPrefense
             bio
             profilePicture
+            homeGymLocation
         }
     }
 `;
