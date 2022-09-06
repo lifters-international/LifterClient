@@ -21,3 +21,5 @@ export * from "./AcceptedUserMatches";
 export * from "./GetUserMessagesResult";
 
 export * from "./SearchQueryResult";
+
+export * from "./UserSubscriptionInfor";

@@ -139,8 +139,15 @@ const Profile: React.FC = () => {
                                 saveUserData.isSaving ? "Saving..." : saveUserData.saveSuccessfully ? "Saved Succesfully" : "Save Changes"
                             }
                         </button>
+                        <button className="EditProfileButton" type="button" onClick={ () => navigate("/changeSubscription") }>Change Lifter Subscription</button>
                         <button className="EditProfileButton" type="button" onClick={handleChangePasswordShow}>Change Password</button>
                         <button className="EditProfileButton" type="button" onClick={ () => navigate("/preview") }>Preview</button>
+                        <button className="EditProfileButton" type="button" onClick={ () => {
+                            localStorage.removeItem("token");
+                            navigate("/logIn");
+                        } }>
+                            Log Out
+                        </button>
                     </div>
 
                     <div className="EditProfileInputJoin">

@@ -25,3 +25,9 @@ export * from "./getUserAcceptedMatches";
 export * from "./getUserMessages";
 
 export * from "./searchQuery";
+
+export * from "./getUserSubscriptionInfor";
+
+export * from "./subscribeToProLifter";
+
+export * from "./subscribeToBasicLifter";
