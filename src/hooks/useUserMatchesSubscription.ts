@@ -2,19 +2,18 @@ import React from 'react';
 
 import { newUserMatchesSubscription, getUserUnAcceptedMatches } from '../graphQlQuieries';
 import { useSubscription } from '@apollo/client';
-import { newUserMatches as newUserMatchesType, client, fetchGraphQl } from "../utils";
+import { newUserSubscriptionMatches, client, fetchGraphQl, SubscriptionType, newUserMatches } from "../utils";
 
 export type UserMatchesSubscription = {
     loading: boolean;
     error: any;
-    data: newUserMatchesType[];
+    data?: newUserSubscriptionMatches;
 }
 
 export const useUserMatchesSubscription = (token: string): UserMatchesSubscription => {
     const [ state, setState ] = React.useState<UserMatchesSubscription>({
         loading: false,
         error: [],
-        data: []
     });
 
     React.useEffect(() => {
@@ -28,7 +27,7 @@ export const useUserMatchesSubscription = (token: string): UserMatchesSubscripti
         });
 
         fetchGraphQl(getUserUnAcceptedMatches, { token }).then( result => {
-            let data:  { getUserUnAcceptedMatches: newUserMatchesType[] } = result.data;
+            let data:  { getUserUnAcceptedMatches: newUserSubscriptionMatches } = result.data;
             
             if (result.errors) {
                 setState(prevState => {
@@ -54,7 +53,7 @@ export const useUserMatchesSubscription = (token: string): UserMatchesSubscripti
         variables: { userToken: token },
         client,
         onSubscriptionData: ({ client, subscriptionData }) => {
-            let data:  { newUserMatches: newUserMatchesType } = subscriptionData.data;
+            let data:  { newUserMatches: newUserMatches } = subscriptionData.data;
             if (subscriptionData.error) {
                 setState(prevState => {
                     return { 
@@ -66,7 +65,10 @@ export const useUserMatchesSubscription = (token: string): UserMatchesSubscripti
                 setState(prevState => {
                     return { 
                         ...prevState,
-                        data: [data.newUserMatches].concat(prevState.data)
+                        data: { 
+                            userSubscription: prevState.data?.userSubscription as SubscriptionType,
+                            matches: [data.newUserMatches].concat(prevState.data!.matches)
+                        }
                     }
                 });
             }

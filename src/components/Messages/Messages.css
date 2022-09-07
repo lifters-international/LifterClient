@@ -2,7 +2,7 @@
     border: 1px solid gainsboro;
     border-radius: 5px;
     overflow-x: auto;
-    width: 99.8vw;
+    width: 99vw;
 }
 
 .UnMatchedPeersContainerContext {
@@ -15,6 +15,29 @@
 .UnMatchedContain {
     display: flex;
     flex-direction: row;
+}
+
+.UnMatchedPeersBlured {
+    position: absolute;
+    top: 14%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background: rgba(255, 104, 104, 0.26);
+    width: 99vw;
+    height: 10vh;
+}
+
+.UnMatchedPeersBluredContextLink {
+    position: fixed;
+    top: 25%;
+    left: 45%;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 30px;
 }
 
 .UnMatchedPeersContainerContext .circle {

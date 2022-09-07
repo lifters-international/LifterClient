@@ -7,7 +7,7 @@ import { useSessionHandler, useUserMatchesSubscription, useUserAcceptedMatchesSu
 import MessageContainer from './MessageContainer';
 import Error from '../Error';
 
-import { socket } from "../../utils";
+import { socket, SubscriptionType } from "../../utils";
 
 import "./Messages.css";
 
@@ -43,11 +43,11 @@ const Messages: React.FC = () => {
             <div className="UnMatchedPeersContainer">
                 <div className="UnMatchedPeersContainerContext">
                     NEW MATCHES
-                    <div className="circle">{userMatchesSubscription.data.length}</div>
+                    <div className="circle">{userMatchesSubscription.data?.matches.length}</div>
                 </div>
                 <div className="UnMatchedContain">
                     {
-                        userMatchesSubscription.data.map((match, index) => {
+                        userMatchesSubscription.data?.matches.map((match, index) => {
                             return (
                                 <Link 
                                     key={`UnMatchedPeer${index}`} 
@@ -59,6 +59,14 @@ const Messages: React.FC = () => {
                                 </Link>
                             )
                         })
+                    }
+
+                    {
+                        userMatchesSubscription.data?.userSubscription === SubscriptionType.BASIC && userMatchesSubscription.data?.matches.length > 0 ? (
+                            <div className="UnMatchedPeersBlured">
+                                <Link to="/changeSubscription" className="UnMatchedPeersBluredContextLink" target="_blank">Upgrade To Pro</Link>
+                            </div>
+                        ) : null
                     }
                 </div>
             </div>

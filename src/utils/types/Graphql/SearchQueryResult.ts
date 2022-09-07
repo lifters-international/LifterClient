@@ -1,5 +1,9 @@
+import { SubscriptionType } from "../stripe.types"
 import { UserData } from "./UserData"
 
 export type SearchQueryResult = {
-    searchUsers: UserData[]
+    searchUsers: {
+        userSubscription: SubscriptionType;
+        results: UserData[];
+    }
 }

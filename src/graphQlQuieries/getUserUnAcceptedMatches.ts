@@ -1,10 +1,13 @@
-export const getUserUnAcceptedMatches =  `
+export const getUserUnAcceptedMatches = `
     mutation GetUserUnAcceptedMatches($token: String!) {
         getUserUnAcceptedMatches(token: $token) {
-            id
-            profilePicture
-            name
-            date
+            userSubscription
+            matches {
+                id
+                profilePicture
+                name
+                date
+            }
         }
     }
 `
