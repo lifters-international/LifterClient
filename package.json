@@ -32,7 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "engines": {
-    "node": "16.15.1",
+    "node": "16.17.0",
     "yarn": "1.22.19"
   },
   "scripts": {

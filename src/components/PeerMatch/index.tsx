@@ -72,7 +72,7 @@ PeerContainer.defaultProps = {
     id: "",
     username: "Codingwithcn",
     age: 18,
-    bio: "Creator of Peers, Software Developer, Enjoys Travelling",
+    bio: "Creator of Lifters, Software Developer, Enjoys Travelling",
     profilePicture: "/defaultPicture.png"
 }
 
