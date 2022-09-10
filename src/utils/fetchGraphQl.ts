@@ -1,5 +1,5 @@
 import { GraphqlFetchResult } from "./types";
-import { getApiUrl } from "../utils";
+import { getApiUrl } from "./urls";
 
 export const fetchGraphQl = async (query: string, variables: any): Promise<GraphqlFetchResult> => {
     const response = await fetch(
