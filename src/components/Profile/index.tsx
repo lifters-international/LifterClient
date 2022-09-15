@@ -2,7 +2,7 @@ import React from 'react';
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import { useSessionHandler, useSignInUserData, useSaveUserProfileChanges } from '../../hooks';
-import { fetchGraphQl, userInformationToSave, userPasswordUpdateProps, getImageUploadApi } from '../../utils';
+import { fetchGraphQl, userInformationToSave, userPasswordUpdateProps, getImageUploadApi, getServerUrl } from '../../utils';
 import { updateUserInformationMutation } from "../../graphQlQuieries";
 import { updateUserPassword } from "../../graphQlQuieries";
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -89,7 +89,7 @@ const Profile: React.FC = () => {
 
                 setNotify({ type, show: true, message });
                 if (imageContainerRef.current && result.imageURL ) {
-                    imageContainerRef.current.style.backgroundImage = `url(${result.imageURL})`;
+                    imageContainerRef.current.style.backgroundImage = `url(${getServerUrl()}image/${result.imageURL})`;
                     await saveProfileImage(result.imageURL);
                 }
             }
