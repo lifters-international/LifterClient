@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { AcceptedUserMatches } from "../../../utils";
+import { AcceptedUserMatches, Message, MessageWhoSent, MessageMetaDataType } from "../../../utils";
 import ProfilePicture from "../../ProfilePicture";
-import { Message, MessageWhoSent, MessageMetaDataType } from "../../../utils";
 import MessageBox from "../MessageBox";
 
 import "./MessageContainer.css";
