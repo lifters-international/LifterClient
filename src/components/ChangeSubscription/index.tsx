@@ -94,7 +94,7 @@ const ChangeSubscription: React.FC = () => {
                         <li>No Ads</li>
                         <li>Searches</li>
                         <li>Find New Matches</li>
-                        <li>Video/Voice Call</li>
+                        {/*<li>Video/Voice Call</li>*/}
                     </ul>
 
                     { 
