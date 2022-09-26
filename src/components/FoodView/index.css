@@ -1,0 +1,63 @@
+.FoodSearchView {
+    width: 99vw;
+    grid-template-columns: 95% 5%;
+}
+
+.FoodSearchView__Input {
+    height: 20%;
+}
+
+.FoodSearchView__Icon {
+    height: 31%;
+    width: 100%;
+}
+
+.FoodDetails {
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 90%
+}
+
+.FoodDetails__Name {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.FoodDetails__ImportantInfor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.FoodDetails__TextImportant, .FoodDetails__TextImportantFacts {
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.FoodDetails__TextImportantFacts {
+    text-align: center;
+}
+
+
+.FoodDetails__NutritionFacts {
+    max-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 15px;
+    overflow: auto;
+}

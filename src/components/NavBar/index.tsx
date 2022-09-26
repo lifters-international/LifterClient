@@ -8,6 +8,9 @@ import SearchBar from "../SearchBar";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { useSignInUserData } from '../../hooks';
+import { AiOutlineBarChart } from "react-icons/ai";
+import { HiHome } from "react-icons/hi";
+import { IoFastFoodSharp } from "react-icons/io5";
 
 export type NavBarsProps = {
     token: string;
@@ -26,13 +29,11 @@ const NavBar: React.FC<NavBarsProps> = ( { token }: NavBarsProps) => {
             <PeerContainer peerContainerClassName="PeerContainer NavBarItem" onClick={ () => navigate("/") }/>
             <div className="NavBarContainer">
                 <SearchBar className="NavBarSearch"/>
-                <Lottie
-                    animationData={HomeLottie}
-                    loop
-                    speed={1}
-                    play
-                    className="NavBarHomeLottie NavBarLottie"
-                    onClick={ () => navigate("/") }
+                <HiHome
+                    size={60}
+                    color="red"
+                    onClick={() => navigate("/")}
+                    className="NavBarLottie"
                 />
 
                 <Lottie
@@ -42,6 +43,13 @@ const NavBar: React.FC<NavBarsProps> = ( { token }: NavBarsProps) => {
                     play
                     className="NavBarMessageLottie NavBarLottie"
                     onClick={() => {navigate("/messages")}}
+                />
+
+                <IoFastFoodSharp 
+                    size={60}
+                    color="red"
+                    onClick={() => navigate("/food")}
+                    className="NavBarLottie"
                 />
 
                 <ProfilePicture image={signedInUser.data!.profilePicture} onClick={ () => navigate("/profile" )} imageClass="NavBarProfileImage"/>

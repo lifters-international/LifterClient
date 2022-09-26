@@ -8,7 +8,9 @@ export type SearchBarProps = {
     onChange?: (event: any) => void;
     onSubmit?: (value: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
     placeholder?: string;
-    className?: string
+    className?: string;
+    iconClass?: string;
+    searchInputClass?: string;
 }
 
 const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
@@ -25,13 +27,13 @@ const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
 
     return (
         <div className={`SearchBar ${props.className || ""}`}>
-            <input type="text" placeholder="Search Lifters" ref={ref} onChange={props.onChange || undefined} className="SearchBarInput"/>
+            <input type="text" placeholder={ props.placeholder || "Search Lifters" } ref={ref} onChange={props.onChange || undefined} className={ "SearchBarInput " + (props.searchInputClass || "") }/>
             <Lottie
                 animationData={SearchIcon}
                 loop
                 speed={1}
                 play
-                className={"SearchBarIcon"}
+                className={"SearchBarIcon" + (props.iconClass ? " " + props.iconClass : "")}
                 onClick={onSub}
             />
         </div>

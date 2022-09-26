@@ -25,10 +25,6 @@
 }
 
 .NavBarLottie {
-    width: 5%;
-}
-
-.NavBarLottie:hover {
     cursor: pointer;
 }
 
