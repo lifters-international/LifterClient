@@ -31,15 +31,7 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, custom
             const cardElement = elements.create('card', {
                 hidePostalCode: true,
                 style: {
-                    base: {
-                        fontSize: '16px', '::placeholder': { color: "#aab7c4" },
-                        fontFamily: '"Open Sans", "Helvetica", sans-serif',
-                        fontSmoothing: 'antialiased',
-                    },
-                    invalid: {
-                        color: '#fa755a',
-                        iconColor: '#fa755a'
-                    }
+                    
                 }
             });
             cardElement.mount(ref.current);
