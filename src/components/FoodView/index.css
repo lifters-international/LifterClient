@@ -1,10 +1,23 @@
 .FoodSearchView {
     width: 99vw;
     grid-template-columns: 95% 5%;
+    margin-top: 1%;
 }
 
 .FoodSearchView__Input {
-    height: 20%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.FoodHeader {
+    display: flex;
+    flex-direction: row;
+}
+
+.FoodAnalysticsView__Icon {
+    position: absolute;
+    top: 11vh;
+    left: 95vw;
 }
 
 .FoodSearchView__Icon {
@@ -19,7 +32,7 @@
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 15px;
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 90%
@@ -60,4 +73,16 @@
     border-radius: 10px;
     padding: 15px;
     overflow: auto;
+}
+
+.FoodDetails_Button {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: dodgerblue;
+    padding: 10px;
+    border-radius: 10px;
+    
 }

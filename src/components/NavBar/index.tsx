@@ -1,14 +1,11 @@
 import React from 'react';
-import Lottie from 'react-lottie-player';
-import HomeLottie from "../../assests/homeIcon.json";
-import MessageLottie from "../../assests/messagingIcon.json";
 import PeerContainer from '../PeerContainer';
 import ProfilePicture from "../ProfilePicture";
 import SearchBar from "../SearchBar";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { useSignInUserData } from '../../hooks';
-import { AiOutlineBarChart } from "react-icons/ai";
+import { IoMdSend } from "react-icons/io";
 import { HiHome } from "react-icons/hi";
 import { IoFastFoodSharp } from "react-icons/io5";
 
@@ -36,13 +33,11 @@ const NavBar: React.FC<NavBarsProps> = ( { token }: NavBarsProps) => {
                     className="NavBarLottie"
                 />
 
-                <Lottie
-                    animationData={MessageLottie}
-                    loop
-                    speed={1}
-                    play
-                    className="NavBarMessageLottie NavBarLottie"
+                <IoMdSend 
+                    size={60}
+                    color="red"
                     onClick={() => {navigate("/messages")}}
+                    className="NavBarLottie"
                 />
 
                 <IoFastFoodSharp 
