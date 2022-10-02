@@ -15,9 +15,9 @@
 }
 
 .FoodAnalysticsView__Icon {
-    position: absolute;
-    top: 11vh;
-    left: 95vw;
+    position: relative;
+    bottom: -2px;
+    right: 2%;
 }
 
 .FoodSearchView__Icon {

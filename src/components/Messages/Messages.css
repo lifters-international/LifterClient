@@ -2,7 +2,7 @@
     border: 1px solid gainsboro;
     border-radius: 5px;
     overflow-x: auto;
-    width: 99vw;
+    width: 99.8%;
 }
 
 .UnMatchedPeersContainerContext {
@@ -18,13 +18,13 @@
 }
 
 .UnMatchedPeersBlured {
-    position: absolute;
-    top: 14%;
+    position: fixed;
+    top: 125px;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     background: rgba(255, 104, 104, 0.26);
     width: 99vw;
-    height: 10vh;
+    height: 90px;
 }
 
 .UnMatchedPeersBluredContextLink {

@@ -1,0 +1,95 @@
+.ChartContainer {
+    background-color: #01200e;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.ChartTitle, .FoodAteTodayTitle {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.Size15 {
+    font-size: 15px;
+}
+
+.Chart {
+    display: grid;
+    grid-template-columns: 95% 5%;
+}
+
+.ChartLabel {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    right:30vw;
+    top: 12vh;
+    width: 30vw;
+}
+
+.fatsTextColor {
+    color: rgb(255, 112, 112);
+}
+
+.carbsTextColor {
+    color: rgb(163, 221, 163)
+}
+
+.proteinTextColor {
+    color: rgba(131, 167, 234, 1)
+}
+
+.ProgressBarContainer {
+    height: 50vh;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.ProgressBarsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.ProgressBarsTitle {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.ProgressBarsDes {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.FoodAteTodayView {
+    margin-top: 15px;
+    border-top: 3px solid gainsboro;
+    border-radius: 10px;
+}
+
+.FoodAteTodayTitle {
+    text-align: center;
+    color: black;
+    font-size: 25;
+}

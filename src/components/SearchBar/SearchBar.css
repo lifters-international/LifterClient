@@ -6,8 +6,9 @@
 }
 
 .SearchBarInput {
-    height: 25%;
+    height: 20px;
     border: 2px solid black;
+    border-right: none;
     border-radius: 5px 0px 0px 5px;
     padding: 5px;
     color: black;
@@ -20,10 +21,11 @@
 }
 
 .SearchBarIcon {
-    height: 46%;
+    height: 20px;
     width: 70%;
     position: relative;
     right: 4%;
+    padding: 5px;
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
 }

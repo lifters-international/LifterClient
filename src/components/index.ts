@@ -39,3 +39,5 @@ export { default as Search } from "./Search";
 export { default as ChangeSubscription } from "./ChangeSubscription";
 
 export { default as FoodView } from "./FoodView";
+
+export { default as FoodAnalysis } from "./FoodAnalysis";

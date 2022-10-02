@@ -26,3 +26,12 @@ export const formatAMPM = (date: Date) => {
 export const capitalizeFirstLetter = (sent: string) => {
     return sent.charAt(0).toUpperCase() + sent.slice(1);
 }
+
+export function getCurrentDate(separator = '-') {
+    let newDate = new Date(new Date().toUTCString());
+    let date = newDate.getUTCDate();
+    let month = newDate.getUTCMonth() + 1;
+    let year = newDate.getUTCFullYear();
+
+    return `${year}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${date < 10 ? `0${date}` : `${date}`}`;
+}

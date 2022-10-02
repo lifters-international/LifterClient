@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import SearchBar from "../SearchBar";
 
 import { useSessionHandler, useGetFood, useSearchFood } from '../../hooks';
+
+import { VictoryPie } from 'victory';
 
 import Loading from "../Loading";
 import Error from '../Error';
@@ -15,9 +17,9 @@ import "./index.css";
 
 const FoodView: React.FC = () => {
     const authentication = useSessionHandler();
-    const ref = useRef<HTMLInputElement>(null);
     const { foods, loading, error } = useGetFood();
     const [search, setSearch] = useState('');
+    const navigate = useNavigate();
     const { foods: searchFood, loading: searchLoading, error: searchError } = useSearchFood(search, authentication.token!);
 
     if (authentication.loading || loading || searchLoading) return <Loading />
@@ -51,6 +53,7 @@ const FoodView: React.FC = () => {
                     <AiOutlineBarChart 
                         className="FoodAnalysticsView__Icon NavBarLottie"
                         size={50}
+                        onClick={() => navigate('/foodAnalysis')}
                     />
 
                 </div>

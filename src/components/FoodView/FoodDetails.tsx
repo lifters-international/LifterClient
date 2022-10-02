@@ -5,10 +5,11 @@ import { Food } from "../../utils";
 import { useAddFoodToLiftersDailyFood } from "../../hooks";
 
 export type Props = {
-    token: string
+    token: string;
+    action?: boolean;
 } & Food;
 
-const FoodDetails: React.FC<Props> = ({ id, name, calories, servingSize, nutritionFacts, token }) => {
+const FoodDetails: React.FC<Props> = ({ id, name, calories, servingSize, nutritionFacts, token, action }) => {
     const { addFoodToLiftersDailyFood, statement } = useAddFoodToLiftersDailyFood(token);
 
     return (
@@ -38,15 +39,23 @@ const FoodDetails: React.FC<Props> = ({ id, name, calories, servingSize, nutriti
                 </div>
             </div>
 
-            <button 
-                type="button" 
-                className="FoodDetails_Button"
-                onClick={() => addFoodToLiftersDailyFood(id)}
-            >
-                { statement }
-            </button>
+            {
+                action ? (
+                    <button
+                        type="button"
+                        className="FoodDetails_Button"
+                        onClick={() => addFoodToLiftersDailyFood(id)}
+                    >
+                        {statement}
+                    </button>
+                ) : null
+            }
         </div>
     )
+}
+
+FoodDetails.defaultProps = {
+    action: true
 }
 
 export default FoodDetails;
