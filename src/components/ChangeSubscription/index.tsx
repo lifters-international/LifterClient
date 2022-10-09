@@ -55,7 +55,7 @@ const ChangeSubscription: React.FC = () => {
                     <h1>Basic Subscription</h1>
                     <p>Free</p>
                     <ul>
-                        <li>Matching</li>
+                        <li>5 Matches A Day</li>
                         <li>Messaging</li>
                         <li>Ads</li>
                     </ul>
@@ -87,14 +87,14 @@ const ChangeSubscription: React.FC = () => {
                         className="PeerContainerPeer SubscriptionImage"
                     />
                     <h1>Pro Subscription</h1>
-                    <p>$10.0 a month</p>
+                    <p>$10.99 a month</p>
                     <ul>
-                        <li>Matching</li>
+                        <li>15 Matches A Day</li>
                         <li>Messaging</li>
-                        <li>No Ads</li>
+                        <li>Ads</li>
                         <li>Searches</li>
                         <li>Find New Matches</li>
-                        <li>Meal Plans</li>
+                        <li>Food Analytics</li>
                         {/*<li>Video/Voice Call</li>*/}
                     </ul>
 
