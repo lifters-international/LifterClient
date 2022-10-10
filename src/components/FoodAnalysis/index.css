@@ -10,11 +10,16 @@
     border-radius: 10px;
 }
 
-.ChartTitle, .FoodAteTodayTitle {
+.ChartTitle, .FoodAteTodayTitle, .ChartTitleNoFood {
     font-size: 50px;
     font-weight: bold;
     color: white;
     text-align: center;
+}
+
+.ChartTitleNoFood {
+    font-size: 25px;
+    margin-left: 5%; 
 }
 
 .Size15 {

@@ -2,8 +2,8 @@ import React from 'react';
 import { Card } from "antd";
 import { loadStripe } from '@stripe/stripe-js';
 import Loading from "../Loading";
-import { fetchGraphQl } from "../../utils";
-import { subscribeToProLifter } from "../../graphQlQuieries";
+import { fetchGraphQl, PlanType } from "../../utils";
+import { subscribeToProLifter, subscribeToUnlimitedLifter } from "../../graphQlQuieries";
 import { useNavigate } from "react-router-dom";
 
 
@@ -11,12 +11,13 @@ const stripePromise = loadStripe('pk_live_51KLGztATNTHRR4UvZoAjTJTqgnN1i7hnRkTjV
 
 export type CheckOutModalProps = {
     isOpen: boolean;
+    plan: PlanType; 
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     customerId: string;
 }
 
 
-const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, customerId }) => {
+const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, customerId, plan }) => {
     const ref = React.useRef<HTMLDivElement>(null);
     const zipRef = React.useRef<HTMLInputElement>(null);
     const [ errorStatement, setErrorStatement ] = React.useState<string>("");
@@ -56,7 +57,7 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, custom
                             setSetLoading(true);
     
                             if ( result && result.paymentMethod ) {
-                                let graphqlResult = await fetchGraphQl(subscribeToProLifter, { token: customerId, paymentMethodId: result.paymentMethod.id });
+                                let graphqlResult = await fetchGraphQl(plan === PlanType.PRO ? subscribeToProLifter : subscribeToUnlimitedLifter, { token: customerId, paymentMethodId: result.paymentMethod.id });
     
                                 setSetLoading(false);
                                 if ( graphqlResult.errors) {
@@ -82,7 +83,7 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, custom
         }>
             <div className="CheckOutContainer">
                 <h1>Credit Card Information</h1>
-                <p>Put in your credit card information and become a Pro Lifter today</p>
+                <p>Put in your credit card information and become a { plan === PlanType.PRO ? "Pro" : "Unlimited" } Lifter today</p>
                 <div className="CheckOutError">{errorStatement}</div>
                 <div className="CheckOutDivForm">
                     <div className="CheckOutDiv" ref={ref} />

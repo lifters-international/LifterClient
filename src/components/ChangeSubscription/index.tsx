@@ -19,6 +19,7 @@ const ChangeSubscription: React.FC = () => {
     const [ isOpen, setIsOpen ] = React.useState(false);
     const [ showError, setShowError ] = React.useState(false);
     const [ err, setErr ] = React.useState<GraphqlError | null>(null);
+    const [ plan, setPlan ] = React.useState<PlanType>(PlanType.BASIC);
     const navigate = useNavigate();
     
     if (authentication.loading) return <Loading />;
@@ -55,7 +56,7 @@ const ChangeSubscription: React.FC = () => {
                     <h1>Basic Subscription</h1>
                     <p>Free</p>
                     <ul>
-                        <li>Matching</li>
+                        <li>5 Matches A Day</li>
                         <li>Messaging</li>
                         <li>Ads</li>
                     </ul>
@@ -87,14 +88,14 @@ const ChangeSubscription: React.FC = () => {
                         className="PeerContainerPeer SubscriptionImage"
                     />
                     <h1>Pro Subscription</h1>
-                    <p>$10.0 a month</p>
+                    <p>$10.99 a month</p>
                     <ul>
-                        <li>Matching</li>
+                        <li>15 Matches A Day</li>
                         <li>Messaging</li>
-                        <li>No Ads</li>
+                        <li>Ads</li>
                         <li>Searches</li>
                         <li>Find New Matches</li>
-                        <li>Meal Plans</li>
+                        <li>Food Analytics</li>
                         {/*<li>Video/Voice Call</li>*/}
                     </ul>
 
@@ -104,12 +105,49 @@ const ChangeSubscription: React.FC = () => {
                         )
                         : 
                         (
-                            <button type="button" className="SubscriptionButton Blue" onClick={ () => setIsOpen(true) }>Subscribe</button>
+                            <button type="button" className="SubscriptionButton Blue" onClick={ () => {
+                                setPlan(PlanType.PRO);
+                                setIsOpen(true);
+                            } }>Subscribe</button>
+                        )
+                    }
+                </div>
+
+                <div className="Subscription">
+                    <Lottie
+                        animationData={LiftersNavBar}
+                        loop={false}
+                        speed={0.2}
+                        play
+                        className="PeerContainerPeer SubscriptionImage"
+                    />
+                    <h1>Unlimited Subscription</h1>
+                    <p>$12.99 a month</p>
+                    <ul>
+                        <li>Unlimited Matches</li>
+                        <li>Messaging</li>
+                        <li>No Ads</li>
+                        <li>Searches</li>
+                        <li>Find New Matches</li>
+                        <li>Food Analytics</li>
+                        {/*<li>Video/Voice Call</li>*/}
+                    </ul>
+
+                    { 
+                        result?.stripeSubscriptionId === PlanType.UNLIMITED ? (
+                            <button className="SubscriptionButton Red" disabled type="button">Current Subscription</button>
+                        )
+                        : 
+                        (
+                            <button type="button" className="SubscriptionButton Blue" onClick={ () => {
+                                setPlan(PlanType.UNLIMITED);
+                                setIsOpen(true);
+                            } }>Subscribe</button>
                         )
                     }
                 </div>
             </div>
-            <CheckOutModal isOpen={isOpen} setIsOpen={setIsOpen} customerId={authentication.token!}/>
+            <CheckOutModal isOpen={isOpen} setIsOpen={setIsOpen} customerId={authentication.token!} plan={plan}/>
             {
                 showError && err ? <Error {...err} reload={true} /> : null
             }
