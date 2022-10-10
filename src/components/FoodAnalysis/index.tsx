@@ -47,7 +47,7 @@ const FoodAnalysis: React.FC = () => {
                     <div>
                         {
                             analysis?.Calories === 0 ? (
-                                <div>No food has been logged today.</div>
+                                <div className="ChartTitleNoFood">No food has been logged today.</div>
                             ) : (
                                 <VictoryPie
                                     data={[
@@ -76,15 +76,21 @@ const FoodAnalysis: React.FC = () => {
                     </div>
 
                     <div className="ChartLabel">
-                        <div className="fatsTextColor">
-                            Fats: { ( (analysis?.Fat || 0) / total * 100 ).toFixed(2) }%
-                        </div>
-                        <div className="proteinTextColor">
-                            Protiens { ( (analysis?.Protein || 0) / total * 100 ).toFixed(2) }%
-                        </div>
-                        <div className="carbsTextColor">
-                            Carbs { ( (analysis?.Carbs || 0) / total * 100 ).toFixed(2) }%
-                        </div>
+                        {
+                            analysis?.Calories === 0 ? null : (
+                                <>
+                                    <div className="fatsTextColor">
+                                        Fats: { ( (analysis?.Fat || 0) / total * 100 ).toFixed(2) }%
+                                    </div>
+                                    <div className="proteinTextColor">
+                                        Protiens { ( (analysis?.Protein || 0) / total * 100 ).toFixed(2) }%
+                                    </div>
+                                    <div className="carbsTextColor">
+                                        Carbs { ( (analysis?.Carbs || 0) / total * 100 ).toFixed(2) }%
+                                    </div>
+                                </>
+                            )
+                        }
                     </div>
                 </div>
 
