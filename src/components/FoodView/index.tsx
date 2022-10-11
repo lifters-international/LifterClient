@@ -5,13 +5,11 @@ import SearchBar from "../SearchBar";
 
 import { useSessionHandler, useGetFood, useSearchFood } from '../../hooks';
 
-import { VictoryPie } from 'victory';
-
 import Loading from "../Loading";
 import Error from '../Error';
 import NavBar from "../NavBar";
 import FoodDetails from "./FoodDetails";
-import { AiOutlineBarChart } from "react-icons/ai";
+import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai";
 
 import "./index.css";
 
@@ -50,11 +48,18 @@ const FoodView: React.FC = () => {
                         showIcon={false}
                     />
 
-                    <AiOutlineBarChart 
-                        className="FoodAnalysticsView__Icon NavBarLottie"
-                        size={50}
-                        onClick={() => navigate('/foodAnalysis')}
-                    />
+                    <div className="FoodViewIconDiv">
+                        <AiOutlinePlus 
+                            className="FoodSearchView_Add_Icon NavBarLottie" 
+                            size={50}
+                            onClick={() => navigate('/createFood')} 
+                        />
+                        <AiOutlineBarChart 
+                            className="FoodSearchView_Analysis NavBarLottie"
+                            size={50}
+                            onClick={() => navigate('/foodAnalysis')}
+                        />
+                    </div>
 
                 </div>
 

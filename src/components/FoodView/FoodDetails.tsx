@@ -1,5 +1,8 @@
 import React from 'react';
 
+import VerifiedFood from "./VerifiedFood";
+import UnVerifiedFood from "./UnVerifiedFood";
+
 import { Food } from "../../utils";
 
 import { useAddFoodToLiftersDailyFood } from "../../hooks";
@@ -9,12 +12,19 @@ export type Props = {
     action?: boolean;
 } & Food;
 
-const FoodDetails: React.FC<Props> = ({ id, name, calories, servingSize, nutritionFacts, token, action }) => {
+const FoodDetails: React.FC<Props> = ({ id, name, calories, servingSize, nutritionFacts, token, action, adminCreated }) => {
     const { addFoodToLiftersDailyFood, statement } = useAddFoodToLiftersDailyFood(token);
 
     return (
         <div className="FoodDetails">
             <div className="FoodDetails__Name">{name}</div>
+            {
+                adminCreated ? (
+                    <VerifiedFood />
+                ) : (
+                    <UnVerifiedFood />
+                )
+            }
             <div className="FoodDetails__ImportantInfor">
                 <div className="FoodDetails__TextImportant">Serving Size: {servingSize.measurment}{servingSize.unit}</div>
                 <div className="FoodDetails__TextImportant">Calories: {calories}</div>
