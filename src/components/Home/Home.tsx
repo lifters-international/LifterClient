@@ -10,6 +10,7 @@ const Home: React.FC = () => {
     const authentication = useSessionHandler();
     const [userMatches, setUserMatches] = useGetUserMatches(authentication.token!);
     const [currentMatch, setCurrentMatch] = React.useState(0);
+    const [ dailyLimitReached, setDailyLimitReached ] = React.useState(false);
 
     if (authentication.loading) return <Loading />;
 
@@ -24,6 +25,9 @@ const Home: React.FC = () => {
             ||
             authentication.error[0].message === "User does not exist."
         ) return <Navigate to="/logIn" replace={true} />
+        else if (
+            authentication.error[0].message === "You have reached your daily limit on matches."
+        ) setDailyLimitReached(true);
         else return <Error {...authentication.error[0]} reload={true}/>;
     }
 
@@ -37,16 +41,20 @@ const Home: React.FC = () => {
         <>  
             <NavBar token={authentication.token!}/>
             <div>
-                <PeerMatchContainer {...userMatches.users![currentMatch]} allowAction={true} next={
-                    () => {
-                        if (currentMatch + 1 < userMatches.users!.length) {
-                            setCurrentMatch(currentMatch + 1);
-                        }else {
-                            setUserMatches({ ...userMatches, refreshTimes: userMatches.refreshTimes + 1 });
-                            setCurrentMatch(0);
-                        }
-                    }
-                } userToken={authentication.token!} />
+                {
+                    !dailyLimitReached ? (
+                        <PeerMatchContainer {...userMatches.users![currentMatch]} allowAction={true} next={
+                            () => {
+                                if (currentMatch + 1 < userMatches.users!.length) {
+                                    setCurrentMatch(currentMatch + 1);
+                                }else {
+                                    setUserMatches({ ...userMatches, refreshTimes: userMatches.refreshTimes + 1 });
+                                    setCurrentMatch(0);
+                                }
+                            }
+                        } userToken={authentication.token!} />
+                    ) : <div> Daily limit reached </div>
+                }
             </div>
         </>
     );
