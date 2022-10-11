@@ -3,13 +3,15 @@ import { useParams, Navigate, useNavigate } from "react-router-dom";
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import PeerMatchContainer from "../PeerMatch";
-import { useSessionHandler, useGetUserMatchDetails } from '../../hooks';
+import DailyMatchLimit from '../DailyMatchLimit';
 import Error from '../Error';
+import { useSessionHandler, useGetUserMatchDetails } from '../../hooks';
 
 const Matches: React.FC = () => {
     let { id } = useParams();
     const authentication = useSessionHandler();
     const matchedDetails = useGetUserMatchDetails(authentication.token!, id!);
+    const [ dailyLimitReached, setDailyLimitReached ] = React.useState(false);
     const navigation = useNavigate();
 
     if (authentication.loading) return <Loading />;
@@ -32,7 +34,13 @@ const Matches: React.FC = () => {
         <>
             <NavBar token={authentication.token!}/>
             <div>
-                <PeerMatchContainer {...matchedDetails.user!} allowAction next={() => { navigation("/messages") }} userToken={authentication.token!}/>
+                <PeerMatchContainer {...matchedDetails.user!} allowAction next={() => { navigation("/messages") }} userToken={authentication.token!}
+                    errFunc={
+                        ( error ) => {
+                            if (error[0].message === "You have reached your daily limit on matches." && dailyLimitReached === false ) setDailyLimitReached(true);
+                        }
+                    }
+                />
             </div>
         </>
     );

@@ -1,13 +1,15 @@
 import * as React from 'react';
+import { Navigate } from "react-router-dom";
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import PeerMatchContainer from "../PeerMatch";
-import { Navigate } from "react-router-dom";
-import { useSessionHandler, useGetUserMatches } from '../../hooks';
 import Error from '../Error';
+import DailyMatchLimit from '../DailyMatchLimit';
+import { useSessionHandler, useGetUserMatches } from '../../hooks';
 
 const Home: React.FC = () => {
     const authentication = useSessionHandler();
+    const [ dailyLimitReached, setDailyLimitReached ] = React.useState(false);
     const [userMatches, setUserMatches] = useGetUserMatches(authentication.token!);
     const [currentMatch, setCurrentMatch] = React.useState(0);
 
@@ -29,6 +31,9 @@ const Home: React.FC = () => {
 
     if (userMatches.error.length > 0) {
         if (userMatches.error[0].message === "User does not exist.") return <Navigate to="/createAccount" replace={true} />
+        else if (
+            userMatches.error[0].message === "You have reached your daily limit on matches." && dailyLimitReached === false
+        ) setDailyLimitReached(true);
     }
 
     if (userMatches.loading) return <Loading />;
@@ -37,16 +42,24 @@ const Home: React.FC = () => {
         <>  
             <NavBar token={authentication.token!}/>
             <div>
-                <PeerMatchContainer {...userMatches.users![currentMatch]} allowAction={true} next={
-                    () => {
-                        if (currentMatch + 1 < userMatches.users!.length) {
-                            setCurrentMatch(currentMatch + 1);
-                        }else {
-                            setUserMatches({ ...userMatches, refreshTimes: userMatches.refreshTimes + 1 });
-                            setCurrentMatch(0);
-                        }
-                    }
-                } userToken={authentication.token!} />
+                {
+                    !dailyLimitReached ? (
+                        <PeerMatchContainer { ...userMatches.users[currentMatch] } allowAction={true} next={
+                            () => {
+                                if (currentMatch + 1 < userMatches.users!.length) {
+                                    setCurrentMatch(currentMatch + 1);
+                                }else {
+                                    setUserMatches({ ...userMatches, refreshTimes: userMatches.refreshTimes + 1 });
+                                    setCurrentMatch(0);
+                                }
+                            }
+                        } userToken={authentication.token!} errFunc={
+                            ( error ) => {
+                                if (error[0].message === "You have reached your daily limit on matches." && dailyLimitReached === false ) setDailyLimitReached(true);
+                            }
+                        }/>
+                    ) : <DailyMatchLimit />
+                }
             </div>
         </>
     );

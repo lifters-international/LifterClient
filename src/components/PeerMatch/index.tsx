@@ -2,6 +2,7 @@ import React from 'react';
 import { HeartFilled } from '@ant-design/icons';
 import "./PeerMatch.css";
 import { useAcceptDeclineMatch } from "../../hooks";
+import { GraphqlError } from "../../utils";
 
 export type PeerContainerProps = {
     id?: string;
@@ -12,9 +13,10 @@ export type PeerContainerProps = {
     profilePicture?: string;
     allowAction?: boolean;
     next?: () => void;
+    errFunc?: (err: GraphqlError[]) => void;
 }
 
-const PeerContainer: React.FC<PeerContainerProps> = ( { userToken, id, username, age, bio, profilePicture, allowAction, next } : PeerContainerProps) => {
+const PeerContainer: React.FC<PeerContainerProps> = ( { userToken, id, username, age, bio, profilePicture, allowAction, next, errFunc } : PeerContainerProps) => {
     const shortenedBio = bio?.slice(0, 45) + ( (bio?.length!) >= 45 ? "..." : "");
     const acceptDecline = useAcceptDeclineMatch();
 
@@ -23,9 +25,11 @@ const PeerContainer: React.FC<PeerContainerProps> = ( { userToken, id, username,
             ( result ) =>{
                 console.log(result)
             },
-            ( error ) => {
-                console.log(error)
-            }    
+            errFunc || (
+                ( error ) => {
+                    console.log(error)
+                }    
+            )
         );
     }
 
