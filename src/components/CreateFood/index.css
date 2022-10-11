@@ -1,0 +1,47 @@
+.scrollView {
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.FormContainer {
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 20px;
+    margin: none;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    box-shadow: 12px 12px 2px 1px rgba(56, 56, 56, 0.2);
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+

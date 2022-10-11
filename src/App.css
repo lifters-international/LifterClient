@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.selection-label-input-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.selection-label-input-div__select {
+  width: 50%;
+  margin: 1rem;
+}

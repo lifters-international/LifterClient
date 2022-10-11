@@ -95,4 +95,6 @@ export type Food = {
     servingSize: NutritionFactsJson;
 
     nutritionFacts: NutritionFacts;
+
+    adminCreated: boolean;
 }
