@@ -1,0 +1,44 @@
+.DailyMatchLimitContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 55vh;
+    background-color: #ff00003d;
+    padding: 0 20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10vh;
+    border-radius: 10px;
+    box-shadow: 10px 20px 10px 0 rgba(0, 0, 0, 0.747);
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+
+.DailyMatchLimitContainerHeader {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.DailyMatchLimitContainerUpgrade {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-decoration: underline;
+    font-style: italic;
+    text-decoration: none;
+    color: white;
+    background:rgba(0, 0, 0, 0.747);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.DailyMatchLimitContainerUpgrade:hover {
+    background:#ff00003d;
+    color: white;
+}
