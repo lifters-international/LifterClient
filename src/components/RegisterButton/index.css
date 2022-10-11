@@ -1,0 +1,21 @@
+.register-button {
+    background-color: #5ecbfd;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.register-button:hover {
+    background-color: #05b0ff;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    color: white;
+}
