@@ -9,6 +9,7 @@ import LiftersNavBar from "../../assests/LifterNavBar.json";
 import { Navigate } from "react-router-dom";
 import Lottie from 'react-lottie-player';
 import CheckOutModal from "./CheckOutModal";
+import MobileWarning from '../MobileWarning';
 import { useNavigate } from "react-router-dom";
 
 import "./ChangeSubscription.css";
@@ -43,6 +44,7 @@ const ChangeSubscription: React.FC = () => {
 
     return (
         <>
+            <MobileWarning />
             <NavBar token={authentication.token!}/>
             <div className="SubscriptionContainer">
                 <div className="Subscription">

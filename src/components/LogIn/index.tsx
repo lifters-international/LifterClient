@@ -6,13 +6,15 @@ import { useLogIn } from "../../hooks";
 import "../CreateAccount/CreateAccount.css";
 import Loading from '../Loading';
 import Error from '../Error';
-import Notice from '../Notice';
 
 const LogIn: React.FC = () => {
     const password = React.useRef<HTMLInputElement>(null);
     const username = React.useRef<HTMLInputElement>(null);
     const logInState = useLogIn();
     const navigate = useNavigate(); 
+
+    if ( logInState.loggedInSuccess ) navigate("/");
+
     return (
         <div className="account">
 
@@ -22,12 +24,6 @@ const LogIn: React.FC = () => {
 
             {
                 logInState.error.length > 0 ? <Error {...logInState.error[0] } /> : null
-            }
-
-            {
-                logInState.loggedInSuccess ? <Notice message="Successfully Logged In" onClose={() => { 
-                    navigate("/");
-                }} /> : null
             }
 
             <Lottie

@@ -31,3 +31,5 @@ export * from "./useSearchFood";
 export * from "./useAddFoodToLiftersDailyFood";
 
 export * from "./useGetDailyFoodAnalystics";
+
+export * from "./useIsMobile";

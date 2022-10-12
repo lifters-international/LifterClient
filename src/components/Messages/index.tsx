@@ -6,6 +6,7 @@ import { Navigate, Link } from "react-router-dom";
 import { useSessionHandler, useUserMatchesSubscription, useUserAcceptedMatchesSubscription } from '../../hooks';
 import MessageContainer from './MessageContainer';
 import Error from '../Error';
+import MobileWarning from '../MobileWarning';
 
 import { socket, SubscriptionType } from "../../utils";
 
@@ -39,6 +40,7 @@ const Messages: React.FC = () => {
 
     return (
         <>
+            <MobileWarning />
             <NavBar token={authentication.token!}/>
             <div className="UnMatchedPeersContainer">
                 <div className="UnMatchedPeersContainerContext">

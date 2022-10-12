@@ -5,6 +5,7 @@ import NavBar from "../NavBar";
 import SearchResult from "./SearchResult";
 import { useSessionHandler } from '../../hooks';
 import Error from '../Error';
+import MobileWarning from '../MobileWarning';
 
 import "./Search.css";
 
@@ -26,6 +27,7 @@ const Search: React.FC = () => {
 
     return (
         <>
+            <MobileWarning />
             <NavBar token={authentication.token!}/>
             <div>
                 <SearchResult query={query!} token={authentication.token!}/>
