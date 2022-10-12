@@ -9,6 +9,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Notify, { NotifyStateManager, NotifyStateManagerType } from "../Notify";
 import Error from '../Error';
 import Modal from '../Modal';
+import MobileWarning from '../MobileWarning';
 import "./Profile.css";
 
 const Profile: React.FC = () => {
@@ -111,6 +112,7 @@ const Profile: React.FC = () => {
 
     return (
         <>
+            <MobileWarning />
             <NavBar token={authentication.token!} />
             <div>
                 <div className="EditProfilePicture" style={{ backgroundImage: `url(${signedInUser.data!.profilePicture})` }} ref={imageContainerRef}>
