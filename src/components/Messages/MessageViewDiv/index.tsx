@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Message, MessageWhoSent, MessageMetaDataType, formatAMPM, capitalizeFirstLetter } from "../../../utils";
+import { Message, MessageWhoSent, MessageMetaDataType, capitalizeFirstLetter } from "../../../utils";
 
 import "./MessageViewDiv.css";
 
@@ -9,7 +9,7 @@ export type MessageViewDivProps = {
     lastMessage: boolean;
 } & Message;
 
-const MessageViewDiv: React.FC<MessageViewDivProps> = ( { id, status, metaDataType, message, createdAt, whoSent, CurrentWhoSent, lastMessage, timeRead } : MessageViewDivProps) => {
+const MessageViewDiv: React.FC<MessageViewDivProps> = ( { id, status, metaDataType, message, createdAt, whoSent, CurrentWhoSent } : MessageViewDivProps) => {
     return (
         <>
             <div className={`MessageViewDiv`} data-id={id} id={`MessageViewDiv${id}`} >
