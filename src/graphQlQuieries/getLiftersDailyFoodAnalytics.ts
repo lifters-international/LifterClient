@@ -9,6 +9,7 @@ export const getLiftersDailyFoodAnalytics = `
             FatsGoal
             CarbsGoal
             ProteinGoal
+            allowedToSee
             Foods {
                 id
                 name

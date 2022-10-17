@@ -13,7 +13,7 @@
 }
 
 .MessageHolderContext {
-    height: 78vh;
+    height: 71vh;
     overflow-y: auto; 
     border-top: 1px solid gainsboro;
     border-radius: 5px;

@@ -18,6 +18,7 @@
 .MessageBoxContainer {
     display: grid;
     grid-template-rows: 7% 88% 5%;
+    height: 71vh;
 }
 
 .MessageBoxDetails {

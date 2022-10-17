@@ -17,5 +17,7 @@ export type LiftersDailyFoodAnalstics = {
 
     ProteinGoal: number;
 
-    Foods: Food[]
+    Foods: Food[];
+    
+    allowedToSee: boolean;
 }
