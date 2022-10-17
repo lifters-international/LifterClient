@@ -6,7 +6,7 @@
     max-height: 67vh;
     overflow-y: auto;
     display: grid;
-    flex-direction: column-reverse;
+    grid-template-rows: repeat(auto-fill, minmax(8.9%, 10.5%));
 }
 
 .divideTheySentYouSent {

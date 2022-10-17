@@ -5,7 +5,7 @@ import MessageBoxContent from "../MessageBoxContent";
 import Picker from 'emoji-picker-react';
 import { SmileOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { useGetUserMessages } from "../../../hooks";
-import { MessageMetaDataType, MessageWhoSent, Message } from '../../../utils';
+import { MessageMetaDataType, MessageWhoSent } from '../../../utils';
 
 import "./MessageBox.css";
 
@@ -15,15 +15,6 @@ export type MessageBoxProps = {
     name: string;
     profilePicture: string;
 }
-
-export type UserMessagesState = {
-    userMessages: Message[] | null;
-    loading: boolean;
-    whoSent: MessageWhoSent | null;
-    error: any;
-    sendReadMessage?: ( messageId: string ) => void;
-    sendMessage?: ( token: string, matchId: string, message: string, metaDataType: MessageMetaDataType) => void;
-};
 
 export type EmojiObject = {
     unified: string;
