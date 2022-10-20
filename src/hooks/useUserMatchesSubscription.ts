@@ -51,7 +51,7 @@ export const useUserMatchesSubscription = (token: string): UserMatchesSubscripti
 
     useSubscription(newUserMatchesSubscription, {
         variables: { userToken: token },
-        client,
+        client: (client as any),
         onSubscriptionData: ({ client, subscriptionData }) => {
             let data:  { newUserMatches: newUserMatches } = subscriptionData.data;
             if (subscriptionData.error) {
