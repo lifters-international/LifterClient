@@ -1,6 +1,7 @@
 .YouSentMessage, .TheySentMessage {
     width: -moz-fit-content;
     width: fit-content;
+    max-width: 30vw;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 10px;
