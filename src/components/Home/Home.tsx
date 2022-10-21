@@ -41,7 +41,6 @@ const Home: React.FC = () => {
 
     return (
         <>  
-            <MobileWarning />
             <NavBar token={authentication.token!}/>
             <div>
                 {
