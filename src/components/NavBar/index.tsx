@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PeerContainer from '../PeerContainer';
 import ProfilePicture from "../ProfilePicture";
 import SearchBar from "../SearchBar";
@@ -13,19 +13,21 @@ export type NavBarsProps = {
     token: string;
 }
 
-const NavBar: React.FC<NavBarsProps> = ( { token }: NavBarsProps) => {
+const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
     const navigate = useNavigate();
     const signedInUser = useSignInUserData(token);
+    const [dropDown, setDropDown] = useState(false);
 
-    if ( signedInUser.loading ) return <></>;
+    if (signedInUser.loading) return <></>;
 
-    if ( signedInUser.error ) return <></>;
+    if (signedInUser.error) return <></>;
 
     return (
         <div className="NavBar">
-            <PeerContainer peerContainerClassName="PeerContainer NavBarItem" onClick={ () => navigate("/") }/>
+            <PeerContainer peerContainerClassName="PeerContainer NavBarItem" onClick={() => navigate("/")} />
             <div className="NavBarContainer">
-                <SearchBar className="NavBarSearch"/>
+                <SearchBar className="NavBarSearch" />
+
                 <HiHome
                     size={60}
                     color="red"
@@ -33,21 +35,63 @@ const NavBar: React.FC<NavBarsProps> = ( { token }: NavBarsProps) => {
                     className="NavBarLottie"
                 />
 
-                <IoMdSend 
+                <IoMdSend
                     size={60}
                     color="red"
-                    onClick={() => {navigate("/messages")}}
+                    onClick={() => { navigate("/messages") }}
                     className="NavBarLottie"
                 />
 
-                <IoFastFoodSharp 
+                <IoFastFoodSharp
                     size={60}
                     color="red"
                     onClick={() => navigate("/food")}
                     className="NavBarLottie"
                 />
 
-                <ProfilePicture image={signedInUser.data!.profilePicture} onClick={ () => navigate("/profile" )} imageClass="NavBarProfileImage"/>
+                <ProfilePicture image={signedInUser.data!.profilePicture} onClick={() => navigate("/profile")} imageClass="NavBarProfileImage" />
+
+            </div>
+
+
+            <div className="NavBarContainerMobile">
+                <SearchBar className="NavBarSearch" />
+
+                <div className="NavBarContainerMobileDropDown">
+                    <div className="NavBarContainerMobileDropDownMenu" onClick={ () => setDropDown(!dropDown) }>
+                        Menu
+                    </div>
+
+                    {
+                        dropDown ? (
+                            <div className="NavBarContainerMobileDropDownContent">
+                                <HiHome
+                                    size={60}
+                                    color="red"
+                                    onClick={() => navigate("/")}
+                                    className="NavBarLottie"
+                                />
+
+                                <IoMdSend
+                                    size={60}
+                                    color="red"
+                                    onClick={() => { navigate("/messages") }}
+                                    className="NavBarLottie"
+                                />
+
+                                <IoFastFoodSharp
+                                    size={60}
+                                    color="red"
+                                    onClick={() => navigate("/food")}
+                                    className="NavBarLottie"
+                                />
+
+                                <ProfilePicture image={signedInUser.data!.profilePicture} onClick={() => navigate("/profile")} imageClass="NavBarProfileImage" />
+                            </div>
+
+                        ) : null
+                    }
+                </div>
             </div>
         </div>
     )

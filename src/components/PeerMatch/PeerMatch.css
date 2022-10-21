@@ -133,5 +133,6 @@
 
     .PeerMatchActionContainer {
         margin-left: 38vw;
+        gap: 10vw;
     }
 }
