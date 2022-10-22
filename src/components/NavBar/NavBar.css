@@ -63,6 +63,7 @@
 
 .NavBarContainerMobile {
     display: none;
+    z-index: 5;
 }
 
 @media only screen and (max-width: 845px) {
@@ -76,6 +77,7 @@
         top: 2vh;
         left: 7vw;
         cursor: pointer;
+        width: 56vw;
     }
 
     .NavBarContainerMobile {
@@ -97,8 +99,8 @@
     .NavBarContainerMobileDropDownContent {
         position: absolute;
         background-color: #f9f9f9;
-        min-width: 10vw;
+        max-width: 20vw;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
+        z-index: 5;
     }
 }

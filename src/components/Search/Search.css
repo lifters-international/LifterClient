@@ -85,8 +85,8 @@
 }
 
 .SearchResultBasicSubscriptionBlured {
-    position: fixed;
-    top: 19%;
+    position: absolute;
+    top: 22vh;
     right: -0.5%;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(1px);
@@ -108,4 +108,19 @@
     color: black;
     font-family: "IM FELL Great Primer SC", serif;
     font-size: 30px;
+}
+
+@media only screen and (max-width: 845px) {
+    .SearchResult {
+        z-index: -1;
+        position: relative;
+    }
+
+    .SearchResultBasicSubscriptionBlured {
+        top: 8vh;
+    }
+
+    .SearchResultBasicSubscriptionBluredContextLink {
+        left: 25vw;
+    }
 }
