@@ -105,7 +105,7 @@ const FoodAnalysis: React.FC = () => {
                             <div className="ChartTitle">Daily Macronutrient Goals</div>
 
                             <div className="ProgressBarsContainer">
-                                <div>
+                                <div className="ProgressBarContain">
                                     <div className="ProgressBarsTitle">Fats</div>
                                     <ProgressBar bgColor="rgb(255, 112, 112)" completed={
                                         Number(
@@ -119,7 +119,7 @@ const FoodAnalysis: React.FC = () => {
                                     <div className="ProgressBarsDes">{analysis?.Fat} / {analysis?.FatsGoal} g</div>
                                 </div>
 
-                                <div>
+                                <div className="ProgressBarContain">
                                     <div className="ProgressBarsTitle">Protien</div>
                                     <ProgressBar bgColor="rgba(131, 167, 234, 1)" completed={
                                         Number(
@@ -133,7 +133,7 @@ const FoodAnalysis: React.FC = () => {
                                     <div className="ProgressBarsDes">{analysis?.Carbs} / {analysis?.CarbsGoal} g</div>
                                 </div>
 
-                                <div>
+                                <div className="ProgressBarContain">
                                     <div className="ProgressBarsTitle">Carbs</div>
                                     <ProgressBar bgColor="rgb(163, 221, 163)" completed={
                                         Number(
@@ -152,7 +152,7 @@ const FoodAnalysis: React.FC = () => {
                 ) : (
                     <div className="ChartContainer">
                         <Link to="/changeSubscription" className="">
-                            <div className="ChartTitle">Please Upgrade to your subscription</div>
+                            <div className="ChartTitle">Please Upgrade your subscription</div>
                             <div className="ChartTitle Size15" >To see analysis data</div>
                         </Link>
                     </div>
