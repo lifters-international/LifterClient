@@ -12,6 +12,14 @@
 .FoodHeader {
     display: flex;
     flex-direction: row;
+    position: absolute;
+    width: 100%;
+}
+
+.FoodItemView {
+    position: absolute;
+    top: 20vh;
+    width: 100%;
 }
 
 .FoodViewIconDiv {
@@ -120,6 +128,12 @@
     .FoodContainer {
         z-index: -1;
         position: relative;
+    }
+
+    .FoodItemView {
+        position: absolute;
+        top: 10vh;
+        width: 100%;
     }
 
     .FoodViewIconDiv {

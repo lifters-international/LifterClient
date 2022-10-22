@@ -49,12 +49,12 @@ const FoodView: React.FC = () => {
                     />
 
                     <div className="FoodViewIconDiv">
-                        <AiOutlinePlus 
-                            className="FoodSearchView_Add_Icon NavBarLottie" 
+                        <AiOutlinePlus
+                            className="FoodSearchView_Add_Icon NavBarLottie"
                             size={50}
-                            onClick={() => navigate('/createFood')} 
+                            onClick={() => navigate('/createFood')}
                         />
-                        <AiOutlineBarChart 
+                        <AiOutlineBarChart
                             className="FoodSearchView_Analysis NavBarLottie"
                             size={50}
                             onClick={() => navigate('/foodAnalysis')}
@@ -63,21 +63,23 @@ const FoodView: React.FC = () => {
 
                 </div>
 
-                {
-                    search.length > 0 ? (
-                        searchFood.map((food) => (
-                            <div key={`foot-item-${food.id}`}>
-                                <FoodDetails {...food}  token={authentication.token!}/>
-                            </div>
-                        ))
-                    ) : (
-                        foods.map((food) => (
-                            <div key={`foot-item-${food.id}`}>
-                                <FoodDetails {...food} token={authentication.token!}/>
-                            </div>
-                        ))
-                    )
-                }
+                <div className="FoodItemView">
+                    {
+                        search.length > 0 ? (
+                            searchFood.map((food) => (
+                                <div key={`foot-item-${food.id}`}>
+                                    <FoodDetails {...food} token={authentication.token!} />
+                                </div>
+                            ))
+                        ) : (
+                            foods.map((food) => (
+                                <div key={`foot-item-${food.id}`}>
+                                    <FoodDetails {...food} token={authentication.token!} />
+                                </div>
+                            ))
+                        )
+                    }
+                </div>
             </div>
         </>
     )
