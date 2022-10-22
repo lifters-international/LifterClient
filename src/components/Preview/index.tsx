@@ -4,7 +4,6 @@ import { useSessionHandler, useSignInUserData } from '../../hooks';
 import Loading from '../Loading';
 import Error from '../Error';
 import NavBar from '../NavBar';
-import MobileWarning from '../MobileWarning';
 import PeerContainer from '../PeerMatch';
 
 const Preview: React.FC = () => {
@@ -27,7 +26,6 @@ const Preview: React.FC = () => {
 
     return (
         <>
-            <MobileWarning />
             <NavBar token={authentication.token!} />
             <PeerContainer {...signedInUser.data} />
         </>
