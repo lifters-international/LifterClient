@@ -6,7 +6,6 @@ import { Navigate, Link } from "react-router-dom";
 import { useSessionHandler, useUserMatchesSubscription, useUserAcceptedMatchesSubscription } from '../../hooks';
 import MessageContainer from './MessageContainer';
 import Error from '../Error';
-import MobileWarning from '../MobileWarning';
 
 import { socket, SubscriptionType } from "../../utils";
 
@@ -16,52 +15,53 @@ const Messages: React.FC = () => {
     const authentication = useSessionHandler();
     const userMatchesSubscription = useUserMatchesSubscription(authentication.token!);
     const userAcceptedMatchesSubscription = useUserAcceptedMatchesSubscription(authentication.token!);
-    const [ socketAuthenticated, setSocketAuthenticated ] = React.useState(false);
+    const [socketAuthenticated, setSocketAuthenticated] = React.useState(false);
 
-    if ( authentication.loading ) return <Loading />;
+    if (authentication.loading) return <Loading />;
 
     if (authentication.error) {
         if (
             authentication.error[0].message === "jwt malformed"
-            || 
+            ||
             authentication.error[0].extensions.code === "BAD_USER_INPUT"
         ) return <Navigate to="/createAccount" replace={true} />
         else if (authentication.error[0].message === "jwt expired") return <Navigate to="/logIn" replace={true} />
-        else return <Error {...authentication.error[0]} reload={true}/>;
+        else return <Error {...authentication.error[0]} reload={true} />;
     }
 
     socket.on("authenticated", () => {
         setSocketAuthenticated(true);
     })
 
-    if (authentication.token && !socketAuthenticated ) socket.authenticate(authentication.token);
+    if (authentication.token && !socketAuthenticated) socket.authenticate(authentication.token);
 
-    if ( !socketAuthenticated ) return <></>;
+    if (!socketAuthenticated) return <></>;
 
     return (
         <>
-            <MobileWarning />
-            <NavBar token={authentication.token!}/>
+            <NavBar token={authentication.token!} />
             <div className="UnMatchedPeersContainer">
                 <div className="UnMatchedPeersContainerContext">
                     NEW MATCHES
                     <div className="circle">{userMatchesSubscription.data?.matches.length}</div>
                 </div>
                 <div className="UnMatchedContain">
-                    {
-                        userMatchesSubscription.data?.matches.map((match, index) => {
-                            return (
-                                <Link 
-                                    key={`UnMatchedPeer${index}`} 
-                                    className="UnMatchedPeers" 
-                                    title={match.name} 
-                                    to={`/matches/${match.id}`}
-                                >
-                                    <ProfilePicture image={match.profilePicture} alt={match.name +" picture"} imageClass="UnMatchedContainProfilePicture"/>
-                                </Link>
-                            )
-                        })
-                    }
+                    <div className="UnMatchedPeerContain">
+                        {
+                            userMatchesSubscription.data?.matches.map((match, index) => {
+                                return (
+                                    <Link
+                                        key={`UnMatchedPeer${index}`}
+                                        className="UnMatchedPeers"
+                                        title={match.name}
+                                        to={`/matches/${match.id}`}
+                                    >
+                                        <ProfilePicture image={match.profilePicture} alt={match.name + " picture"} imageClass="UnMatchedContainProfilePicture" />
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
 
                     {
                         userMatchesSubscription.data?.userSubscription === SubscriptionType.BASIC && userMatchesSubscription.data?.matches.length > 0 ? (
@@ -72,10 +72,10 @@ const Messages: React.FC = () => {
                     }
                 </div>
             </div>
-            <MessageContainer 
-                matches = {userAcceptedMatchesSubscription.data} 
+            <MessageContainer
+                matches={userAcceptedMatchesSubscription.data}
                 token={authentication.token!}
-            />   
+            />
         </>
     )
 }

@@ -23,3 +23,9 @@
 .MessageViewDivDidSee::first-letter {
     text-transform: capitalize;
 }
+
+@media only screen and (max-width: 845px) {
+    .MessageViewDiv {
+        z-index: -1;
+    }
+}
