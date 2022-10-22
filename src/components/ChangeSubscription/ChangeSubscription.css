@@ -176,3 +176,13 @@
     font-weight: bold;
     text-align: center;
 }
+
+@media only screen and (max-width: 845px) {
+    .SubscriptionContainer  {
+        flex-direction: column;
+    }
+
+    .Subscription {
+        width: 80%;
+    }
+}
