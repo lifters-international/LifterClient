@@ -9,7 +9,6 @@ import FoodView from "../FoodView/FoodDetails";
 import Loading from "../Loading";
 import Error from '../Error';
 import NavBar from "../NavBar";
-import MobileWarning from '../MobileWarning';
 
 import "./index.css";
 
@@ -39,7 +38,6 @@ const FoodAnalysis: React.FC = () => {
 
     return (
         <>
-            <MobileWarning />
             <NavBar token={authentication.token!} />
             {
                 analysis?.allowedToSee ? (
