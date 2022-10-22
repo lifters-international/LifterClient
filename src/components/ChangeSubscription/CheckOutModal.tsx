@@ -78,7 +78,7 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, custom
     return (
         <Card className={`CheckOutModal ${isOpen ? 'open' : 'close'}`} onClick={
             (event: any) => {
-                if (event.target.classList.length > 1 && event.target.classList.contains("CheckOutModal")) setIsOpen(false);
+                if ( event.target.className.includes("CheckOutModal open") ) return setIsOpen(false);
             }
         }>
             <div className="CheckOutContainer">

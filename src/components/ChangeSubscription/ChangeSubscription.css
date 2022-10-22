@@ -180,9 +180,23 @@
 @media only screen and (max-width: 845px) {
     .SubscriptionContainer  {
         flex-direction: column;
+        z-index: -1;
     }
 
     .Subscription {
         width: 80%;
+    }
+    
+    .CheckOutContainer {
+        width: 80%;
+    }
+
+    .CheckOutButton {
+        bottom: 1vh;
+    }
+
+    .CheckOutDiv {
+        width: 100%;
+        height: 2vh;
     }
 }
