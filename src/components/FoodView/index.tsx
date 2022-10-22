@@ -9,7 +9,6 @@ import Loading from "../Loading";
 import Error from '../Error';
 import NavBar from "../NavBar";
 import FoodDetails from "./FoodDetails";
-import MobileWarning from '../MobileWarning';
 import { AiOutlineBarChart, AiOutlinePlus } from "react-icons/ai";
 
 import "./index.css";
@@ -37,9 +36,8 @@ const FoodView: React.FC = () => {
 
     return (
         <>
-            <MobileWarning />
             <NavBar token={authentication.token!} />
-            <div>
+            <div className="FoodContainer">
                 <div className="FoodHeader">
                     <SearchBar
                         onChange={(event) => setSearch(event.target.value)}
