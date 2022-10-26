@@ -33,10 +33,6 @@
     "victory": "^36.6.8",
     "web-vitals": "^2.1.4"
   },
-  "engines": {
-    "node": "16.15.1",
-    "yarn": "1.22.19"
-  },
   "scripts": {
     "start": "serve -s build",
     "dev": "react-scripts start",
