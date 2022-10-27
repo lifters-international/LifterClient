@@ -107,3 +107,33 @@
     margin-left: 10%;
     font-family: "IM FELL Great Primer SC", serif;
 } 
+
+@media only screen and (max-width: 845px) {
+    .PeerMatch {
+        width: 61vw;
+        position: absolute;
+        top: 20vh;
+        z-index: -1
+    }
+
+    .PeerImages {
+        width: 60vw;
+        height: 60vh;
+    }
+
+    .PeerMatchDetails {
+        width: 61vw;
+        top: 27vh;
+        right: 60.5vw;
+        height: 7vh;
+    }
+
+    .PeerMatchDetailsName {
+        width: 100vw;
+    }
+
+    .PeerMatchActionContainer {
+        margin-left: 38vw;
+        gap: 10vw;
+    }
+}

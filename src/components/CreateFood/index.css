@@ -44,3 +44,9 @@ input {
     margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 845px) {
+    .FormContainer {
+        width: 90%;
+    }
+}
+

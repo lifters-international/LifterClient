@@ -85,14 +85,14 @@
 }
 
 .SearchResultBasicSubscriptionBlured {
-    position: fixed;
-    top: 19%;
-    right: -0.5%;
+    position: absolute;
+    top: 17vh;
+    right: 0.5vw;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(1px);
     background: rgba(255, 104, 104, 0.548);
-    width: 100vw;
-    height: 100vh;
+    width: 99vw;
+    height: 80vh;
     border-radius: 10px;
     padding: 10px;
 }
@@ -108,4 +108,19 @@
     color: black;
     font-family: "IM FELL Great Primer SC", serif;
     font-size: 30px;
+}
+
+@media only screen and (max-width: 845px) {
+    .SearchResult {
+        z-index: -1;
+        position: relative;
+    }
+
+    .SearchResultBasicSubscriptionBlured {
+        top: 8vh;
+    }
+
+    .SearchResultBasicSubscriptionBluredContextLink {
+        left: 25vw;
+    }
 }

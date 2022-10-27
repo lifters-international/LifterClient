@@ -17,15 +17,6 @@ export type MessageContainerCurrentView = {
     profilePicture: string;
 }
 
-export type UserMessagesState = {
-    userMessages: Message[] | null;
-    loading: boolean;
-    whoSent: MessageWhoSent | null;
-    error: any;
-    sendReadMessage?: (messageId: string) => void;
-    sendMessage?: (token: string, matchId: string, message: string, metaDataType: MessageMetaDataType) => void;
-};
-
 
 const MessageContainer: React.FC<MessageContainerProps> = ({ token, matches }: MessageContainerProps) => {
     const [currentView, setCurrentView] = React.useState<MessageContainerCurrentView>({ currentMatchId: "", name: "", profilePicture: "" });
@@ -41,11 +32,11 @@ const MessageContainer: React.FC<MessageContainerProps> = ({ token, matches }: M
                     }
                 ).reduce((a, b) => a + b, 0)}</div>
             </div>
-            <div className="MessageHolder">
-                <div className="MessageHolderContext">
+            <div className={`MessageHolder  ${currentView.currentMatchId === "" ? "NoneSelectedMessageHolder" : "SelectedMessageHolder"}`}>
+                <div className={`MessageHolderContext`}>
                     {
                         matches.length === 0 ? (
-                            <div className="NoMessages">No Messages</div>
+                            <div className={`NoMessages`}>No Messages</div>
                         ) : (
                             matches.map((message: AcceptedUserMatches) => {
                                 let text = message.lastMessage?.message || "";

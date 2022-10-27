@@ -66,3 +66,22 @@
 .UnMatchedPeersContainerContext, .UnMatchedPeers {
     margin-left: 10px;
 }
+
+@media only screen and (max-width: 845px) {
+    .UnMatchedPeersBluredContextLink {
+        position: absolute;
+        font-size: 20px;
+        left: 32%;
+    }
+
+    .UnMatchedPeersContainer {
+        position: absolute;
+        z-index: -1;
+    }
+
+    .UnMatchedPeersBlured {
+        position: absolute;
+        height: 15vh;
+        top: 6vh;
+    }
+}

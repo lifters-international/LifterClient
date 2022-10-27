@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams, Navigate, useNavigate } from "react-router-dom";
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import Error from '../Error';
@@ -6,33 +7,18 @@ import { useSessionHandler, useUserSubscriptionInfor } from '../../hooks';
 import { PlanType, fetchGraphQl, GraphqlError } from "../../utils";
 import { subscribeToBasicLifter } from "../../graphQlQuieries";
 import LiftersNavBar from "../../assests/LifterNavBar.json";
-import { Navigate } from "react-router-dom";
 import Lottie from 'react-lottie-player';
-import CheckOutModal from "./CheckOutModal";
-import { useNavigate } from "react-router-dom";
-
-import "./ChangeSubscription.css";
+import CheckOutModal from "../ChangeSubscription/CheckOutModal";
+import "../ChangeSubscription/ChangeSubscription.css";
 
 const ChangeSubscription: React.FC = () => {
-    const authentication = useSessionHandler();
-    const { result, loading, error } = useUserSubscriptionInfor(authentication.token!);
+    let { token } = useParams();
+    const { result, loading, error } = useUserSubscriptionInfor(token as string);
     const [ isOpen, setIsOpen ] = React.useState(false);
     const [ showError, setShowError ] = React.useState(false);
     const [ err, setErr ] = React.useState<GraphqlError | null>(null);
     const [ plan, setPlan ] = React.useState<PlanType>(PlanType.BASIC);
     const navigate = useNavigate();
-    
-    if (authentication.loading) return <Loading />;
-
-    if (authentication.error) {
-        if (
-            authentication.error[0].message === "jwt malformed"
-            || 
-            authentication.error[0].extensions.code === "BAD_USER_INPUT"
-        ) return <Navigate to="/createAccount" replace={true} />
-        else if (authentication.error[0].message === "jwt expired") return <Navigate to="/logIn" replace={true} />
-        else return <Error {...authentication.error[0]} reload={true}/>;
-    }
 
     if (loading) return <Loading />;
 
@@ -43,7 +29,7 @@ const ChangeSubscription: React.FC = () => {
 
     return (
         <>
-            <NavBar token={authentication.token!}/>
+            <NavBar token={token as string}/>
             <div className="SubscriptionContainer">
                 <div className="Subscription">
                     <Lottie
@@ -65,7 +51,7 @@ const ChangeSubscription: React.FC = () => {
                             <button className="SubscriptionButton Red" disabled type="button">Current Subscription</button>
                         ) : (
                             <button type="button" className="SubscriptionButton Blue" onClick={ () => {
-                                fetchGraphQl(subscribeToBasicLifter, { token: authentication.token! }).then(result => {
+                                fetchGraphQl(subscribeToBasicLifter, { token }).then(result => {
                                     if (result.errors) {
                                         setErr(result.errors[0]);
                                         setShowError(true);
@@ -147,7 +133,7 @@ const ChangeSubscription: React.FC = () => {
                     }
                 </div>
             </div>
-            <CheckOutModal isOpen={isOpen} setIsOpen={setIsOpen} customerId={authentication.token!} plan={plan}/>
+            <CheckOutModal isOpen={isOpen} setIsOpen={setIsOpen} customerId={token as string} plan={plan}/>
             {
                 showError && err ? <Error {...err} reload={true} /> : null
             }

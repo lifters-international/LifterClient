@@ -13,6 +13,7 @@ export const getLiftersDailyFoodAnalytics = `
             Foods {
                 id
                 name
+                adminCreated
                 servingSize {
                   measurment
                   unit

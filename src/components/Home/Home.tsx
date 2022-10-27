@@ -5,7 +5,6 @@ import NavBar from "../NavBar";
 import PeerMatchContainer from "../PeerMatch";
 import Error from '../Error';
 import DailyMatchLimit from '../DailyMatchLimit';
-import MobileWarning from '../MobileWarning';
 import { useSessionHandler, useGetUserMatches } from '../../hooks';
 
 const Home: React.FC = () => {
@@ -41,7 +40,6 @@ const Home: React.FC = () => {
 
     return (
         <>  
-            <MobileWarning />
             <NavBar token={authentication.token!}/>
             <div>
                 {

@@ -12,6 +12,14 @@
 .FoodHeader {
     display: flex;
     flex-direction: row;
+    position: absolute;
+    width: 100%;
+}
+
+.FoodItemView {
+    position: absolute;
+    top: 20vh;
+    width: 100%;
 }
 
 .FoodViewIconDiv {
@@ -44,7 +52,7 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    width: 95%
+    width: 95%;
 }
 
 .FoodDetails__Name {
@@ -114,4 +122,34 @@
 
 .UnVerifiedFood {
     background: red;
+}
+
+@media only screen and (max-width: 845px) {
+    .FoodContainer {
+        z-index: -1;
+        position: relative;
+    }
+
+    .FoodItemView {
+        position: absolute;
+        top: 10vh;
+        width: 100%;
+    }
+
+    .FoodViewIconDiv {
+        bottom: 2px;
+    }
+
+    .FoodSearchView_Analysis {
+        left: 10%;
+    }
+
+    .FoodDetails {
+        width: 70vw;
+    }
+
+    .VerifiedFood, .UnVerifiedFood {
+        bottom: 1vh;
+        right: 22vw;
+    }
 }

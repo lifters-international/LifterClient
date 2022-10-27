@@ -42,3 +42,10 @@
     background:#ff00003d;
     color: white;
 }
+
+@media only screen and (max-width: 845px) {
+    .DailyMatchLimitContainer {
+        width: 50vw;
+        height: 90vh;
+    }
+}

@@ -5,7 +5,6 @@ import "./index.css"
 
 import { LabelInputDiv } from "../LabelInputDiv";
 import { RegisterButton } from "../RegisterButton";
-import MobileWarning from '../MobileWarning';
 import Error from '../Error';
 
 import { NutritionUnits, NutritionFactsJson, NutritionFacts, fetchGraphQl } from "../../utils";
@@ -142,7 +141,6 @@ export const CreateFood: React.FC = () => {
 
     return (
         <>
-            <MobileWarning />
             <NavBar token={authentication.token!} />
             <div className="FormContainer">
                 <h1>Create Food</h1>

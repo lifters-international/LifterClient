@@ -76,3 +76,18 @@
 .MessageBoxSendButton:hover {
     background: rgb(15, 117, 250);
 }
+
+@media only screen and (max-width: 845px) {
+    .MessageBoxEmojiPicker {
+        display: none;
+    }
+
+    .MessageBoxInput {
+        grid-template-columns: 85% 15%;
+        z-index: 4;
+    }
+
+    .MessageBoxContainer {
+        grid-template-rows: 7% 85% 6%;
+    }
+}

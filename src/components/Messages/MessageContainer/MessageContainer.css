@@ -54,3 +54,28 @@
     position: relative;
     top: 45%;
 }
+
+@media only screen and (max-width: 845px) {
+    .MessageContainer {
+        position: absolute;
+        top: 35vh;
+    }
+
+    .NoneSelectedMessageHolder, .SelectedMessageHolder {
+        width: 100vw;
+        height: 70vh;
+        grid-template-columns: none;
+    }
+
+    .SelectedMessageHolder .MessageHolderContext {
+        display: none;
+    }
+
+    .NoneSelectedMessageHolder .MessageBox {
+        display: none;
+    }
+
+    .SelectedMessageHolder .MessageBox {
+        height: 75vh;
+    }
+}
