@@ -34,10 +34,7 @@
     "web-vitals": "^2.1.4",
     "@lifters-international/lifters-utils": "1.0.3"
   },
-  "engines": {
-    "node": "16.15.1",
-    "yarn": "1.22.19"
-  },
+
   "scripts": {
     "start": "serve -s build",
     "dev": "react-scripts start",
