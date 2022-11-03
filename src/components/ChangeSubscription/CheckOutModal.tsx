@@ -7,7 +7,7 @@ import { subscribeToProLifter, subscribeToUnlimitedLifter } from "../../graphQlQ
 import { useNavigate } from "react-router-dom";
 
 
-const stripePromise = loadStripe('pk_live_51KLGztATNTHRR4UvZoAjTJTqgnN1i7hnRkTjV7kTf0EViTfLMu6h83OZDFEIFmBtt6TuXiU7vqd5j3jOOHUStcCV00kcz2eBej');
+const stripePromise = loadStripe('pk_live_51LtTPwB5yAwp5CklX1Hyp6viNlcom8RXHF4ldHeJMS9hnemCELkREExZdUruXK5WNqXhHDPsMxg3bH4qYofwDp1800CFtfzMzc');
 
 export type CheckOutModalProps = {
     isOpen: boolean;
