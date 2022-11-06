@@ -31,12 +31,12 @@ const MessageBoxContent: React.FC<MessageBoxContentProps> = ({ messages, whoSent
         <div className={`MessageBoxContent Content`} ref={contentRef}>
             {
                 messages.map( (message, index) => {
-                    sendReadMessage!(message.id);
                     if ( index === 0 ) return (
                         <MessageViewDiv key={`MessageViewDiv-${index}`} 
                             {...message}
                             lastMessage={index === messages.length - 1}
                             CurrentWhoSent={whoSent}
+                            sendReadMessage={sendReadMessage}
                         />
                     );
                     else if ( messages[index].whoSent === messages[index - 1].whoSent ) return (
@@ -44,6 +44,7 @@ const MessageBoxContent: React.FC<MessageBoxContentProps> = ({ messages, whoSent
                             {...message}
                             lastMessage={index === messages.length - 1}
                             CurrentWhoSent={whoSent}
+                            sendReadMessage={sendReadMessage}
                         />
                     );
                     else return ( <div className="divideTheySentYouSent" key={`divideTheySentYou-${index}`}>
@@ -51,6 +52,7 @@ const MessageBoxContent: React.FC<MessageBoxContentProps> = ({ messages, whoSent
                             {...message}
                             lastMessage={index === messages.length - 1}
                             CurrentWhoSent={whoSent}
+                            sendReadMessage={sendReadMessage}
                         />
                     </div> )
                 })

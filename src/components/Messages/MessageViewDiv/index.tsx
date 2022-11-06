@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { Message, MessageWhoSent, MessageMetaDataType, capitalizeFirstLetter } from "../../../utils";
+import { Message, MessageWhoSent, MessageMetaDataType, UserMessageStatus, capitalizeFirstLetter } from "../../../utils";
 
 import "./MessageViewDiv.css";
 
 export type MessageViewDivProps = {
     CurrentWhoSent: MessageWhoSent;
     lastMessage: boolean;
+    sendReadMessage?: ( messageId : string ) => void;
 } & Message;
 
-const MessageViewDiv: React.FC<MessageViewDivProps> = ( { id, status, metaDataType, message, createdAt, whoSent, CurrentWhoSent } : MessageViewDivProps) => {
+const MessageViewDiv: React.FC<MessageViewDivProps> = ( { id, status, metaDataType, message, createdAt, whoSent, CurrentWhoSent, sendReadMessage } : MessageViewDivProps) => {
+    useEffect(() => {
+        if ( whoSent !== CurrentWhoSent && status === UserMessageStatus.DELIVERED ) {
+            sendReadMessage!(id);
+        }
+    }, [ ])
+    
     return (
         <>
             <div className={`MessageViewDiv`} data-id={id} id={`MessageViewDiv${id}`} >
