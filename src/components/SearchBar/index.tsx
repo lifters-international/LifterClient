@@ -4,6 +4,8 @@ import SearchIcon from "./search.json";
 import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 
+import { BiSearchAlt } from "react-icons/bi";
+
 export type SearchBarProps = {
     onChange?: (event: any) => void;
     onSubmit?: (value: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -32,14 +34,9 @@ const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
 
             {
                 !props.showIcon ? null : (
-                    <Lottie
-                        animationData={SearchIcon}
-                        loop
-                        speed={1}
-                        play
-                        className={"SearchBarIcon" + (props.iconClass ? " " + props.iconClass : "")}
-                        onClick={onSub}
-                    />
+                    <div onClick={onSub}>
+                        <BiSearchAlt color="#afadad" size={60} className={"SearchBarIcon" + (props.iconClass ? " " + props.iconClass : "")} />
+                    </div>
                 )
             }
         </div>

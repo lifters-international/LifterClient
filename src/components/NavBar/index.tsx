@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { useSignInUserData } from '../../hooks';
 import { IoMdSend } from "react-icons/io";
-import { HiHome } from "react-icons/hi";
 import { IoFastFoodSharp } from "react-icons/io5";
 
 export type NavBarsProps = {
@@ -27,13 +26,6 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
             <PeerContainer peerContainerClassName="PeerContainer NavBarItem" onClick={() => navigate("/")} />
             <div className="NavBarContainer">
                 <SearchBar className="NavBarSearch" />
-
-                <HiHome
-                    size={60}
-                    color="red"
-                    onClick={() => navigate("/")}
-                    className="NavBarLottie"
-                />
 
                 <IoMdSend
                     size={60}
@@ -65,12 +57,6 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
                     {
                         dropDown ? (
                             <div className="NavBarContainerMobileDropDownContent">
-                                <HiHome
-                                    size={60}
-                                    color="red"
-                                    onClick={() => navigate("/")}
-                                    className="NavBarLottie"
-                                />
 
                                 <IoMdSend
                                     size={60}

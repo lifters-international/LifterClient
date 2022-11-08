@@ -1,5 +1,5 @@
 .NavBar {
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid #3a3939;
     padding: 10px;
     margin: 5px;
     display: flex;
@@ -19,7 +19,7 @@
 .NavBarSearch {
     margin: auto;
     position: relative;
-    top: 30%;
+    top: 20%;
     left: 12%;
     cursor: pointer;
 }
