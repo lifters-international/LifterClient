@@ -7,45 +7,89 @@ import "../CreateAccount/CreateAccount.css";
 import Loading from '../Loading';
 import Error from '../Error';
 
+import { CgProfile } from "react-icons/cg";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 const LogIn: React.FC = () => {
     const password = React.useRef<HTMLInputElement>(null);
     const username = React.useRef<HTMLInputElement>(null);
     const logInState = useLogIn();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
-    if ( logInState.loggedInSuccess ) navigate("/");
+    if (logInState.loggedInSuccess) navigate("/");
 
     return (
-        <div className="account">
+        <div className="account-div">
+            <div className="hero-section">
+                <img src="/logo.png" alt="logo" className="logo" />
+                <h1>LIFTERS</h1>
+                <h2>HOME FOR ALL THINGS GYM</h2>
+            </div>
 
-            {
-                logInState.loading ? <Loading /> : null
-            }
+            <div className="athlete-red-door-container">
+                <img
+                    src="/landing-page-hero-section-man-image.png"
+                    alt="athlete"
+                    className="athlete-image"
+                />
 
-            {
-                logInState.error.length > 0 ? <Error {...logInState.error[0] } /> : null
-            }
+                <img
+                    src="/hero-section-line-vector.png"
+                    alt="line"
+                    className='line-vector-image'
+                />
 
-            <Lottie
-                animationData={LiftersNavBar}
-                loop
-                speed={0.2}
-                play
-                className="lottie"
-            />
+                <div className="red-door"></div>
 
-            <div className="account-title">Login To Account</div>
-            <input type="text" placeholder="UserName/email: " className="account-input username" ref={username}/>
-            <input type="password" placeholder="Password: " className="account-input password" ref={password}/>
+                <div className="shadow"></div>
+            </div>
 
-            <div className="buttonsContainer">
-                <button className="account-buttons login-button" onClick={ () => {
-                    logInState.logIn(username.current!.value, password.current!.value);
-                }} type="button" style={{background: "green"}}>Login</button>
+            <div className="account">
 
-                <button className="account-buttons create-button" onClick={ () => {
-                    navigate("/createAccount");
-                }} type="button" style={{background: "#00bcd4"}} >Don't have an Account? Create One Now</button>
+                {
+                    logInState.loading ? <Loading /> : null
+                }
+
+                {
+                    logInState.error.length > 0 ? <Error {...logInState.error[0]} /> : null
+                }
+
+                <div className="account-title">Login To Account</div>
+
+                <div className="icon-input">
+                    <CgProfile className="account-icon" color="white" />
+                    <input type="text" placeholder="UserName/email: " className="account-input username" ref={username} />
+                </div>
+
+                <div className="icon-input">
+                    <RiLockPasswordFill className="account-icon" color="white" />
+                    <input type="password" placeholder="Password: " className="account-input password" ref={password} />
+                </div>
+
+                <div className="buttonsContainer">
+                    <button type="button" className="main-button" onClick={() => {
+                        logInState.logIn(username.current!.value, password.current!.value);
+                    }}>
+                        <div>
+                            LOG IN
+                        </div>
+                        <div>
+                            &#8599;
+                        </div>
+                    </button>
+
+                    <button className="side-button" onClick={() => {
+                        navigate("/createAccount");
+                    }} type="button">
+                        <div>
+                            Don't have an Account?
+                        </div>
+
+                        <div className="color-red">
+                            Sign up
+                        </div>
+                    </button>
+                </div>
             </div>
         </div>
     );

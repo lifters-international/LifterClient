@@ -1,5 +1,87 @@
+.account-div {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    width: 98vw;
+}
+
+.hero-section {
+    width: 40vw;
+    color: white;
+}
+
+.hero-section .logo {
+    height: 5vh;
+    position: relative;
+    bottom: 18vh;
+}
+
+.hero-section h1 {
+    font-size: 80px;
+    font-weight: 600;
+    color: red;
+    position: relative;
+    bottom: 22vh;
+    text-align: left;
+}
+
+.hero-section h2 {
+    font-size: 48px;
+    font-weight: 400;
+    color: white;
+    width: 65%;
+    position: relative;
+    bottom: 25vh;
+}
+
+.athlete-red-door-container {
+    height: 70vh;
+}
+
+.athlete-red-door-container .athlete-image {
+    height: 90vh;
+    width: 40vw;
+    position: absolute;
+    top: 10%;
+    left: 4vw;
+    z-index: -1;
+}
+
+.athlete-red-door-container .line-vector-image {
+    height: 100%;
+    width: 98vw;
+    position: absolute;
+    bottom: 20vh;
+    left: 0;
+    z-index: -2;
+}
+
+.red-door {
+    background: red;
+    border-radius: 500px 500px 0px 0px;
+    height: 88vh;
+    width: 25vw;
+    z-index: -3;
+    position: absolute;
+    top: 10vh;
+    left: 13vw;
+}
+
+.shadow {
+    background: linear-gradient(90deg, #050505 14.19%, rgba(5, 5, 5, 0) 104.09%);
+    transform: rotate(-90deg);
+    height: 92vh;
+    width: 25vw;
+    position: absolute;
+    top: 28vh;
+    left: 9vw;
+}
+
 .account {
-    border: 2px solid gainsboro;
     border-radius: 10px;
     padding: 20px;
     width: 50vw;
@@ -8,12 +90,45 @@
     margin-right: auto;
     margin-top: 2%;
     text-align: center;
+    position: relative;
+    top: 12vh;
 }
 
 .account-title {
     font-size: 2.5em;
     font-weight: bold;
     margin-bottom: 20px;
+    color: white;
+}
+
+.icon-input {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #222121;
+    background: #222121;
+    border-radius: 10px;
+    padding: 10px;
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-input .account-icon {
+    height: 5vh;
+    width: 4vw;
+    margin-right: 10px;
+    margin-bottom: 1vh;
+}
+
+.icon-input input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100vw;
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: white;
 }
 
 .lottie {
@@ -25,28 +140,64 @@
 .account-input {
     width: 90%;
     margin-bottom: 10px;
-    border: 1px solid gainsboro;
     border-radius: 5px;
     padding: 10px;
+    background: none;
 }
 
-.account-buttons {
-    width: 92%;
-    margin-bottom: 10px;
-    border: 1px solid gainsboro;
+.main-button {
+    background: #FF3636;
     border-radius: 5px;
     padding: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-    background-color: #00bcd4;
+    width: 25vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     color: white;
+    font-size: 35px;
+    border: none;
 }
 
-.account-buttons:hover, .account-input:hover {
-    cursor: pointer;
-    border: 1px solid black;
+.side-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15vh;
+    background: none;
+    color: #615f5f;
+    gap: 1vw;
+    border: none;
 }
 
-.create-button {
-    background: green;
+.side-button .color-red {
+    color: red;
+}
+
+@media only screen and (max-width: 845px) {
+    .hero-section {
+        display: none;
+    }
+
+    .athlete-red-door-container {
+        display: none;
+    }
+
+    .icon-input {
+        width: 90vw;
+        position: relative;
+        right: 20vw;
+    }
+
+    .main-button {
+        width: 50vw;
+        height: 8vh;
+        font-size: 25px;
+    }
 }
