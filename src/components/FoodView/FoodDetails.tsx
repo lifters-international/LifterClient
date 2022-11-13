@@ -26,26 +26,84 @@ const FoodDetails: React.FC<Props> = ({ id, name, calories, servingSize, nutriti
                 )
             }
             <div className="FoodDetails__ImportantInfor">
-                <div className="FoodDetails__TextImportant">Serving Size: {servingSize.measurment}{servingSize.unit}</div>
-                <div className="FoodDetails__TextImportant">Calories: {calories}</div>
+                <div className="FoodDetails__Divides">
+                    <div className="FoodDetails__TextImportant">Serving Size: </div>
+                    <div className="FoodDetails__TextImportantMU">{servingSize.measurment}{servingSize.unit}</div>
+                </div>
+
+                <div className="FoodDetails__Divides">
+                    <div className="FoodDetails__TextImportant">Calories: </div>
+                    <div className="FoodDetails__TextImportantMU">{calories}</div>
+                </div>
             </div>
 
             <div>
                 <div className="FoodDetails__TextImportantFacts">Nutrition Facts</div>
                 <div className="FoodDetails__NutritionFacts">
-                    <div className="FoodDetails__NutritionFacts__Item">Carbohydrates: {nutritionFacts.totalCarbohydrate.measurment}{nutritionFacts.totalCarbohydrate.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Protein: {nutritionFacts.protein.measurment}{nutritionFacts.protein.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Total Fat: {nutritionFacts.totalFat.measurment}{nutritionFacts.totalFat.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Saturated Fat: {nutritionFacts.saturatedFat.measurment}{nutritionFacts.saturatedFat.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Cholesterol: {nutritionFacts.cholesterol.measurment}{nutritionFacts.cholesterol.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Sodium: {nutritionFacts.sodium.measurment}{nutritionFacts.sodium.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Dietary Fiber: {nutritionFacts.dietaryFiber.measurment}{nutritionFacts.dietaryFiber.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Total Sugars: {nutritionFacts.totalSugars.measurment}{nutritionFacts.totalSugars.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Added Sugars: {nutritionFacts.addedSugars.measurment}{nutritionFacts.addedSugars.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Vitamin D: {nutritionFacts.vitaminD.measurment}{nutritionFacts.vitaminD.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Calcium: {nutritionFacts.calcium.measurment}{nutritionFacts.calcium.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Iron: {nutritionFacts.iron.measurment}{nutritionFacts.iron.unit}</div>
-                    <div className="FoodDetails__NutritionFacts__Item">Potassium: {nutritionFacts.potassium.measurment}{nutritionFacts.potassium.unit}</div>
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Carbohydrates: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.totalCarbohydrate.measurment}{nutritionFacts.totalCarbohydrate.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Protein: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.protein.measurment}{nutritionFacts.protein.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Total Fat: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.totalFat.measurment}{nutritionFacts.totalFat.unit}</div>
+                    </div>
+                    
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Saturated Fat: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.saturatedFat.measurment}{nutritionFacts.saturatedFat.unit}</div>
+                    </div>
+                    
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Cholesterol: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.cholesterol.measurment}{nutritionFacts.cholesterol.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Sodium: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.sodium.measurment}{nutritionFacts.sodium.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Dietary Fiber: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.dietaryFiber.measurment}{nutritionFacts.dietaryFiber.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Total Sugars: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.totalSugars.measurment}{nutritionFacts.totalSugars.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Added Sugars: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.addedSugars.measurment}{nutritionFacts.addedSugars.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Vitamin D: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.vitaminD.measurment}{nutritionFacts.vitaminD.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Calcium: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.calcium.measurment}{nutritionFacts.calcium.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Iron: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.iron.measurment}{nutritionFacts.iron.unit}</div>
+                    </div>
+
+                    <div className="FoodDetails__Divide">
+                        <div className="FoodDetails__TextImportant">Potassium: </div>
+                        <div className="FoodDetails__TextImportantMU">{nutritionFacts.potassium.measurment}{nutritionFacts.potassium.unit}</div>
+                    </div>
                 </div>
             </div>
 
