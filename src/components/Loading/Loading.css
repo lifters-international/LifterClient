@@ -1,5 +1,5 @@
 .loading {
     position: fixed;
-    bottom: -12%;
-    left: 20%;
+    bottom: 10vh;
+    left: 25vw;
 }
