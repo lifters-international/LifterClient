@@ -17,7 +17,7 @@ const Messages: React.FC = () => {
     const userAcceptedMatchesSubscription = useUserAcceptedMatchesSubscription(authentication.token!);
     const [socketAuthenticated, setSocketAuthenticated] = React.useState(false);
 
-    if (authentication.loading || !socketAuthenticated) return <Loading />;
+    if (authentication.loading) return <Loading />;
 
     if (authentication.error) {
         if (
@@ -31,8 +31,10 @@ const Messages: React.FC = () => {
 
     socket.on("authenticated", () => {
         setSocketAuthenticated(true);
-    })
+    });
 
+    if ( !socketAuthenticated ) return <Loading/>
+    
     if (authentication.token && !socketAuthenticated) socket.authenticate(authentication.token);
 
     return (
