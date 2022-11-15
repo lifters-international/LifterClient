@@ -32,10 +32,10 @@ const Messages: React.FC = () => {
     socket.on("authenticated", () => {
         setSocketAuthenticated(true);
     });
-
-    if ( !socketAuthenticated ) return <Loading/>
     
     if (authentication.token && !socketAuthenticated) socket.authenticate(authentication.token);
+
+    if ( !socketAuthenticated ) return <Loading/>
 
     return (
         <>
