@@ -61,7 +61,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: 12%;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     width: 55%;
@@ -72,7 +72,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 28vw;
-    height: 55vh;
+    height: 50vh;
 }
 
 .PeerMatchDetails {
@@ -124,14 +124,14 @@
 
     .PeerImages {
         width: 60vw;
-        height: 55vh;
+        height: 48vh;
     }
 
     .PeerMatchDetails {
         width: 61vw;
         top: 2vh;
         right: 1vw;
-        height: 7vh;
+        height: 10vh;
     }
 
     .PeerMatchDetailsContainer {
@@ -150,5 +150,14 @@
     .PeerMatchActionContainer {
         margin-left: 12vw;
         gap: 10vw;
+    }
+
+    .circle {
+        height: 4vh;
+    }
+
+    .PeerMatchHeart .anticon-heart {
+        position: relative;
+        top: -0.5vh;
     }
 }

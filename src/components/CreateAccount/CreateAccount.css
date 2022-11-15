@@ -74,8 +74,8 @@
 .shadow {
     background: linear-gradient(90deg, #050505 14.19%, rgba(5, 5, 5, 0) 104.09%);
     transform: rotate(-90deg);
-    height: 92vh;
-    width: 25vw;
+    height: 94vh;
+    width: 23vw;
     position: absolute;
     top: 28vh;
     left: 9vw;
@@ -118,7 +118,8 @@
     height: 5vh;
     width: 4vw;
     margin-right: 10px;
-    margin-bottom: 1vh;
+    position: relative;
+    top: 1vh;
 }
 
 .icon-input input {
@@ -150,7 +151,6 @@
     border-radius: 5px;
     padding: 10px;
     width: 25vw;
-    height: 7vh;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -160,6 +160,12 @@
     color: white;
     font-size: 35px;
     border: none;
+}
+
+.main-button div {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .side-button {

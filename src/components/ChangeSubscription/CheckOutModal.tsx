@@ -75,6 +75,8 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, custom
         }
     })();
 
+    if ( loading ) return <Loading />;
+
     return (
         <Card className={`CheckOutModal ${isOpen ? 'open' : 'close'}`} onClick={
             (event: any) => {
@@ -93,7 +95,6 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({ isOpen, setIsOpen, custom
                     if (submitFunc !== undefined) submitFunc();
                 }}>Subscribe</button>
             </div>
-            {loading && <Loading />}
         </Card>
     )
 }

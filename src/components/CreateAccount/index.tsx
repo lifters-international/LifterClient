@@ -1,6 +1,4 @@
 import React from 'react';
-import Lottie from 'react-lottie-player'
-import LiftersNavBar from "../../assests/LifterNavBar.json";
 import Loading from "../Loading";
 import Notice from "../Notice";
 import Error from "../Error";
@@ -18,6 +16,8 @@ const CreateAccount: React.FC = () => {
     const password = React.useRef<HTMLInputElement>(null);
     const username = React.useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
+
+    if ( signUp.loading ) return <Loading />
 
     return (
         <div className="account-div">
@@ -46,10 +46,6 @@ const CreateAccount: React.FC = () => {
             </div>
 
             <div className="account">
-                {
-                    signUp.loading ? <Loading /> : null
-                }
-
                 {
                     signUp.error.length > 0 ? <Error {...signUp.error[0]} /> : null
                 }

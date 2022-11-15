@@ -23,11 +23,11 @@ const PeerContainer: React.FC<PeerContainerProps> = ({ userToken, id, username, 
     const acceptMatch = async (accept: boolean) => {
         acceptDecline.acceptDecline(userToken!, id!, accept,
             (result) => {
-                console.log(result)
+                //console.log(result)
             },
             errFunc || (
                 (error) => {
-                    console.log(error)
+                    //console.log(error)
                 }
             )
         );

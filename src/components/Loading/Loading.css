@@ -1,5 +1,15 @@
 .loading {
     position: fixed;
-    bottom: 10vh;
-    left: 25vw;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+}
+
+.lottie-loading {
+    width: 50vw;
+    height: 50vh;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    top: 20vh;
 }

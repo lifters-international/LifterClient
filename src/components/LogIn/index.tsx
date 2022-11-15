@@ -1,6 +1,4 @@
 import React from 'react';
-import Lottie from 'react-lottie-player'
-import LiftersNavBar from "../../assests/LifterNavBar.json";
 import { useNavigate } from "react-router-dom";
 import { useLogIn } from "../../hooks";
 import "../CreateAccount/CreateAccount.css";
@@ -17,6 +15,8 @@ const LogIn: React.FC = () => {
     const navigate = useNavigate();
 
     if (logInState.loggedInSuccess) navigate("/");
+
+    if (logInState.loading) return <Loading />
 
     return (
         <div className="account-div">
@@ -45,10 +45,6 @@ const LogIn: React.FC = () => {
             </div>
 
             <div className="account">
-
-                {
-                    logInState.loading ? <Loading /> : null
-                }
 
                 {
                     logInState.error.length > 0 ? <Error {...logInState.error[0]} /> : null
