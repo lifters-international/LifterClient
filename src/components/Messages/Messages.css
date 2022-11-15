@@ -36,8 +36,8 @@
 }
 
 .UnMatchedPeersBluredContextLink {
-    position: fixed;
-    top: 3vh;
+    position: absolute;
+    top: 1.5vh;
     left: 45%;
     background: white;
     border-radius: 10px;
