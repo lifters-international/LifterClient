@@ -11,6 +11,7 @@
     overflow-y: auto;
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(8.9%, 10.5%));
+    gap: 10px;
 }
 
 .Content::-webkit-scrollbar {

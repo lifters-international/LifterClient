@@ -4,6 +4,10 @@
     height: 69vh;
 }
 
+.MessageBoxLoading {
+    position: absolute;
+}
+
 .MessageBoxEmpty {
     width: -moz-fit-content;
     width: fit-content;

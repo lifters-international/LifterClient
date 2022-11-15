@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PeerContainer from '../PeerContainer';
 import ProfilePicture from "../ProfilePicture";
 import SearchBar from "../SearchBar";
+import Loading from "../Loading";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { useSignInUserData } from '../../hooks';
@@ -17,7 +18,7 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
     const signedInUser = useSignInUserData(token);
     const [dropDown, setDropDown] = useState(false);
 
-    if (signedInUser.loading) return <></>;
+    if (signedInUser.loading) return <Loading/>;
 
     if (signedInUser.error) return <></>;
 
