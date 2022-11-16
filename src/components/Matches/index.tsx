@@ -3,7 +3,6 @@ import { useParams, Navigate, useNavigate } from "react-router-dom";
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import PeerMatchContainer from "../PeerMatch";
-import MobileWarning from '../MobileWarning';
 import Error from '../Error';
 import { useSessionHandler, useGetUserMatchDetails } from '../../hooks';
 
@@ -32,7 +31,6 @@ const Matches: React.FC = () => {
 
     return (
         <>
-            <MobileWarning />
             <NavBar token={authentication.token!}/>
             <div>
                 <PeerMatchContainer {...matchedDetails.user!} allowAction next={() => { navigation("/messages") }} userToken={authentication.token!}

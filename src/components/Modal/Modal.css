@@ -21,7 +21,7 @@
 .ModalContainer {
     width: 50vw;
     height: 50vh;
-    background: #fff;
+    background: hsl(0, 2%, 12%);
     border-radius: 5px;
     padding: 20px;
     justify-content: center;
@@ -42,6 +42,10 @@
     grid-template-columns: 96% 4%;
 }
 
+.ModalTitleContainerTitle {
+    color: rgb(141, 141, 141);
+}
+
 .ModalTitleContainerClose {
     font-size: 20px;
     font-weight: bold;
@@ -51,7 +55,7 @@
 }
 
 .ModalTitleContainerClose:hover {
-    color: black;
+    color: white;
 }
 
 .ModalButtonsContainer {
@@ -62,9 +66,9 @@
 }
 
 .ModalButtonContainerCancel {
-    background: white;
-    border: 1px solid gainsboro;
-    color: black;
+    background: hsl(0, 0%, 22%);;
+    border: 1px solid hsl(0, 0%, 22%);;
+    color: #b1b1b1;
     border-radius: 5px;
     padding: 10px;
     margin-right: 10px;
@@ -76,7 +80,7 @@
 }
 
 .ModalButtonContainerCancel:hover {
-    border-color: rgb(110, 178, 255);
+    border-color: hsl(0, 0%, 47%);;
 }
 
 .ModalButtonContainerOk {

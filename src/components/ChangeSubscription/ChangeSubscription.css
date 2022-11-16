@@ -3,14 +3,14 @@
 }
 
 .Subscription {
-    border: 1px solid black;
+    border: 1px solid hsl(0, 0%, 22%);
     border-radius: 10px;
     padding: 20px;
     width: 25%;
     margin-top: 15px;
     margin-left: 5vw;
     font-family: "IM FELL Great Primer SC", serif;
-    box-shadow: 10px 10px 10px 7px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 10px 7px hsl(0, 0%, 22%);
 }
 
 .Subscription h1 {
@@ -22,13 +22,14 @@
     font-size: 20px;
     font-style: italic;
     font-weight: bold;
-    border: 1px solid gainsboro;
+    border: 1px solid hsl(0, 0%, 22%);;
     border-radius: 10px;
     padding: 10px;
+    color: #5e5e5e;
 }
 
 .Subscription ul {
-    border-top: 2px solid gainsboro;
+    border-top: 2px solid hsl(0, 0%, 22%);;
     border-radius: 10px;
     padding: 10px;
     font-size: 20px;
@@ -37,10 +38,11 @@
 
 .Subscription ul li {
     list-style-type: none;
-    border: 1px solid black;
+    border: 1px solid hsl(0, 0%, 22%);;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    color: #5e5e5e;
 }
 
 .SubscriptionImage {
@@ -50,7 +52,7 @@
 
 .SubscriptionButton {
     width: 50%;
-    border: 1px solid black;
+    border: 1px solid hsl(0, 0%, 22%);;
     border-radius: 10px;
     padding: 10px;
     color: white;
@@ -65,7 +67,7 @@
 }
 
 .Blue {
-    background: rgb(69, 156, 255);
+    background: #ff5858;
     cursor: pointer;
 }
 
@@ -91,10 +93,9 @@
 }
 
 .CheckOutContainer {
-    background-color: #fefefe;
+    background-color: hsl(0, 0%, 13%);
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
     width: 40%;
     height: 40%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -115,9 +116,10 @@
     font-size: 15px;
     font-style: italic;
     font-weight: bold;
-    border: 1px solid gainsboro;
+    border: 1px solid hsl(0, 0%, 22%);
     border-radius: 10px;
     padding: 10px;
+    color: #5e5e5e;
 }
 
 .CheckOutDivForm {
@@ -126,9 +128,9 @@
 }
 
 .CheckOutDiv {
-    background-color: #fefefe;
+    background-color: hsl(0, 0%, 13%);
     margin: 5% auto 15% auto;
-    border: 1px solid gainsboro;
+    border: 1px solid hsl(0, 0%, 22%);
     border-right: none;
     border-top-right-radius: none;
     border-bottom-right-radius: none;
@@ -140,7 +142,7 @@
 .CheckOutPostalCode {
     width: 50%;
     height: 15px;
-    border: 1px solid gainsboro;
+    border: 1px solid hsl(0, 0%, 22%);
     color: black;
     border-left: none;
     border-top-left-radius: none;

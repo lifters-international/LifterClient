@@ -15,26 +15,35 @@
     width: fit-content;
 }
 
+.PeerMatchDetailsContainer {
+    background: hsl(0, 1%, 13%);
+    width: 28vw;
+    height: 25vh;
+    margin-left: 31.2%;
+    position: relative;
+    top: -1vw;
+}
+
 .circle {
     height: 30px;
-    width: 30px;
+    width: 100vw;
+    margin-left: 10%;
     display: inline-block;
-    border-radius: 50%;
     padding: 10px;
     text-align: center;
     cursor: pointer;
+    background-color: hsl(0, 0%, 22%);
 }
 
 .PeerMatchX {
-    background:hsl(35, 86%, 86%);
     font-size: 20px;
     font-family: "IM FELL Great Primer SC", serif;
-    color: rgb(252, 187, 66);
+    color: white;
 }
 
 .PeerMatchHeart {
-    background: rgb(243, 210, 210);
-    color: #e36b97;
+    background: #FF3636;
+    color: white;
     align-items: center;
     justify-content: center;
 }
@@ -52,55 +61,52 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
-    width: 35%;
+    width: 55%;
 }
 
 .PeerImages {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid gainsboro;
-    border-radius: 10%;
     width: 28vw;
-    height: 65vh;
+    height: 50vh;
 }
 
 .PeerMatchDetails {
     position: relative;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    background-color: rgba(247, 112, 112, 0.562);
-    top: 29.7vh;
-    right: 28vw;
+    top: 1vw;
     width: 28vw;
     height: 52px;
-    border-radius: 20px;
-    border-bottom-right-radius: 130px;
-    border-bottom-left-radius: 130px;
     text-align: left;
 }
 
 .PeerMatchDetailsName {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     margin-top: 1%;
-    margin-left: 1%;
+    position: relative;
+    left: -3vw;
     color: white;
+    text-align: center;
+    width: 100%;
 }
 
 .PeerMatchDetailsBio {
-    font-size: 100%;
+    font-size: 20px;
     margin-top: 1%;
-    margin-left: 1%;
+    position: relative;
+    left: -1vw;
     font-weight: bold;
     font-style: italic;
     color: rgb(138, 138, 138);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-align: center;
+    border-bottom: 0.5px solid #363434;
 }
 
 .PeerMatchDetailsName, .PeerMatchDetailsBio {
@@ -118,22 +124,40 @@
 
     .PeerImages {
         width: 60vw;
-        height: 60vh;
+        height: 48vh;
     }
 
     .PeerMatchDetails {
         width: 61vw;
-        top: 27vh;
-        right: 60.5vw;
-        height: 7vh;
+        top: 2vh;
+        right: 1vw;
+        height: 10vh;
+    }
+
+    .PeerMatchDetailsContainer {
+        width: 59vw;
+        height: 23vh;
+        position: relative;
+        top: -2vh;
     }
 
     .PeerMatchDetailsName {
-        width: 100vw;
+        width: 59vw;
+        text-align: center;
+        left: -5vw;
     }
 
     .PeerMatchActionContainer {
-        margin-left: 38vw;
+        margin-left: 12vw;
         gap: 10vw;
+    }
+
+    .circle {
+        height: 4vh;
+    }
+
+    .PeerMatchHeart .anticon-heart {
+        position: relative;
+        top: -0.5vh;
     }
 }

@@ -8,7 +8,7 @@
     margin-right: auto; 
     margin-left: auto;
     margin-top: 3vh;
-    border: 1px solid gainsboro;
+    border: 1px solid hsl(0, 0%, 22%);
     border-radius: 10px;
     padding: 10px;
 }
@@ -18,7 +18,7 @@
     border: 2px solid black;
     border-radius: 10px;
     padding: 10px;
-    background: rgb(232, 140, 135);
+    background: #f75252;
     color: white;
     font-family: "IM FELL Great Primer SC", serif;
     font-size: 15px;
@@ -33,7 +33,7 @@
     margin-top: 3vh;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid gainsboro;
+    border: 2px solid hsl(0, 0%, 22%);
     border-radius: 10px;
     padding: 10px;
 }
@@ -67,7 +67,7 @@
 
 .EditProfileInputField, .EditProfileInputBio {
     width: 80%;
-    border: 2px solid gainsboro;
+    border: 2px solid hsl(0, 0%, 22%);
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 2%;
@@ -77,6 +77,8 @@
     width: 97%;
     height: 10vh;
     overflow: auto;
+    background: hsl(0, 0%, 15%);
+    color:hsl(0, 0%, 65%);
 }
 
 .EditProfileInputField:active, .EditProfileInputBio:active {
@@ -93,7 +95,7 @@
     border: 2px solid black;
     border-radius: 10px;
     padding: 10px;
-    background: rgb(232, 140, 135);
+    background: #f75252;
     color: white;
     font-family: "IM FELL Great Primer SC", serif;
     font-size: 15px;

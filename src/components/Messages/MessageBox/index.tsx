@@ -8,6 +8,7 @@ import { useGetUserMessages } from "../../../hooks";
 import { MessageMetaDataType, MessageWhoSent } from '../../../utils';
 
 import "./MessageBox.css";
+import Loading from "../../Loading";
 
 export type MessageBoxProps = {
     currentMatchId: string;
@@ -42,6 +43,12 @@ const MessageBox: React.FC<MessageBoxProps> = ({ currentMatchId, token, name, pr
             </div>
         )
     }
+
+    if ( userMessages.loading ) return (
+        <div className="MessageBoxLoading">
+            <Loading/>
+        </div>
+    )
 
     return (
         <div className="MessageBox MessageBoxContainer">

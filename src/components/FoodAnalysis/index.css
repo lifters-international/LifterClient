@@ -89,7 +89,7 @@
 
 .FoodAteTodayView {
     margin-top: 15px;
-    border-top: 3px solid gainsboro;
+    border-top: 3px solid hsl(0, 0%, 22%);
     border-radius: 10px;
 }
 

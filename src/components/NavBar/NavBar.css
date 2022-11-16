@@ -1,5 +1,5 @@
 .NavBar {
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid #3a3939;
     padding: 10px;
     margin: 5px;
     display: flex;
@@ -19,7 +19,7 @@
 .NavBarSearch {
     margin: auto;
     position: relative;
-    top: 30%;
+    top: 20%;
     left: 12%;
     cursor: pointer;
 }
@@ -90,7 +90,6 @@
     .NavBarContainerMobileDropDownMenu {
         background: red;
         color: white;
-        border: 1px solid gainsboro;
         border-radius: 10px;
         padding: 10px;
         font-size: 15px;
@@ -98,9 +97,11 @@
 
     .NavBarContainerMobileDropDownContent {
         position: absolute;
-        background-color: #f9f9f9;
         max-width: 20vw;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 5;
+        border: 1px solid #3a3939;
+        border-radius: 10px;
+        padding: 8px;
     }
 }
