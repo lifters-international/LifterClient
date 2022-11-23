@@ -2,7 +2,7 @@ import React from 'react';
 
 import { newUserMatchesSubscription, getUserUnAcceptedMatches } from '../graphQlQuieries';
 import { useSubscription } from '@apollo/client';
-import { newUserSubscriptionMatches, client, fetchGraphQl, SubscriptionType, newUserMatches } from "../utils";
+import { newUserSubscriptionMatches, client, fetchGraphQl, newUserMatches } from "../utils";
 
 export type UserMatchesSubscription = {
     loading: boolean;
@@ -66,7 +66,6 @@ export const useUserMatchesSubscription = (token: string): UserMatchesSubscripti
                     return { 
                         ...prevState,
                         data: { 
-                            userSubscription: prevState.data?.userSubscription as SubscriptionType,
                             matches: [data.newUserMatches].concat(prevState.data!.matches)
                         }
                     }

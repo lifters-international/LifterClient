@@ -1,7 +1,7 @@
 import './App.css';
 import * as React from 'react';
 import { Route, Routes } from "react-router-dom";
-import { Home, NotFound404, CreateAccount, CreateFood, LogIn, Profile, FoodView, FoodAnalysis, Preview, Messages, Matches, Search, ChangeSubscription, ChangeSubscriptionWithToken } from './components';
+import { Home, NotFound404, CreateAccount, CreateFood, LogIn, Profile, FoodView, FoodAnalysis, Preview, Messages, Matches, Search } from './components';
 
 const App: React.FC = () => {
   return (
@@ -12,8 +12,13 @@ const App: React.FC = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/preview" element={<Preview />} />
       <Route path="/messages" element={<Messages />} />
-      <Route path="/changeSubscription" element={<ChangeSubscription />} />
-      <Route path="/changeSubscription/:token" element={<ChangeSubscriptionWithToken />} />
+      {
+        /*
+         THIS IS NO LONGER NEEDED BEING THAT WE ARE NOT SUBSCRIPTION BASE FOR NOW... LEGACY CODE
+         <Route path="/changeSubscription" element={<ChangeSubscription />} />
+         <Route path="/changeSubscription/:token" element={<ChangeSubscriptionWithToken />} />
+         */
+      }
       <Route path="/matches/:id" element={<Matches />} />
       <Route path="/search/:query" element={<Search />} />
       <Route path="/food" element={<FoodView />}/>

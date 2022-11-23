@@ -62,14 +62,6 @@ const Messages: React.FC = () => {
                             })
                         }
                     </div>
-
-                    {
-                        userMatchesSubscription.data?.userSubscription === SubscriptionType.BASIC && userMatchesSubscription.data?.matches.length > 0 ? (
-                            <div className="UnMatchedPeersBlured">
-                                <Link to="/changeSubscription" className="UnMatchedPeersBluredContextLink" target="_blank">Upgrade To Pro</Link>
-                            </div>
-                        ) : null
-                    }
                 </div>
             </div>
             <MessageContainer

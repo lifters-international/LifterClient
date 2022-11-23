@@ -10,7 +10,6 @@ export const getUserSubscriptionInfor = `
             bio
             profilePicture
             homeGymLocation
-            stripeSubscriptionId
         }
     }
 `;
