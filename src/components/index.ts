@@ -36,9 +36,12 @@ export { default as Matches } from "./Matches";
 
 export { default as Search } from "./Search";
 
+/*
 export { default as ChangeSubscription } from "./ChangeSubscription";
 
 export { default as ChangeSubscriptionWithToken } from "./ChangeSubscriptionWithToken";
+
+*/
 
 export { default as FoodView } from "./FoodView";
 

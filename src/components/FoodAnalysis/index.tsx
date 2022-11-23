@@ -39,123 +39,126 @@ const FoodAnalysis: React.FC = () => {
     return (
         <>
             <NavBar token={authentication.token!} />
-            {
-                analysis?.allowedToSee ? (
-                    <>
-                        <div className="ChartContainer">
-                            <div className="ChartTitle">Macronutrient BreakDown</div>
 
-                            <div className="Chart">
-                                <div>
-                                    {
-                                        analysis?.Calories === 0 ? (
-                                            <div className="ChartTitleNoFood">No food has been logged today.</div>
-                                        ) : (
-                                            <VictoryPie
-                                                data={[
-                                                    { x: "Protein", y: analysis?.Protein },
-                                                    { x: "Carbs", y: analysis?.Carbs },
-                                                    { x: "Fat", y: analysis?.Fat },
-                                                ]}
-                                                colorScale={["rgba(131, 167, 234, 1)", "rgb(163, 221, 163)", "rgb(255, 112, 112)"]}
-                                                height={50}
-                                                width={150}
-                                                animate={{
-                                                    duration: 2000
-                                                }}
-                                                radius={20}
-                                                style={{
-                                                    labels: {
-                                                        fill: "#01200e",
-                                                        fontSize: 5,
-                                                        fontWeight: "bold"
-                                                    }
-                                                }}
-                                            />
+            <div className="ChartContainer">
+                <div className="ChartTitle">Macronutrient BreakDown</div>
 
-                                        )
-                                    }
-                                </div>
+                <div className="Chart">
+                    <div>
+                        {
+                            analysis?.Calories === 0 ? (
+                                <div className="ChartTitleNoFood">No food has been logged today.</div>
+                            ) : (
+                                <VictoryPie
+                                    data={[
+                                        { x: "Protein", y: analysis?.Protein },
+                                        { x: "Carbs", y: analysis?.Carbs },
+                                        { x: "Fat", y: analysis?.Fat },
+                                    ]}
+                                    colorScale={["rgba(131, 167, 234, 1)", "rgb(163, 221, 163)", "rgb(255, 112, 112)"]}
+                                    height={50}
+                                    width={150}
+                                    animate={{
+                                        duration: 2000
+                                    }}
+                                    radius={20}
+                                    style={{
+                                        labels: {
+                                            fill: "#01200e",
+                                            fontSize: 5,
+                                            fontWeight: "bold"
+                                        }
+                                    }}
+                                />
 
-                                <div className="ChartLabel">
-                                    {
-                                        analysis?.Calories === 0 ? null : (
-                                            <>
-                                                <div className="fatsTextColor">
-                                                    Fats: {((analysis?.Fat || 0) / total * 100).toFixed(2)}%
-                                                </div>
-                                                <div className="proteinTextColor">
-                                                    Protiens {((analysis?.Protein || 0) / total * 100).toFixed(2)}%
-                                                </div>
-                                                <div className="carbsTextColor">
-                                                    Carbs {((analysis?.Carbs || 0) / total * 100).toFixed(2)}%
-                                                </div>
-                                            </>
-                                        )
-                                    }
-                                </div>
-                            </div>
-
-                            <div className="ChartTitle Size15" >Estimated % of Calories</div>
-                        </div>
-
-                        <div className="ChartContainer ProgressBarContainer">
-                            <div className="ChartTitle">Daily Macronutrient Goals</div>
-
-                            <div className="ProgressBarsContainer">
-                                <div className="ProgressBarContain">
-                                    <div className="ProgressBarsTitle">Fats</div>
-                                    <ProgressBar bgColor="rgb(255, 112, 112)" completed={
-                                        Number(
-                                            (
-                                                (
-                                                    (analysis?.Fat || 0) / (analysis?.FatsGoal || 0)
-                                                ) * 100
-                                            ).toFixed(2)
-                                        )
-                                    } />
-                                    <div className="ProgressBarsDes">{analysis?.Fat} / {analysis?.FatsGoal} g</div>
-                                </div>
-
-                                <div className="ProgressBarContain">
-                                    <div className="ProgressBarsTitle">Protien</div>
-                                    <ProgressBar bgColor="rgba(131, 167, 234, 1)" completed={
-                                        Number(
-                                            (
-                                                (
-                                                    (analysis?.Carbs || 0) / (analysis?.CarbsGoal || 0)
-                                                ) * 100
-                                            ).toFixed(2)
-                                        )
-                                    } />
-                                    <div className="ProgressBarsDes">{analysis?.Carbs} / {analysis?.CarbsGoal} g</div>
-                                </div>
-
-                                <div className="ProgressBarContain">
-                                    <div className="ProgressBarsTitle">Carbs</div>
-                                    <ProgressBar bgColor="rgb(163, 221, 163)" completed={
-                                        Number(
-                                            (
-                                                (
-                                                    (analysis?.Protein || 0) / (analysis?.ProteinGoal || 0)
-                                                ) * 100
-                                            ).toFixed(2)
-                                        )
-                                    } />
-                                    <div className="ProgressBarsDes">{analysis?.Protein} / {analysis?.ProteinGoal} g</div>
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                ) : (
-                    <div className="ChartContainer">
-                        <Link to="/changeSubscription" className="">
-                            <div className="ChartTitle">Please Upgrade your subscription</div>
-                            <div className="ChartTitle Size15" >To see analysis data</div>
-                        </Link>
+                            )
+                        }
                     </div>
-                )
-            }
+
+                    <div className="ChartLabel">
+                        {
+                            analysis?.Calories === 0 ? null : (
+                                <>
+                                    <div className="fatsTextColor">
+                                        Fats: {((analysis?.Fat || 0) / total * 100).toFixed(2)}%
+                                    </div>
+                                    <div className="proteinTextColor">
+                                        Protiens {((analysis?.Protein || 0) / total * 100).toFixed(2)}%
+                                    </div>
+                                    <div className="carbsTextColor">
+                                        Carbs {((analysis?.Carbs || 0) / total * 100).toFixed(2)}%
+                                    </div>
+                                </>
+                            )
+                        }
+                    </div>
+                </div>
+
+                <div className="ChartTitle Size15" >Estimated % of Calories</div>
+            </div>
+
+            <div className="ChartContainer ProgressBarContainer">
+                <div className="ChartTitle">Daily Macronutrient Goals</div>
+
+                <div className="ProgressBarsContainer">
+                    <div className="ProgressBarContain">
+                        <div className="ProgressBarsTitle">Fats</div>
+                        <ProgressBar bgColor="rgb(255, 112, 112)" completed={
+                            Number(
+                                (
+                                    (
+                                        (analysis?.Fat || 0) / (analysis?.FatsGoal || 0)
+                                    ) * 100
+                                ).toFixed(2)
+                            )
+                        } />
+                        <div className="ProgressBarsDes">{analysis?.Fat} / {analysis?.FatsGoal} g</div>
+                    </div>
+
+                    <div className="ProgressBarContain">
+                        <div className="ProgressBarsTitle">Protien</div>
+                        <ProgressBar bgColor="rgba(131, 167, 234, 1)" completed={
+                            Number(
+                                (
+                                    (
+                                        (analysis?.Protein || 0) / (analysis?.ProteinGoal || 0)
+                                    ) * 100
+                                ).toFixed(2)
+                            )
+                        } />
+                        <div className="ProgressBarsDes">{analysis?.Protein} / {analysis?.ProteinGoal} g</div>
+                    </div>
+
+                    <div className="ProgressBarContain">
+                        <div className="ProgressBarsTitle">Carbs</div>
+                        <ProgressBar bgColor="rgb(163, 221, 163)" completed={
+                            Number(
+                                (
+                                    (
+                                        (analysis?.Carbs || 0) / (analysis?.CarbsGoal || 0)
+                                    ) * 100
+                                ).toFixed(2)
+                            )
+                        } />
+                        <div className="ProgressBarsDes">{analysis?.Carbs} / {analysis?.CarbsGoal} g</div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="ProgressBarContain">
+                <div className="ProgressBarsTitle">Calories</div>
+                <ProgressBar bgColor="red" completed={
+                    Number(
+                        (
+                            (
+                                (analysis?.Calories || 0) / (analysis?.CalorieGoal || 0)
+                            ) * 100
+                        ).toFixed(2)
+                    )
+                } />
+                <div className="ProgressBarsDes">{analysis?.Calories} / {analysis?.CalorieGoal}</div>
+            </div>
+
 
             <div className="FoodAteTodayView">
                 <div className="FoodAteTodayTitle">Food Ate Today</div>

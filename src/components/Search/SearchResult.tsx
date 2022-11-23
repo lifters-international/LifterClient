@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { useSearchQuery, useAcceptDeclineMatch } from '../../hooks';
-import { SubscriptionType } from "../../utils";
 import { HeartFilled } from '@ant-design/icons';
 import Loading from '../Loading';
 import ProfilePicture from "../ProfilePicture";
@@ -28,6 +26,8 @@ const SearchResult: React.FC<SearchResultProps> = ({ query, token }: SearchResul
     let showDiv = queryResult.result ? true : false;
 
     if (showDiv) showDiv = queryResult.result!.length > 0 ? true : false;
+
+    console.log(showDiv, queryResult);
     return (
         <div>
             <h1>Search Result</h1>
@@ -43,8 +43,8 @@ const SearchResult: React.FC<SearchResultProps> = ({ query, token }: SearchResul
                                             <div className="name center">{user.username}</div>
                                             <div className="bio center" title={user.bio}>{shortText(user.bio)}</div>
                                             <div className="homeGym center">{user.homeGymLocation}</div>
-                                            <div className="X circle centerB" onClick={() => acceptMatch(false, user.id)} >X</div>
-                                            <div className="Heart circle centerB" onClick={() => acceptMatch(true, user.id)} >
+                                            <div className="X centerB" onClick={() => acceptMatch(false, user.id)} >X</div>
+                                            <div className="Heart centerB" onClick={() => acceptMatch(true, user.id)} >
                                                 <HeartFilled twoToneColor="#eb2f96" style={
                                                     {
                                                         verticalAlign: 'middle'
@@ -56,13 +56,6 @@ const SearchResult: React.FC<SearchResultProps> = ({ query, token }: SearchResul
 
                                     )
                                 })
-                            }      
-                            {
-                                queryResult.userSubscription === SubscriptionType.BASIC ? (
-                                    <div className="SearchResultBasicSubscriptionBlured">
-                                        <Link to="/changeSubscription" className="SearchResultBasicSubscriptionBluredContextLink" target="_blank">Upgrade To Pro</Link>
-                                    </div>
-                                ) : null
                             }
                         </div>
                     ) : (
