@@ -83,14 +83,14 @@ const Profile: React.FC = () => {
                     message = "There was a problem uploading a new profile image please try again later.";
                 }
 
-                if ( result.imageURL ) {
+                if ( result.url ) {
                     message = "Your profile image has been updated successfully";
                 }
 
                 setNotify({ type, show: true, message });
-                if (imageContainerRef.current && result.imageURL ) {
-                    imageContainerRef.current.style.backgroundImage = `url(${getServerUrl()}image/${result.imageURL})`;
-                    await saveProfileImage(result.imageURL);
+                if (imageContainerRef.current && result.url ) {
+                    imageContainerRef.current.style.backgroundImage = result.url;
+                    await saveProfileImage(result.url);
                 }
             }
         }
