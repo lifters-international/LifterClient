@@ -11,16 +11,20 @@ const Preview: React.FC = () => {
     const signedInUser = useSignInUserData(authentication.token!);
 
     
-    if (authentication.loading || signedInUser.loading) return <Loading />;
+    if ( authentication.loading ) return <Loading />;
 
     if (authentication.error) {
         if (
             authentication.error[0].message === "jwt malformed"
             || 
             authentication.error[0].extensions.code === "BAD_USER_INPUT"
+            || 
+            authentication.error[0].message === "jwt expired"
         ) return <Navigate to="/logIn" />;
         else return <Error {...authentication.error[0]} reload={true} />;
     }
+
+    if ( signedInUser.loading ) return <Loading />;
 
     if (signedInUser.error) return <Error {...signedInUser.error[0]} reload={true} />;
 

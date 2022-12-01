@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { useSessionHandler, useGetDailyFoodAnalystics } from '../../hooks';
 
@@ -16,17 +16,21 @@ const FoodAnalysis: React.FC = () => {
     const authentication = useSessionHandler();
     const { loading, error, analysis } = useGetDailyFoodAnalystics(authentication.token!);
 
-    if (authentication.loading || loading) return <Loading />
+    if ( authentication.loading ) return <Loading />
 
     if (authentication.error) {
         if (
             authentication.error[0].message === "jwt malformed"
-            ||
+            || 
             authentication.error[0].extensions.code === "BAD_USER_INPUT"
+            || 
+            authentication.error[0].message === "jwt expired"
         ) return <Navigate to="/createAccount" replace={true} />
         else if (authentication.error[0].message === "jwt expired") return <Navigate to="/logIn" replace={true} />
         else return <Error {...authentication.error[0]} reload={true} />;
     }
+
+    if ( loading ) return <Loading />
 
     if (error) return <div>There was a problem reaching the server. Please try again later.</div>
 
