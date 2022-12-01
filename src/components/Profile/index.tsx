@@ -89,7 +89,7 @@ const Profile: React.FC = () => {
 
                 setNotify({ type, show: true, message });
                 if (imageContainerRef.current && result.url ) {
-                    imageContainerRef.current.style.backgroundImage = result.url;
+                    imageContainerRef.current.style.backgroundImage = `url(${result.url})`;
                     await saveProfileImage(result.url);
                 }
             }
