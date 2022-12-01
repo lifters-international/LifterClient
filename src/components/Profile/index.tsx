@@ -96,7 +96,7 @@ const Profile: React.FC = () => {
         }
     }
 
-    if (authentication.loading || signedInUser.loading) return <Loading />;
+    if ( authentication.loading ) return <Loading />;
 
     if (authentication.error) {
         if (
@@ -109,6 +109,8 @@ const Profile: React.FC = () => {
         else return <Error {...authentication.error[0]} reload={true} />;
     }
 
+    if ( signedInUser.loading ) return <Loading />;
+    
     if (signedInUser.error) return <Error {...signedInUser.error[0]} reload={true} />;
 
     return (

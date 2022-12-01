@@ -16,7 +16,7 @@ const FoodAnalysis: React.FC = () => {
     const authentication = useSessionHandler();
     const { loading, error, analysis } = useGetDailyFoodAnalystics(authentication.token!);
 
-    if (authentication.loading || loading) return <Loading />
+    if ( authentication.loading ) return <Loading />
 
     if (authentication.error) {
         if (
@@ -29,6 +29,8 @@ const FoodAnalysis: React.FC = () => {
         else if (authentication.error[0].message === "jwt expired") return <Navigate to="/logIn" replace={true} />
         else return <Error {...authentication.error[0]} reload={true} />;
     }
+
+    if ( loading ) return <Loading />
 
     if (error) return <div>There was a problem reaching the server. Please try again later.</div>
 

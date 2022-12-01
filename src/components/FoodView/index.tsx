@@ -20,7 +20,7 @@ const FoodView: React.FC = () => {
     const navigate = useNavigate();
     const { foods: searchFood, loading: searchLoading, error: searchError } = useSearchFood(search, authentication.token!);
 
-    if (authentication.loading || loading || searchLoading) return <Loading />
+    if ( authentication.loading ) return <Loading />
 
     if (authentication.error) {
         if (
@@ -33,6 +33,8 @@ const FoodView: React.FC = () => {
         else if (authentication.error[0].message === "jwt expired") return <Navigate to="/logIn" replace={true} />
         else return <Error {...authentication.error[0]} reload={true} />;
     }
+
+    if ( loading || searchLoading ) return <Loading />
 
     if (error || searchError) return <div>There was a problem reaching the server. Please try again later.</div>
 

@@ -11,7 +11,7 @@ const Preview: React.FC = () => {
     const signedInUser = useSignInUserData(authentication.token!);
 
     
-    if (authentication.loading || signedInUser.loading) return <Loading />;
+    if ( authentication.loading ) return <Loading />;
 
     if (authentication.error) {
         if (
@@ -23,6 +23,8 @@ const Preview: React.FC = () => {
         ) return <Navigate to="/logIn" />;
         else return <Error {...authentication.error[0]} reload={true} />;
     }
+
+    if ( signedInUser.loading ) return <Loading />;
 
     if (signedInUser.error) return <Error {...signedInUser.error[0]} reload={true} />;
 
