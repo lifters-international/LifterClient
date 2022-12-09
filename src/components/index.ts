@@ -50,3 +50,5 @@ export { default as FoodAnalysis } from "./FoodAnalysis";
 export { default as DailyMatchLimit } from "./DailyMatchLimit";
 
 export { default as CreateFood } from "./CreateFood";
+
+export { default as Workout } from "./Workout";
