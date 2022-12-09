@@ -51,4 +51,4 @@ export { default as DailyMatchLimit } from "./DailyMatchLimit";
 
 export { default as CreateFood } from "./CreateFood";
 
-export { default as Workout } from "./Workout";
+export { default as Workout } from "./Trainers";

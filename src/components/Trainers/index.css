@@ -1,0 +1,59 @@
+.Trainers .TrainerHeader {
+    color: hsl(0, 0%, 52%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Trainers .TrainerHeader div {
+    margin-top: 1%;
+}
+
+.Trainers .TrainerHeader .TrainersLink, .Trainers .TrainerHeader .VideosLink {
+    position: relative;
+    right: 5vw;
+    top: 0.5vh;
+}
+
+.Trainers .TrainerHeader .TrainersLink:hover, .Trainers .TrainerHeader .VideosLink:hover {
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    height: 2vh;
+}
+
+.Trainers .TrainersSearchView {
+    width: 70vw;
+    grid-template-columns: 95% 5%;
+    margin-top: 1%;
+}
+
+.Trainers .TrainerSearchView__Icon {
+    height: 30%;
+    width: 100%;
+    position: relative;
+    top: 0.2vw;
+    left: -4.9vw;
+}
+
+.Trainers .TrainerSearchView__Input {
+    height: 30%;
+    border-radius: 10px;
+    color: hsl(0, 0%, 52%);
+}
+
+.Trainers .TrainerSearchView__Input::placeholder {
+    color: hsl(0, 0%, 52%);
+}
+
+.Trainers .NoTrainersFound {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 20vw;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
