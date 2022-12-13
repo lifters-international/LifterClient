@@ -1,0 +1,69 @@
+.TrianerDetails div {
+    color: rgb(255, 255, 255);
+}
+
+.TrianerDetails .bannerImage {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.TrianerDetails .DetailsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.TrianerDetails .DetailsContainer .dets {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.TrianerDetails .DetailsContainer .dets .trainerProfilePicture {
+    border-radius: 30px;
+    width: 100px;
+    border:1px solid rgb(59, 59, 59);
+}
+
+.TrianerDetails .DetailsContainer .dets .name-verification {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+    font-size: 20px;
+}
+
+.TrianerDetails .DetailsContainer .trainer-dets-button {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    margin-top: 1vw;
+}
+
+.TrianerDetails .DetailsContainer .trainer-dets-button .button {
+    cursor: pointer;
+    background-color: #FF3636;
+    padding: 10px;
+    border-radius: 10px;
+    height: 3vh;
+    text-align: center;
+}
+
+.TrianerDetails .DetailsContainer .trainer-dets-button .button:hover {
+    background-color: red;
+}
+
+.TrianerDetails .DetailsContainer .trainer-dets-button div.trainer-price {
+    display: flex;
+    gap: 10px;
+}
+
+.TrianerDetails .DetailsContainer .trainer-dets-button div.price {
+    color: rgb(10, 250, 10);
+}

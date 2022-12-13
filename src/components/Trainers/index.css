@@ -17,11 +17,9 @@
 
 .Trainers .TrainerHeader .TrainersLink:hover, .Trainers .TrainerHeader .VideosLink:hover {
     background: white;
-    padding: 8px;
     border-radius: 10px;
     color: black;
     text-align: center;
-    height: 2vh;
 }
 
 .Trainers .TrainersSearchView {

@@ -45,3 +45,5 @@ export * from "./subscribeToUnlimitedLifter";
 export * from "./UserCreateFood";
 
 export * from "./searchTrainers";
+
+export * from "./getTrainersDetailsById";

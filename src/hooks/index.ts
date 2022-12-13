@@ -35,3 +35,5 @@ export * from "./useGetDailyFoodAnalystics";
 export * from "./useIsMobile";
 
 export * from "./useSearchTrainer";
+
+export * from "./useGetTrainersDetailsById";

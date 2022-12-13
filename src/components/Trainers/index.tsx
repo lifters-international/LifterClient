@@ -6,6 +6,9 @@ import Error from "../Error";
 import SearchBar from "../SearchBar";
 import TrainersCard from "../TrainersCard";
 
+import { RiEmpathizeFill } from "react-icons/ri";
+import { MdOutlineSlowMotionVideo } from "react-icons/md";
+
 import { useSessionHandler, useSearchTrainer } from "../../hooks";
 
 import "./index.css";
@@ -50,8 +53,8 @@ const Workouts: React.FC<WorkoutsProps> = ({ }: WorkoutsProps) => {
                     }} 
                     placeholder="Search for Trainers" className="TrainersSearchView" iconClass="TrainerSearchView__Icon" searchInputClass="TrainerSearchView__Input" />
                 
-                    <div className="TrainersLink">Trainers</div>
-                    <div className="VideosLink">Videos</div>
+                    <RiEmpathizeFill className="TrainersLink" size={60} color="red" />
+                    <MdOutlineSlowMotionVideo className="VideosLink" size={60} color="red" />
                 </div>
                 <h1>Trainers</h1>
 
