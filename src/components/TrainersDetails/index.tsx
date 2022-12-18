@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
+import { useParams, Navigate, useLocation } from "react-router-dom";
 
 import { useSessionHandler, useGetTrainerDetails } from '../../hooks';
 
@@ -9,8 +9,10 @@ import NavBar from "../NavBar";
 import Page404 from "../404";
 
 import { TrainerHomeSlide } from "./TrainerHomeSlide";
+import { TrainerRatingSlide } from "./TrainerRatingSlide";
+import { TrainerWriteSlide } from "./TrainerWriteSlide";
 
-import ReactStars from "react-rating-stars-component";
+import ReactStars from "../ReactStars";
 
 import { MdVerifiedUser, MdAttachMoney, MdMoneyOff } from "react-icons/md";
 import { AiFillHome, AiFillMessage } from "react-icons/ai";
@@ -22,12 +24,15 @@ import "./index.css";
 
 const TrainersDetails: React.FC = () => {
     let { id } = useParams();
-    const navigation = useNavigate();
+    const location = useLocation();
+    let queryShow = new URLSearchParams(location.search).get("show");
+
+    queryShow = ["home", "reviews", "write"].includes(queryShow || "" ) ? queryShow : "home";
 
     const authentication = useSessionHandler();
     const trainerDetails = useGetTrainerDetails({ id: id || "" });
 
-    const [show, setShow] = useState('home');
+    const [show, setShow] = useState(queryShow);
 
     if (!id) return <Page404 />;
 
@@ -69,9 +74,8 @@ const TrainersDetails: React.FC = () => {
                                     }
                                 </div>
                                 <ReactStars
-                                    name="Trainers"
                                     value={trainerDetails.data?.ratingsAverage!}
-                                    editing={false}
+                                    edit={false}
                                 />
                             </div>
                             <div className="trainerBio">{trainerDetails.data?.bio}</div>
@@ -105,9 +109,9 @@ const TrainersDetails: React.FC = () => {
                         </div>
                     </div>
                     <div className="slide">
-                        {
-                            show === "home" ? <TrainerHomeSlide gyms={trainerDetails.data?.gyms!} trainerId={id}  token={authentication.token!} /> : null
-                        }
+                        { show === "home" && <TrainerHomeSlide gyms={trainerDetails.data?.gyms!} trainerId={id}  token={authentication.token!} /> }
+                        { show === "reviews" && <TrainerRatingSlide ratings={trainerDetails.data?.ratings!} /> }
+                        { show === "write" && <TrainerWriteSlide token={authentication.token!} name={ trainerDetails.data?.name! } trainerId={id} /> }
                     </div>
                 </div>
             </div>

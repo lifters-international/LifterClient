@@ -51,3 +51,5 @@ export * from "./getTrainersDetailsById";
 export * from "./userGetAllTrainerVideo";
 
 export * from "./getVideoPrice";
+
+export * from "./createTrainerRating";

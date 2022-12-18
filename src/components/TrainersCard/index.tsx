@@ -21,9 +21,8 @@ const TrainersCard : React.FC<TrainersSummary> = ({ id, name, bio, profilePictur
                         <div className="name price">${price}</div>
                     </div>
                     <ReactStars
-                        name="Trainers"
                         value={ratingsAverage}
-                        editing={false}
+                        edit={false}
                     />
                 </div>
             </div>

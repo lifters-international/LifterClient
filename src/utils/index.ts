@@ -14,11 +14,8 @@ export type TrainersSummary = {
 export type TrainersRatings = {
     id: string
     rating: number;
-    lifter: {
-        id: string;
-        username: string;
-        profilePicture: string;
-    };
+    lifterName: string;
+    lifterProfilePicture: string;
     comment: string;
     createdAt: number;
     trainer?: Trainers;

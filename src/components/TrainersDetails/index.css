@@ -159,3 +159,34 @@
     border-radius: 10px;
     padding: 5px;
 }
+
+.TrianerDetails .TrainersSlides .slide
+.TrainerRatingSlide {
+    width: 90vw;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 28.7vw);
+    gap: 2vw;
+}
+
+.TrianerDetails .TrainersSlides .slide
+.TrainerRatingSlide .rating {
+    background: rgb(12, 12, 12);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.TrianerDetails .TrainersSlides .slide
+.TrainerRatingSlide .rating .name-prof-date {
+    display: flex;
+    flex-direction: row;
+}
+
+.TrianerDetails .TrainersSlides .slide
+.TrainerWriteSlide div {
+    margin-right: auto;
+    margin-left: auto;
+}
