@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
 
 import { useSessionHandler, useGetTrainerDetails } from '../../hooks';
@@ -8,20 +8,26 @@ import Loading from "../Loading";
 import NavBar from "../NavBar";
 import Page404 from "../404";
 
+import { TrainerHomeSlide } from "./TrainerHomeSlide";
+
 import ReactStars from "react-rating-stars-component";
 
-import { MdVerifiedUser } from "react-icons/md";
+import { MdVerifiedUser, MdAttachMoney, MdMoneyOff } from "react-icons/md";
+import { AiFillHome, AiFillMessage } from "react-icons/ai";
+import { BsStars } from "react-icons/bs";
+import { IoIosShareAlt } from "react-icons/io";
+import { HiPencil } from "react-icons/hi";
 
-import "./index.css"
+import "./index.css";
 
-export type Props = {};
-
-const TrainersDetails: React.FC<Props> = ({ }: Props) => {
+const TrainersDetails: React.FC = () => {
     let { id } = useParams();
     const navigation = useNavigate();
 
     const authentication = useSessionHandler();
     const trainerDetails = useGetTrainerDetails({ id: id || "" });
+
+    const [show, setShow] = useState('home');
 
     if (!id) return <Page404 />;
 
@@ -43,7 +49,6 @@ const TrainersDetails: React.FC<Props> = ({ }: Props) => {
 
     if (trainerDetails.error) return <Error message="Problem finding trainer, please try again later." />;
 
-    console.log(trainerDetails.data);
     return (
         <div className="TrainerDetailsPage">
             <NavBar token={authentication.token!} />
@@ -75,28 +80,34 @@ const TrainersDetails: React.FC<Props> = ({ }: Props) => {
                     </div>
 
                     <div className="trainer-dets-button">
-                        <div className="button">Message</div>
-                        <div className="button">Follow</div>
-                        <div className="button">Share</div>
-                        <div className="button">Write A Review</div>
+                        <AiFillMessage color="#FF3636" size={40} title="message" className="button" />
+                        <IoIosShareAlt color="#FF3636" size={40} title="share" className="button" />
                         {
                             trainerDetails.data?.onBoardCompleted ?
                                 <div className="trainer-price button">
-                                    Become Client<div className="price">${trainerDetails.data?.price}</div>
+                                    <MdAttachMoney color="#FF3636" size={40} title={`Become a client for $${trainerDetails.data?.price}`} />
                                 </div> :
-                                <div className="button">Can't become client until trainer is verified</div>
+                                <MdMoneyOff color="#FF3636" size={40} title="Can't become client until trainer is verified" className="button" />
                         }
                     </div>
                 </div>
 
                 <div className="TrainersSlides">
                     <div className="tabs">
-                        <div className="tab">Home</div>
-                        <div className="tab">Reviews</div>
-                        <div className="tab">Write A Review</div>
+                        <div className={`tab${show === "home" ? " showing" : ""}`} onClick={() => setShow("home")}>
+                            <AiFillHome color="#FF3636" size={40} title="home"/>
+                        </div>
+                        <div className={`tab${show === "reviews" ? " showing" : ""}`} onClick={() => setShow("reviews")}>
+                            <BsStars color="#FF3636" size={40} title="Reviews"/>
+                        </div>
+                        <div className={`tab${show === "write" ? " showing" : ""}`} onClick={() => setShow("write")}>
+                            <HiPencil color="#FF3636" size={40} title="Write A Review" />
+                        </div>
                     </div>
                     <div className="slide">
-                        asdadasdadasd
+                        {
+                            show === "home" ? <TrainerHomeSlide gyms={trainerDetails.data?.gyms!} trainerId={id}  token={authentication.token!} /> : null
+                        }
                     </div>
                 </div>
             </div>

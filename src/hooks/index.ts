@@ -37,3 +37,5 @@ export * from "./useIsMobile";
 export * from "./useSearchTrainer";
 
 export * from "./useGetTrainersDetailsById";
+
+export * from "./useUserGetAllTrainerVideo";

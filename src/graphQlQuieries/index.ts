@@ -47,3 +47,7 @@ export * from "./UserCreateFood";
 export * from "./searchTrainers";
 
 export * from "./getTrainersDetailsById";
+
+export * from "./userGetAllTrainerVideo";
+
+export * from "./getVideoPrice";
