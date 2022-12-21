@@ -1,24 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { useNavigate } from "react-router-dom";
 
 import { BsFillShieldLockFill } from "react-icons/bs";
 
-import { TrainerVideoSummary, getDiff, shortenText, shortenNumber, fetchGraphQl } from "../../utils";
-
-import { getVideoPrice } from "../../graphQlQuieries";
+import { TrainerVideoSummary, getDiff, shortenText, shortenNumber } from "../../utils";
 
 export const VideoSummary: React.FC<TrainerVideoSummary> = ({ id, thumbnail, duration, clientOnly, isClient, title, views, updatedAt }) => {
     const navigate = useNavigate();
-
-    const [price, setPrice] = useState(0);
-
-    useEffect( () => {
-        fetchGraphQl(getVideoPrice, { id })
-        .then( req => {
-            if ( req.data ) setPrice(req.data.getVideoPrice)
-        })
-    });
 
     let durationSummary = new Date(duration * 1000).toISOString().substring(11, 19);
 
@@ -51,7 +40,7 @@ export const VideoSummary: React.FC<TrainerVideoSummary> = ({ id, thumbnail, dur
                         clientOnly ?
                             isClient ? null : <BsFillShieldLockFill color="#FF3636" size={20} title="client only" />
                             :
-                            price <= 0 ? null : <>&#8226; &nbsp;${price}</>
+                            null
                     }
                 </div>
             </div>
