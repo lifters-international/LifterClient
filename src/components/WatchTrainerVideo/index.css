@@ -1,13 +1,17 @@
 .WatchTrainerVideoPage .VideoContainer {
-    width: 99vw;
+    width: 98vw;
     height: 70vh;
     margin-right: auto;
     margin-left: auto;
 }
 
+.WatchTrainerVideoPage .splitter {
+    display: grid;
+    grid-template-columns: 65vw 33vw;
+}
+
 .WatchTrainerVideoPage .detailsContainer {
-    width: 75vw;
-    padding-left: 60px;
+    width: 58vw;
 }
 
 .WatchTrainerVideoPage .detailsContainer .title {
@@ -20,7 +24,7 @@
     color: rgb(75, 75, 75);
     font-size: 20px;
     display: flex;
-    gap: 25vw;
+    gap: 2vw;
     margin-bottom: 20px;
 }
 
@@ -44,6 +48,8 @@
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 
 .WatchTrainerVideoPage .detailsContainer .details .name-client-sub .sub:hover {
@@ -60,7 +66,7 @@
 }
 
 .WatchTrainerVideoPage .detailsContainer .details .buttons {
-    gap: 5vw;
+    gap: 2vw;
     width: 20vw;
 }
 
@@ -72,6 +78,7 @@
     background: hsl(0, 0%, 7%);
     border-radius: 10px;
     padding: 5px;
+    font-size: 17px;
     color: rgb(69, 69, 69);
 }
 
@@ -89,4 +96,84 @@
 .WatchTrainerVideoPage .detailsContainer .details .buttons .likeDislike .holder span {
     position: relative;
     top: 0.4vh;
+}
+
+.WatchTrainerVideoPage .detailsContainer .description {
+    color: hsl(0, 1%, 26%);
+    background: rgb(16, 16, 16);
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.WatchTrainerVideoPage .vidRecommends .video-rec {
+    margin-bottom: 5vh;
+    cursor: pointer;
+    color: hsl(0, 1%, 26%);
+}
+
+.WatchTrainerVideoPage .vidRecommends .video-rec a {
+    text-decoration: none;
+    color: hsl(0, 1%, 26%);
+}
+
+.WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor {
+    width: 20vw;
+}
+
+.WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .thumbnail {
+    width: 30vw;
+    height: 15vw;
+    border-radius: 10px;
+}
+
+.WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .duration {
+    position: relative;
+    top: -3vh;
+    left: 21.2vw;
+    background: rgb(20, 20, 20);
+    color: rgb(150, 150, 150);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .duration.min {
+    left: 24vw;
+}
+
+@media only screen and (max-width: 845px) {
+    .WatchTrainerVideoPage .VideoContainer {
+        width: 97vw;
+    }
+
+    .WatchTrainerVideoPage .splitter {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .WatchTrainerVideoPage .detailsContainer {
+        width: 97vw;
+    }
+
+    .WatchTrainerVideoPage .vidRecommends .video-rec {
+        margin-bottom: 2vh;
+        width: 70vw;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .thumbnail {
+        width: 70vw;
+        height: 20vh;
+    }
+
+    .WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .duration {
+        left: 58vw;
+    }
+
+    .WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .duration.min  {
+        left: 62vw;
+    }
 }

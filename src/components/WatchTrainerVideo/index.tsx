@@ -6,6 +6,8 @@ import Error from "../Error";
 
 import { useSessionHandler, useWatchTrainerVideo } from "../../hooks";
 
+import { getDiff, shortenNumber, shortenText } from "../../utils";
+
 import { BiLike, BiDislike } from "react-icons/bi";
 import { IoMdShareAlt } from "react-icons/io";
 import { MdOutlineFileDownloadOff } from "react-icons/md";
@@ -39,7 +41,9 @@ const WatchTrainerVideo: React.FC = () => {
 
     if (watchVideo.loading) return <Loading />;
 
-    console.log(watchVideo)
+    console.log(watchVideo);
+
+    let date = new Date(new Date(watchVideo.videoData?.video.date!).toLocaleString());
 
     return (
         <div className="WatchTrainerVideoPage">
@@ -55,7 +59,7 @@ const WatchTrainerVideo: React.FC = () => {
                         <div className="name-client-sub">
                             <img alt="trainer-profile" src={watchVideo.videoData?.video.trainerProfile} className="profile" />
                             <div>
-                                <div className="trainer-name" onClick={ () => navigation(`/trainer/${watchVideo.videoData?.video.trainerId}`)}>{watchVideo.videoData?.video.trainerName}</div>
+                                <div className="trainer-name" onClick={() => navigation(`/trainer/${watchVideo.videoData?.video.trainerId}`)}>{watchVideo.videoData?.video.trainerName}</div>
                                 <div>{watchVideo.videoData?.video.clientCount} clients</div>
                             </div>
                             {
@@ -84,18 +88,54 @@ const WatchTrainerVideo: React.FC = () => {
 
                             <div>
                                 {
-                                    watchVideo.videoData?.video.isClient ? 
-                                    <AiOutlineDownload size={30} color="#FF3636" />
-                                    : <MdOutlineFileDownloadOff size={30} color="#FF3636" />
+                                    watchVideo.videoData?.video.isClient ?
+                                        <AiOutlineDownload size={30} color="#FF3636" />
+                                        : <MdOutlineFileDownloadOff size={30} color="#FF3636" />
                                 }
                             </div>
+                        </div>
+                    </div>
+
+                    <div className="description">
+                        <div className="views-date">
+                            {watchVideo.videoData?.video.views} views &#8226; &nbsp;
+                            {getDiff(date, new Date(new Date().toLocaleString()))} ago
+                        </div>
+
+                        <div className="desc">
+                            {watchVideo.videoData?.video.description}
                         </div>
                     </div>
 
                 </div>
 
                 <div className="vidRecommends">
+                    {
+                        watchVideo.videoData?.recommendedVideos.map((vid, index) => {
+                            let durationSummary = new Date(vid.duration * 1000).toISOString().substring(11, 19);
 
+                            durationSummary = durationSummary.substring(0, 3) === "00:" ? durationSummary.substring(3) : durationSummary;
+                            
+                            return (
+                                <div className="video-rec"  key={index}>
+                                    <a href={`/videos/${vid.id}`} >
+                                    <div className="vidInfor">
+                                        <img className="thumbnail" src={vid.thumbnail} alt="thumbnail" />
+                                        <span className={`duration${durationSummary.length === 5 ? " min" : " hour" }`}>{durationSummary}</span>
+                                    </div>
+
+                                    <div className="bottom">
+                                        <div className="desc">{shortenText(vid.title, 52)}</div>
+                                        <div className="dets">
+                                            {shortenNumber(vid.views)} views &#8226; &nbsp;
+                                            {getDiff(date, new Date(new Date().toLocaleString()))} ago
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>

@@ -30,6 +30,8 @@ export const watchTrainerVideo = `
                 trainerName
                 trainerId
                 trainerProfile
+                views
+                date
             }
             viewHistoryId
         }
