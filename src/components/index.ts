@@ -54,3 +54,5 @@ export { default as CreateFood } from "./CreateFood";
 export { default as Trainers } from "./Trainers";
 
 export { default as TrainersDetails } from "./TrainersDetails";
+
+export { default as WatchTrainerVideo } from "./WatchTrainerVideo";

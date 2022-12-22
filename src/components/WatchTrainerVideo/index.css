@@ -1,0 +1,92 @@
+.WatchTrainerVideoPage .VideoContainer {
+    width: 99vw;
+    height: 70vh;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.WatchTrainerVideoPage .detailsContainer {
+    width: 75vw;
+    padding-left: 60px;
+}
+
+.WatchTrainerVideoPage .detailsContainer .title {
+    color: rgb(120, 120, 120);
+    font-size: 25px;
+    margin-bottom: 2vh;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details {
+    color: rgb(75, 75, 75);
+    font-size: 20px;
+    display: flex;
+    gap: 25vw;
+    margin-bottom: 20px;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details div {
+    display: flex;
+}
+
+
+.WatchTrainerVideoPage .detailsContainer .details .name-client-sub {
+    flex-direction: row;
+    gap: 10px;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .name-client-sub .trainer-name {
+    cursor: pointer;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .name-client-sub .sub {
+    background: rgb(12, 12, 12);
+    color: hsl(0, 0, 22%);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .name-client-sub .sub:hover {
+    background: rgb(31, 30, 30);
+    color: rgb(107, 106, 106);
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .name-client-sub div {
+    flex-direction: column;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details div img {
+    border-radius: 20px;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .buttons {
+    gap: 5vw;
+    width: 20vw;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .buttons .likeDislike {
+    display: flex;
+    width: 15vw;
+    gap: 2px;
+    border: 1px solid rgb(85, 85, 85);
+    background: hsl(0, 0%, 7%);
+    border-radius: 10px;
+    padding: 5px;
+    color: rgb(69, 69, 69);
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .buttons .likeDislike .holder {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .buttons .likeDislike .holder.like {
+    border-right: 1px solid rgb(85, 85, 85);
+    width: 55%;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .buttons .likeDislike .holder span {
+    position: relative;
+    top: 0.4vh;
+}

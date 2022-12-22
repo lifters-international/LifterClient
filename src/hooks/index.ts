@@ -39,3 +39,5 @@ export * from "./useSearchTrainer";
 export * from "./useGetTrainersDetailsById";
 
 export * from "./useUserGetAllTrainerVideo";
+
+export * from "./useWatchTrainerVideo"

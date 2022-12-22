@@ -82,6 +82,42 @@ export type TrainerVideoSummary = {
     views: number
 }
 
+export type WatchTrainerVideo = {
+    recommendedVideos: {
+        id: string;
+        title: string;
+        thumbnail: string;
+        duration: number;
+        updateAt: number;
+        views: number;
+    }[];
+
+    video: {
+        id: string;
+        title: string;
+        description: string;
+        clientCount: number;
+        isClient: boolean;
+        trainerId: string;
+        trainerProfile: string;
+        trainerName: string;
+        url: string;
+        likes: number;
+        disLikes: number;
+        comments: {
+            id: string;
+            comment: string;
+            whoCreatedId: string;
+            whoCreatedType: "lifters" | "trainers";
+            whoCreatedName: string;
+            whoCreatedProfilePicture: string;
+            updatedAt: number;
+        }[];
+    }
+
+    viewHistoryId: string;
+}
+
 export const getDiff = (start: Date, end: Date) => {
     const msInSecond = 1000;
     const msInMinute = msInSecond * 60;

@@ -1,7 +1,7 @@
 import './App.css';
 import * as React from 'react';
 import { Route, Routes } from "react-router-dom";
-import { Home, NotFound404, CreateAccount, CreateFood, Trainers, TrainersDetails, LogIn, Profile, FoodView, FoodAnalysis, Preview, Messages, Matches, Search } from './components';
+import { Home, NotFound404, CreateAccount, CreateFood, Trainers, WatchTrainerVideo, TrainersDetails, LogIn, Profile, FoodView, FoodAnalysis, Preview, Messages, Matches, Search } from './components';
 
 const App: React.FC = () => {
   return (
@@ -26,6 +26,7 @@ const App: React.FC = () => {
       <Route path="/createFood" element={<CreateFood />} />
       <Route path="/trainers" element={<Trainers />} />
       <Route path="/trainer/:id" element={<TrainersDetails />} />
+      <Route path="/videos/:id" element={<WatchTrainerVideo />} />
       <Route path="*" element={<NotFound404 />} />
     </Routes>
   );
