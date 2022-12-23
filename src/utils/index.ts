@@ -140,16 +140,17 @@ export type WatchTrainerVideo = {
         disLikes: number;
         views: number;
         date: number;
-        comments: {
-            id: string;
-            comment: string;
-            whoCreatedId: string;
-            whoCreatedType: "lifters" | "trainers";
-            whoCreatedName: string;
-            whoCreatedProfilePicture: string;
-            updatedAt: number;
-        }[];
     }
+
+    comments: {
+        id: string;
+        comment: string;
+        whoCreatedId: string;
+        whoCreatedType: "lifters" | "trainers";
+        whoCreatedName: string;
+        whoCreatedProfilePicture: string;
+        updatedAt: number;
+    }[];
 
     viewHistoryId: string;
 }

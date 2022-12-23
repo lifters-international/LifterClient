@@ -4,14 +4,16 @@ import Loading from "../Loading";
 import NavBar from "../NavBar";
 import Error from "../Error";
 
-import { useSessionHandler, useWatchTrainerVideo } from "../../hooks";
+import { useSessionHandler, useWatchTrainerVideo, useSignInUserData } from "../../hooks";
 
 import { getDiff, shortenNumber, shortenText } from "../../utils";
 
 import { BiLike, BiDislike } from "react-icons/bi";
 import { IoMdShareAlt } from "react-icons/io";
 import { MdOutlineFileDownloadOff } from "react-icons/md";
-import { AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineDownload, AiFillLike, AiFillDislike } from "react-icons/ai";
+
+import { CommentsContainer } from "./CommentsContainer";
 
 import "./index.css";
 
@@ -19,6 +21,7 @@ const WatchTrainerVideo: React.FC = () => {
     const { id: videoId } = useParams();
     const authentication = useSessionHandler();
     const watchVideo = useWatchTrainerVideo(authentication.token!, videoId as string);
+    const signedUser = useSignInUserData(authentication.token!);
     const navigation = useNavigate()
 
     if (authentication.loading) return <Loading />;
@@ -39,7 +42,9 @@ const WatchTrainerVideo: React.FC = () => {
         else return <Error {...authentication.error[0]} reload={true} />;
     }
 
-    if (watchVideo.loading) return <Loading />;
+    if ( watchVideo.loading || signedUser.loading ) return <Loading />;
+
+    if ( signedUser.error ) return <Error {...signedUser.error[0]} reload={true} />;
 
     console.log(watchVideo);
 
@@ -73,11 +78,15 @@ const WatchTrainerVideo: React.FC = () => {
                         <div className="buttons">
                             <div className="likeDislike">
                                 <div className="holder like">
-                                    <BiLike size={30} color="#FF3636" />
+                                    {
+                                        watchVideo.videoData!.likedVideo ? <AiFillLike size={30} color="#FF3636" /> : <BiLike size={30} color="#FF3636" onClick={ () => watchVideo.likeVideo() }/>
+                                    }
                                     <span>{watchVideo.videoData?.video.likes}</span>
                                 </div>
                                 <div className="holder">
-                                    <BiDislike size={30} color="#FF3636" />
+                                    {
+                                        watchVideo.videoData!.dislikedVideo ? <AiFillDislike size={30} color="#FF3636" /> : <BiDislike size={30} color="#FF3636" onClick={ () => watchVideo.disLikeVideo() }/>
+                                    }
                                     <span>{watchVideo.videoData?.video.disLikes}</span>
                                 </div>
                             </div>
@@ -98,7 +107,7 @@ const WatchTrainerVideo: React.FC = () => {
 
                     <div className="description">
                         <div className="views-date">
-                            {watchVideo.videoData?.video.views} views &#8226; &nbsp;
+                            { shortenNumber( ( watchVideo.videoData?.video.views || 0 ) + 1 )} views &#8226; &nbsp;
                             {getDiff(date, new Date(new Date().toLocaleString()))} ago
                         </div>
 
@@ -106,6 +115,12 @@ const WatchTrainerVideo: React.FC = () => {
                             {watchVideo.videoData?.video.description}
                         </div>
                     </div>
+
+                    <CommentsContainer 
+                        comments={watchVideo.videoData?.comments!} 
+                        profilePicture={signedUser.data?.profilePicture!} 
+                        postComment={watchVideo.postComment}
+                    />
 
                 </div>
 
@@ -115,22 +130,19 @@ const WatchTrainerVideo: React.FC = () => {
                             let durationSummary = new Date(vid.duration * 1000).toISOString().substring(11, 19);
 
                             durationSummary = durationSummary.substring(0, 3) === "00:" ? durationSummary.substring(3) : durationSummary;
-                            
-                            return (
-                                <div className="video-rec"  key={index}>
-                                    <a href={`/videos/${vid.id}`} >
-                                    <div className="vidInfor">
-                                        <img className="thumbnail" src={vid.thumbnail} alt="thumbnail" />
-                                        <span className={`duration${durationSummary.length === 5 ? " min" : " hour" }`}>{durationSummary}</span>
-                                    </div>
 
-                                    <div className="bottom">
-                                        <div className="desc">{shortenText(vid.title, 52)}</div>
-                                        <div className="dets">
-                                            {shortenNumber(vid.views)} views &#8226; &nbsp;
-                                            {getDiff(date, new Date(new Date().toLocaleString()))} ago
+                            return (
+                                <div className="video-rec" key={index}>
+                                    <a href={`/videos/${vid.id}`} >
+                                        <div className="vidInfor">
+                                            <img className="thumbnail" src={vid.thumbnail} alt="thumbnail" />
+                                            <span className={`duration${durationSummary.length === 5 ? " min" : " hour"}`}>{durationSummary}</span>
                                         </div>
-                                    </div>
+
+                                        <div className="bottom">
+                                            <div className="desc">{shortenText(vid.title, 52)}</div>
+                                            <div className="dets"> {shortenNumber(vid.views)} views &#8226; &nbsp; {getDiff(date, new Date(new Date().toLocaleString()))} ago </div>
+                                        </div>
                                     </a>
                                 </div>
                             )

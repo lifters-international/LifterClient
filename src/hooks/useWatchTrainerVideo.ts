@@ -1,41 +1,152 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-import { fetchGraphQl, WatchTrainerVideo } from "../utils";
+import { fetchGraphQl, WatchTrainerVideo, socket } from "../utils";
 
 import { watchTrainerVideo } from "../graphQlQuieries";
 
 export type WatchTrainerVideoState = {
     loading: boolean;
     error: string;
-    videoData?: WatchTrainerVideo;
+    videoData?: {
+        likedVideo: boolean;
+        dislikedVideo: boolean;
+    } & WatchTrainerVideo;
+
+    likeVideo: () => void,
+    disLikeVideo: () => void;
+    postComment: (comment: string) => void;
 }
 
-export const useWatchTrainerVideo = ( token: string, videoId: string ) => {
-    const [ state, setState ] = useState<WatchTrainerVideoState>({
+export const useWatchTrainerVideo = (token: string, videoId: string) => {
+    const ran = useRef(0);
+    let running = false;
+
+    const [state, setState] = useState<WatchTrainerVideoState>({
         loading: true,
         error: "",
+        likeVideo: () => { },
+        disLikeVideo: () => { },
+        postComment: (comment: string) => { }
     });
 
-    useEffect( () => {
-        if ( token === null || videoId === null ) return;
+    useEffect(() => {
+        if (token === null || videoId === null || ran.current === 1 || running) return;
 
         fetchGraphQl(watchTrainerVideo, { token, videoId })
-        .then( res => {
-            if ( res.errors ) {
-                setState({
-                    ...state,
-                    error: res.errors[0].message,
-                    loading: false
-                })
-            }else {
-                setState({
-                    ...state,
-                    loading: false,
-                    videoData: res.data.WatchTrainerVideo
+            .then(res => {
+                ran.current++;
+
+                if (res.errors) {
+                    setState({
+                        ...state,
+                        error: res.errors[0].message,
+                        loading: false
+                    })
+                } else {
+                    setState(prev => {
+                        return {
+                            ...prev,
+                            loading: false,
+
+                            likeVideo: () => {
+                                socket.videoEmit("likeVideo", { token, tokenType: "lifters", videoId })
+                            },
+
+                            disLikeVideo: () => {
+                                socket.videoEmit("dislikeVideo", { token, tokenType: "lifters", videoId })
+                            },
+
+                            postComment: (comment: string) => {
+                                socket.videoEmit("postComment", { token, tokenType: "lifters", videoId, comment })
+                            },
+
+                            videoData: {
+                                likedVideo: false,
+                                dislikedVideo: false,
+                                ...res.data.WatchTrainerVideo
+                            }
+                        }
+                    });
+
+
+                }
+            });
+    }, [token, videoId]);
+
+    useEffect(() => {
+        if (state.loading !== true) return;
+
+        socket.onVideo("LikedVideo", (newLike: { videoId: string }) => {
+
+            setState(prev => {
+                return {
+                    ...prev,
+                    videoData: {
+                        ...prev.videoData!,
+                        video: {
+                            ...prev.videoData?.video!,
+                            likes: (prev.videoData?.video.likes || 0) + 1
+                        }
+                    }
+                }
+            });
+
+        });
+
+        socket.onVideo("YouLikedVideo", (newLike: { videoId: string }) => {
+            if (newLike.videoId === videoId) {
+                setState(prev => {
+                    return {
+                        ...prev,
+                        videoData: {
+                            ...prev.videoData!,
+                            likedVideo: true,
+                            dislikedVideo: false
+                        }
+                    }
                 })
             }
-        })
-    }, [ token, videoId ])
+        });
+
+        socket.onVideo("YouDisLikedVideo", (newDisLikes: { videoId: string }) => {
+            if (newDisLikes.videoId === videoId) {
+                setState(prev => {
+                    return {
+                        ...prev,
+                        videoData: {
+                            ...prev.videoData!,
+                            likedVideo: false,
+                            dislikedVideo: true,
+                            video: {
+                                ...prev.videoData?.video!,
+                                likes: prev.videoData?.likedVideo === false ? prev.videoData?.video.likes : (prev.videoData?.video.likes || 0) - 1
+                            }
+                        }
+                    }
+                })
+            }
+        });
+
+        socket.onVideo("newComment", (newComment: { id: string, comment: string, whoCreatedId: string, whoCreatedType: "lifters" | "trainers", whoCreatedName: string, whoCreatedProfilePicture: string, videoId: string }) => {
+            console.log("newComment", newComment)
+            setState(prev => {
+                return {
+                    ...prev,
+                    videoData: {
+                        ...prev.videoData!,
+                        comments: prev.videoData?.comments.concat([
+                            {
+                                ...newComment,
+                                updatedAt: new Date().getTime()
+                            }
+                        ]) || []
+                    }
+                }
+            })
+        });
+
+        socket.videoEmit("joinVideoRoom", { token, tokenType: "lifters", videoId });
+    })
 
     return state;
 }

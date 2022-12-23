@@ -55,7 +55,7 @@ export const useUserAcceptedMatchesSubscription = (token: string ): UserAccepted
         fetchChange();
 
         if (socket != null ) {
-            socket.on("ChangeMatchesOrder", () => {
+            socket.onMessages("ChangeMatchesOrder", () => {
                 setChange(true);
             });
         }

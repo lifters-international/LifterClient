@@ -31,11 +31,11 @@ const Messages: React.FC = () => {
         else return <Error {...authentication.error[0]} reload={true} />;
     }
 
-    socket.on("authenticated", () => {
+    socket.onMessages("authenticated", () => {
         setSocketAuthenticated(true);
     });
     
-    if (authentication.token && !socketAuthenticated) socket.authenticate(authentication.token);
+    if (authentication.token && !socketAuthenticated) socket.messagesAuthenticate(authentication.token);
 
     if ( !socketAuthenticated ) return <Loading/>
 

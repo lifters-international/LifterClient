@@ -107,6 +107,10 @@
     margin-left: auto;
 }
 
+.WatchTrainerVideoPage .detailsContainer .description .views-date {
+    color: rgb(158, 158, 158);
+}
+
 .WatchTrainerVideoPage .vidRecommends .video-rec {
     margin-bottom: 5vh;
     cursor: pointer;
@@ -130,8 +134,7 @@
 
 .WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .duration {
     position: relative;
-    top: -3vh;
-    left: 21.2vw;
+    top: -5.5vh;
     background: rgb(20, 20, 20);
     color: rgb(150, 150, 150);
     border-radius: 10px;
@@ -139,7 +142,114 @@
 }
 
 .WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .duration.min {
-    left: 24vw;
+    float: right;
+    left: 9.8vw;
+}
+
+.WatchTrainerVideoPage .comments {
+    margin-top: 10px;
+    border-top: 1px solid rgb(94, 94, 94);
+}
+
+.WatchTrainerVideoPage .comments .comment-count {
+    color: rgb(100, 99, 99);
+    margin-top: 10px;
+}
+
+.WatchTrainerVideoPage .comments .post-comment {
+    margin-top: 10px;
+}
+
+.WatchTrainerVideoPage .comments .post-comment .comment-input {
+    display: flex;
+}
+
+.WatchTrainerVideoPage .comments .post-comment .profile-pic {
+    border-radius: 50%;
+    position: relative;
+    height: 50px;
+}
+
+.WatchTrainerVideoPage .comments .post-comment textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(63, 61, 61);
+    color: rgb(112, 111, 111);
+}
+
+.WatchTrainerVideoPage .comments .post-comment textarea:focus {
+    outline: none;
+}
+
+.WatchTrainerVideoPage .comments .post-comment textarea::-webkit-scrollbar {
+    background: rgb(36, 35, 35);
+}
+
+.WatchTrainerVideoPage .comments .post-comment textarea::-webkit-scrollbar-thumb {
+    background: rgb(75, 75, 75);
+    border-radius: 10px;
+}
+
+.WatchTrainerVideoPage .comments .post-comment .comment-buttons {
+    display: flex;
+    float: right;
+    margin-top: 10px;
+    gap: 3vw;
+}
+
+.WatchTrainerVideoPage .comments .post-comment .comment-buttons button {
+    border-radius: 10px;
+    padding: 10px;
+    background: #FF3636;
+    color: white;
+    cursor: pointer;
+}
+
+.WatchTrainerVideoPage .comments .post-comment .comment-buttons button.cancel {
+    background: rgb(29, 29, 29);
+    color: rgb(143, 143, 143);
+}
+
+.WatchTrainerVideoPage .comments-container {
+    position: relative;
+    top: 2vh;
+}
+
+.WatchTrainerVideoPage .comments-container .showmore {
+    color: rgb(116, 114, 114);
+    background: rgb(27, 27, 27);
+    border-radius: 10px;
+    padding: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.WatchTrainerVideoPage .comments-container .showmore:hover {
+    background: rgb(56, 56, 56);
+    color: rgb(139, 138, 138);
+}
+
+.WatchTrainerVideoPage .comments-container .comment {
+    display: flex;
+    width: 57.8vw;
+    overflow-x: none;
+    color: rgb(71, 71, 71);
+    margin-bottom: 40px;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .profile-pic {
+    border-radius: 50px;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .name-date {
+    display: flex;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .name-date .name {
+    color: rgb(95, 93, 93);
 }
 
 @media only screen and (max-width: 845px) {
@@ -174,6 +284,18 @@
     }
 
     .WatchTrainerVideoPage .vidRecommends .video-rec .vidInfor .duration.min  {
-        left: 62vw;
+        left: 48vw;
+    }
+
+    .WatchTrainerVideoPage .vidRecommends .video-rec .bottom .desc {
+        width: 70vw;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .WatchTrainerVideoPage .vidRecommends .video-rec .bottom .dets {
+        width: 70vw;
+        text-decoration: none;
+        white-space: nowrap;
     }
 }

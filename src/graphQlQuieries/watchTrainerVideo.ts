@@ -1,5 +1,5 @@
 export const watchTrainerVideo = `
-    query WatchTrainerVideo($videoId: String!, $token: String!) {
+    mutation WatchTrainerVideo($videoId: String!, $token: String!) {
         WatchTrainerVideo(videoId: $videoId, token: $token) {
             recommendedVideos {
                 duration
@@ -10,15 +10,6 @@ export const watchTrainerVideo = `
                 views
             }
             video {
-                comments {
-                    comment
-                    id
-                    updatedAt
-                    whoCreatedId
-                    whoCreatedName
-                    whoCreatedProfilePicture
-                    whoCreatedType
-                }
                 dislikes
                 id
                 likes
@@ -32,6 +23,15 @@ export const watchTrainerVideo = `
                 trainerProfile
                 views
                 date
+            }
+            comments {
+                comment
+                id
+                updatedAt
+                whoCreatedId
+                whoCreatedName
+                whoCreatedProfilePicture
+                whoCreatedType
             }
             viewHistoryId
         }
