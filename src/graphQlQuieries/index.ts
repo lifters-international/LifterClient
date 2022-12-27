@@ -53,3 +53,9 @@ export * from "./userGetAllTrainerVideo";
 export * from "./createTrainerRating";
 
 export * from "./watchTrainerVideo";
+
+export * from "./userIsClient";
+
+export * from "./becomeClientSubSecrets";
+
+export * from "./createTrainerClient";

@@ -15,6 +15,7 @@ export type WatchTrainerVideoState = {
     likeVideo: () => void,
     disLikeVideo: () => void;
     postComment: (comment: string) => void;
+    updateTime: ( time : number ) => void;
 }
 
 export const useWatchTrainerVideo = (token: string, videoId: string) => {
@@ -26,7 +27,8 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
         error: "",
         likeVideo: () => { },
         disLikeVideo: () => { },
-        postComment: (comment: string) => { }
+        postComment: (comment: string) => { },
+        updateTime: ( time : number ) => {}
     });
 
     useEffect(() => {
@@ -58,6 +60,10 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
 
                             postComment: (comment: string) => {
                                 socket.videoEmit("postComment", { token, tokenType: "lifters", videoId, comment })
+                            },
+
+                            updateTime: ( time: number ) => {
+                                socket.videoEmit("updateVideoTime", { token, tokenType: "lifters", time, videoId, viewHistoryId: res.data.WatchTrainerVideo.viewHistoryId! })
                             },
 
                             videoData: {

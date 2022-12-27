@@ -40,4 +40,6 @@ export * from "./useGetTrainersDetailsById";
 
 export * from "./useUserGetAllTrainerVideo";
 
-export * from "./useWatchTrainerVideo"
+export * from "./useWatchTrainerVideo";
+
+export * from "./useUserIsClient";

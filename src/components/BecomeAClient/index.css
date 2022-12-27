@@ -1,0 +1,137 @@
+.BecomeAClientPage .BecomeClient {
+    width: 40vw;
+}
+
+.BecomeAClientPage .banner-prof .banner {
+    width: 40vw;
+    height: 40vh;
+    border-radius: 10px;
+}
+
+.BecomeAClientPage .banner-prof .profilePicture {
+    border-radius: 50px;
+    padding: 10px;
+    position: relative;
+    top: -8vh;
+}
+
+.BecomeAClientPage .name-cost {
+    position: relative;
+    top: -7vh;
+    left: -2vw;
+}
+
+.BecomeAClientPage .name-cost h1 {
+    color: rgb(131, 130, 130);
+}
+
+.BecomeAClientPage .name-cost .cost {
+    display: flex;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    top: -4.7vh;
+    right: 10.4vw;
+    float: right;
+    color: rgb(95, 180, 95);
+}
+
+.BecomeAClientPage .name-cost .cost .month {
+    font-size: 10px;
+    position: relative;
+    top: 0.5vh;
+}
+
+.BecomeAClientPage .benefitContainer {
+    position: relative;
+    top: -7vh;
+}
+
+.BecomeAClientPage .benefitContainer h1 {
+    position: relative;
+    left: 1vw;
+    top: 1vh;
+}
+
+.BecomeAClientPage .benefitContainer .benefits {
+    border-top: 1px solid rgb(87, 87, 87);
+}
+
+.BecomeAClientPage .benefitContainer .benefits div {
+    border: 1px solid rgb(87, 86, 86);
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(83, 83, 83);
+}
+
+.BecomeAClientPage .contactDisclaimer {
+    text-align: center;
+    position: relative;
+    top: -4vh;
+    color: rgb(114, 114, 114);
+    font-style: italic;
+}
+
+.BecomeAClientPage .button {
+    position: relative;
+    top: -1vh;
+    left: 17%;
+    width: 25vw;
+    color: white;
+    background: #FF3636;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.BecomeAClientPage .button:hover {
+    background: red;
+}
+
+.BecomeAClientPage #payment-form button {
+    color: white;
+    background: #FF3636;
+    width: 20vw;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    position: relative;
+    left: 9vw;
+    border: none;
+}
+
+@media only screen and (max-width: 845px) {
+    .BecomeAClientPage .BecomeClient {
+        width: 90%;
+    }
+
+    .BecomeAClientPage .banner-prof .banner {
+        width: 90vw;
+    }
+
+    .BecomeAClientPage .name-cost {
+        left: -5vw;
+    }
+
+    .BecomeAClientPage .name-cost .cost {
+        top: -5.2vh;
+        right: 20vw;
+    }
+
+    .BecomeAClientPage .benefitContainer h1 {
+        left: 4.5vw;
+    }
+
+    .BecomeAClientPage .button {
+        width: 70vw;
+        left: 12%;
+    }
+}

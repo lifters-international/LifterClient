@@ -29,7 +29,7 @@ export const CommentsContainer: React.FC<Props> = ({ comments, profilePicture, p
 
             <div className="post-comment">
                 <div className="comment-input">
-                    <img className="profile-pic" alt="profile" src={"/defaultPicture.png"} />
+                    <img className="profile-pic" alt="profile" src={profilePicture} />
                     <textarea placeholder="Add a comment" defaultValue="" onChange={
                         (e) => {
                             setText(e.target.value)
@@ -68,7 +68,7 @@ export const CommentsContainer: React.FC<Props> = ({ comments, profilePicture, p
 
                         return (
                             <div className="comment" key={index}>
-                                <img alt="profile" className="profile-pic" src={"/defaultPicture.png"}/>
+                                <img alt="profile" className="profile-pic" src={comment.whoCreatedProfilePicture}/>
 
                                 <div className="det">
                                     <div className="name-date">

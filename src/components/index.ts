@@ -56,3 +56,5 @@ export { default as Trainers } from "./Trainers";
 export { default as TrainersDetails } from "./TrainersDetails";
 
 export { default as WatchTrainerVideo } from "./WatchTrainerVideo";
+
+export { default as BecomeAClient } from "./BecomeAClient";

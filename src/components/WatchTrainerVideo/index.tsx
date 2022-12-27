@@ -15,6 +15,8 @@ import { AiOutlineDownload, AiFillLike, AiFillDislike } from "react-icons/ai";
 
 import { CommentsContainer } from "./CommentsContainer";
 
+import { VideoJs } from "./VideoPlayer";
+
 import "./index.css";
 
 const WatchTrainerVideo: React.FC = () => {
@@ -46,15 +48,17 @@ const WatchTrainerVideo: React.FC = () => {
 
     if ( signedUser.error ) return <Error {...signedUser.error[0]} reload={true} />;
 
-    console.log(watchVideo);
-
     let date = new Date(new Date(watchVideo.videoData?.video.date!).toLocaleString());
 
     return (
         <div className="WatchTrainerVideoPage">
             <NavBar token={authentication.token!} />
 
-            <video className="VideoContainer" controls controlsList="nodownload" src={watchVideo.videoData?.video.url} preload="auto" />
+            <VideoJs url={watchVideo.videoData?.video.url!}
+                updateTime={
+                    ( seconds ) => watchVideo.updateTime( seconds )
+                }
+            />
 
             <div className="splitter">
                 <div className="detailsContainer">
@@ -69,9 +73,9 @@ const WatchTrainerVideo: React.FC = () => {
                             </div>
                             {
                                 !watchVideo.videoData?.video.isClient ?
-                                    <div className="sub">Become Client</div>
+                                    <div className="sub" onClick={ () => navigation(`/trainers/${watchVideo.videoData?.video.trainerId}/client`) }>Become Client</div>
                                     :
-                                    <div className="sub">Cancel Trainer Subscription</div>
+                                    <div className="sub" onClick={ () => navigation(`/trainers/${watchVideo.videoData?.video.trainerId}/client`) }>Cancel Trainer Subscription</div>
                             }
                         </div>
 
