@@ -8,7 +8,7 @@ import "./NavBar.css";
 import { useSignInUserData } from '../../hooks';
 import { IoMdSend } from "react-icons/io";
 import { IoFastFoodSharp } from "react-icons/io5";
-import { GiWeightLiftingUp } from "react-icons/gi";
+import { AiFillHeart } from "react-icons/ai";
 
 export type NavBarsProps = {
     token: string;
@@ -43,10 +43,10 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
                     className="NavBarLottie"
                 />
 
-                <GiWeightLiftingUp
+                <AiFillHeart
                     size={60}
                     color="red"
-                    onClick={() => navigate("/trainers")}
+                    onClick={() => navigate("/matches")}
                     className="NavBarLottie"
                 />
 
@@ -81,10 +81,10 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
                                     className="NavBarLottie"
                                 />
 
-                                <GiWeightLiftingUp
+                                <AiFillHeart
                                     size={60}
                                     color="red"
-                                    onClick={() => navigate("/trainers")}
+                                    onClick={() => navigate("/matches")}
                                     className="NavBarLottie"
                                 />
 

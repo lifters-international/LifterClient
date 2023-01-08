@@ -43,3 +43,11 @@ export * from "./useUserGetAllTrainerVideo";
 export * from "./useWatchTrainerVideo";
 
 export * from "./useUserIsClient";
+
+export * from "./useSearchVideo";
+
+export * from "./usePendingTrainers";
+
+export * from "./useAcceptedTrainers";
+
+export * from "./useGetClientsTrainerAndMessages";

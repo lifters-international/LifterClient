@@ -54,6 +54,7 @@
     margin-left: auto;
     position: relative;
     top: 45%;
+    color: hsl(0, 0%, 53%);
 }
 
 @media only screen and (max-width: 845px) {

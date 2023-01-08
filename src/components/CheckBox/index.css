@@ -1,0 +1,14 @@
+.CheckBox label {
+    font-size: 20px
+}
+
+.CheckBox .Label-Input-Div div div {
+    color: rgb(59, 59, 59);
+    font-style: italic;
+    font-size: 15px;
+    padding: 20px;
+    background: rgb(19, 18, 18);
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 10px;
+}

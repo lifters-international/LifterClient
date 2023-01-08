@@ -82,16 +82,24 @@
   overflow-x: auto;
 }
 
-.TrianerDetails .TrainersSlides .slide .TrainerHomeSlide .gyms::-webkit-scrollbar {
-    background-color: transparent;
-    border: 1px solid rgb(44, 44, 44);
-    border-radius: 10px;
-    padding: 10px;
+.TrianerDetails
+  .TrainersSlides
+  .slide
+  .TrainerHomeSlide
+  .gyms::-webkit-scrollbar {
+  background-color: transparent;
+  border: 1px solid rgb(44, 44, 44);
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.TrianerDetails .TrainersSlides .slide .TrainerHomeSlide .gyms::-webkit-scrollbar-thumb {
-    background: rgb(20, 20, 20);
-    border-radius: 10px;
+.TrianerDetails
+  .TrainersSlides
+  .slide
+  .TrainerHomeSlide
+  .gyms::-webkit-scrollbar-thumb {
+  background: rgb(20, 20, 20);
+  border-radius: 10px;
 }
 
 .TrianerDetails .TrainersSlides .slide .TrainerHomeSlide .gyms .gym {
@@ -111,82 +119,130 @@
 }
 
 .TrianerDetails .TrainersSlides .slide .TrainerHomeSlide .gyms .gym span {
-    margin: 0 auto;
-    padding: 10px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
-.TrianerDetails .TrainersSlides .slide 
-.TrainerHomeSlide .VideoSummaryContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 20vw);
+.VideoSummaryContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 20vw);
+  width: 90vw;
+  gap: 2vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.VideoSummaryContainer .videoSummary {
+  margin-bottom: 10vh;
+}
+
+.VideoSummaryContainer .videoSummary.watchable {
+  cursor: pointer;
+}
+
+.VideoSummaryContainer .videoSummary .vidInfor {
+  width: 20vw;
+}
+
+.VideoSummaryContainer .videoSummary .prof {
+  display: grid;
+  grid-template-columns: 18% 72%;
+}
+
+.VideoSummaryContainer .videoSummary .prof .profilePicture {
+  border: 1px solid #ff3636;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.VideoSummaryContainer .videoSummary .vidInfor .thumbnail {
+  width: 20vw;
+  height: 12vw;
+  border-radius: 10px;
+}
+
+.VideoSummaryContainer .videoSummary .vidInfor .duration {
+  position: relative;
+  top: -3.5vh;
+  left: 17vw;
+  background: rgb(20, 20, 20);
+  color: rgb(150, 150, 150);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.TrianerDetails .TrainersSlides .slide .TrainerRatingSlide {
+  width: 90vw;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 28.7vw);
+  gap: 2vw;
+}
+
+.TrianerDetails .TrainersSlides .slide .TrainerRatingSlide .rating {
+  background: rgb(12, 12, 12);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.TrianerDetails
+  .TrainersSlides
+  .slide
+  .TrainerRatingSlide
+  .rating
+  .name-prof-date {
+  display: flex;
+  flex-direction: row;
+}
+
+.TrianerDetails .TrainersSlides .slide .TrainerWriteSlide div {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 845px) {
+  .VideoSummaryContainer {
+    grid-template-columns: repeat(1, 100vw);
+  }
+
+  .VideoSummaryContainer .videoSummary .vidInfor .thumbnail {
     width: 90vw;
-    gap: 2vw;
-    margin-left: auto;
-    margin-right: auto;
+    height: 40vw;
+  }
+
+  .VideoSummaryContainer .videoSummary .vidInfor .duration {
+    left: 78vw;
+  }
 }
 
-.TrianerDetails .TrainersSlides .slide 
-.TrainerHomeSlide .VideoSummaryContainer .videoSummary {
-    margin-bottom: 10vh;
+@media only screen and (max-width: 1376px) {
+  .VideoSummaryContainer {
+    grid-template-columns: repeat(2, 50vw);
+  }
+
+  .VideoSummaryContainer .videoSummary .vidInfor .thumbnail {
+    width: 30vw;
+  }
+
+  .VideoSummaryContainer .videoSummary .vidInfor .duration {
+    left: 22vw;
+  }
 }
 
-.TrianerDetails .TrainersSlides .slide 
-.TrainerHomeSlide .VideoSummaryContainer .videoSummary.watchable {
-    cursor: pointer
-}
+@media only screen and (max-width: 1375px) and (min-width: 846px)  {
+  .VideoSummaryContainer {
+    grid-template-columns: repeat(2, 50vw);
+  }
 
-.TrianerDetails .TrainersSlides .slide 
-.TrainerHomeSlide .VideoSummaryContainer .videoSummary .vidInfor {
-    width: 20vw;
-}
+  .VideoSummaryContainer .videoSummary .vidInfor .thumbnail {
+    width: 30vw;
+  }
 
-.TrianerDetails .TrainersSlides .slide 
-.TrainerHomeSlide .VideoSummaryContainer .videoSummary 
-.vidInfor .thumbnail {
-    width: 20vw;
-    height: 12vw;
-    border-radius: 10px;
-}
-
-.TrianerDetails .TrainersSlides .slide 
-.TrainerHomeSlide .VideoSummaryContainer .videoSummary 
-.vidInfor .duration {
-    position: relative;
-    top: -3.5vh;
-    left: 17.2vw;
-    background: rgb(20, 20, 20);
-    color: rgb(150, 150, 150);
-    border-radius: 10px;
-    padding: 5px;
-}
-
-.TrianerDetails .TrainersSlides .slide
-.TrainerRatingSlide {
-    width: 90vw;
-    margin-top: 10px;
-    margin-right: auto;
-    margin-left: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 28.7vw);
-    gap: 2vw;
-}
-
-.TrianerDetails .TrainersSlides .slide
-.TrainerRatingSlide .rating {
-    background: rgb(12, 12, 12);
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.TrianerDetails .TrainersSlides .slide
-.TrainerRatingSlide .rating .name-prof-date {
-    display: flex;
-    flex-direction: row;
-}
-
-.TrianerDetails .TrainersSlides .slide
-.TrainerWriteSlide div {
-    margin-right: auto;
-    margin-left: auto;
+  .VideoSummaryContainer .videoSummary .vidInfor .duration {
+    left: 26vw;
+  }
 }

@@ -52,7 +52,7 @@ const BecomeAClient: React.FC = () => {
             {
                 !userIsClient.data?.clientExist ? <BecomeClient {...userIsClient.data!} token={authentication.token!} /> :
                     userIsClient.data?.clientStatement === "ACCEPTED" ?
-                        <CancelClient /> :
+                        <CancelClient clientId={userIsClient.data?.clientId} /> :
                         (
                             <div className="BecomeClient FormContainer">
                                 <div className="banner-prof">

@@ -23,6 +23,7 @@ export const watchTrainerVideo = `
                 trainerProfile
                 views
                 date
+                thumbnail
             }
             comments {
                 comment
@@ -34,6 +35,9 @@ export const watchTrainerVideo = `
                 whoCreatedType
             }
             viewHistoryId
+            allowLikes
+            allowDislikes
+            allowComments
         }
     }
 `;

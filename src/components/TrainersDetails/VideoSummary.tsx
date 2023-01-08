@@ -6,7 +6,7 @@ import { BsFillShieldLockFill } from "react-icons/bs";
 
 import { TrainerVideoSummary, getDiff, shortenText, shortenNumber } from "../../utils";
 
-export const VideoSummary: React.FC<TrainerVideoSummary> = ({ id, thumbnail, duration, clientOnly, isClient, title, views, updatedAt }) => {
+export const VideoSummary: React.FC<{ profilePicture?: string } & TrainerVideoSummary> = ({ id, thumbnail, duration, clientOnly, isClient, title, views, updatedAt, profilePicture }) => {
     const navigate = useNavigate();
 
     let durationSummary = new Date(duration * 1000).toISOString().substring(11, 19);
@@ -17,8 +17,8 @@ export const VideoSummary: React.FC<TrainerVideoSummary> = ({ id, thumbnail, dur
 
     return (
         <div className={`videoSummary${clientOnly ?
-                isClient ? " watchable" : ""
-                : " watchable"}`}
+            isClient ? " watchable" : ""
+            : " watchable"}`}
 
             onClick={
                 () => {
@@ -31,17 +31,20 @@ export const VideoSummary: React.FC<TrainerVideoSummary> = ({ id, thumbnail, dur
                 <span className="duration">{durationSummary}</span>
             </div>
 
-            <div className="bottom">
-                <div className="desc">{shortenText(title, 52)}</div>
-                <div className="dets">
-                    {shortenNumber(views)} views &#8226; &nbsp;
-                    {getDiff(date, new Date(new Date().toLocaleString()))} ago &nbsp;
-                    {
-                        clientOnly ?
-                            isClient ? null : <BsFillShieldLockFill color="#FF3636" size={20} title="client only" />
-                            :
-                            null
-                    }
+            <div className={`bottom ${profilePicture ? "prof" : ""}`}>
+                <img className="profilePicture" src={profilePicture} alt="profilePicture" />
+                <div>
+                    <div className="desc">{shortenText(title, 52)}</div>
+                    <div className="dets">
+                        {shortenNumber(views)} views &#8226; &nbsp;
+                        {getDiff(date, new Date(new Date().toLocaleString()))} ago &nbsp;
+                        {
+                            clientOnly ?
+                                isClient ? null : <BsFillShieldLockFill color="#FF3636" size={20} title="client only" />
+                                :
+                                null
+                        }
+                    </div>
                 </div>
             </div>
         </div>

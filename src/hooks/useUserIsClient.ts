@@ -15,6 +15,7 @@ export type UserIsClientState = {
         cancelCost: number;
         hasDefaultPaymentMethod: boolean;
         clientStatement: string;
+        clientId?: string;
     }
 }
 

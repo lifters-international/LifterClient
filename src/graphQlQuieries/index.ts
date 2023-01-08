@@ -59,3 +59,15 @@ export * from "./userIsClient";
 export * from "./becomeClientSubSecrets";
 
 export * from "./createTrainerClient";
+
+export * from "./searchVideos";
+
+export * from "./getClientPendingTrainers";
+
+export * from "./getAcceptedClientTrainers";
+
+export * from "./getClientTrainersAndMessages";
+
+export * from "./cancelCreateTrainersRequest";
+
+export * from "./updateTrainerClientSettings";

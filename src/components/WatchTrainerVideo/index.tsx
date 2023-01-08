@@ -17,6 +17,8 @@ import { CommentsContainer } from "./CommentsContainer";
 
 import { VideoJs } from "./VideoPlayer";
 
+import ShareView from "../Share";
+
 import "./index.css";
 
 const WatchTrainerVideo: React.FC = () => {
@@ -44,9 +46,9 @@ const WatchTrainerVideo: React.FC = () => {
         else return <Error {...authentication.error[0]} reload={true} />;
     }
 
-    if ( watchVideo.loading || signedUser.loading ) return <Loading />;
+    if (watchVideo.loading || signedUser.loading) return <Loading />;
 
-    if ( signedUser.error ) return <Error {...signedUser.error[0]} reload={true} />;
+    if (signedUser.error) return <Error {...signedUser.error[0]} reload={true} />;
 
     let date = new Date(new Date(watchVideo.videoData?.video.date!).toLocaleString());
 
@@ -56,7 +58,7 @@ const WatchTrainerVideo: React.FC = () => {
 
             <VideoJs url={watchVideo.videoData?.video.url!}
                 updateTime={
-                    ( seconds ) => watchVideo.updateTime( seconds )
+                    (seconds) => watchVideo.updateTime(seconds)
                 }
             />
 
@@ -73,36 +75,59 @@ const WatchTrainerVideo: React.FC = () => {
                             </div>
                             {
                                 !watchVideo.videoData?.video.isClient ?
-                                    <div className="sub" onClick={ () => navigation(`/trainers/${watchVideo.videoData?.video.trainerId}/client`) }>Become Client</div>
+                                    <div className="sub" onClick={() => navigation(`/trainers/${watchVideo.videoData?.video.trainerId}/client`)}>Become Client</div>
                                     :
-                                    <div className="sub" onClick={ () => navigation(`/trainers/${watchVideo.videoData?.video.trainerId}/client`) }>Cancel Trainer Subscription</div>
+                                    <div className="sub" onClick={() => navigation(`/trainers/${watchVideo.videoData?.video.trainerId}/client`)}>UnSubscribe</div>
                             }
                         </div>
 
                         <div className="buttons">
-                            <div className="likeDislike">
-                                <div className="holder like">
-                                    {
-                                        watchVideo.videoData!.likedVideo ? <AiFillLike size={30} color="#FF3636" /> : <BiLike size={30} color="#FF3636" onClick={ () => watchVideo.likeVideo() }/>
-                                    }
-                                    <span>{watchVideo.videoData?.video.likes}</span>
-                                </div>
-                                <div className="holder">
-                                    {
-                                        watchVideo.videoData!.dislikedVideo ? <AiFillDislike size={30} color="#FF3636" /> : <BiDislike size={30} color="#FF3636" onClick={ () => watchVideo.disLikeVideo() }/>
-                                    }
-                                    <span>{watchVideo.videoData?.video.disLikes}</span>
-                                </div>
-                            </div>
+                            {
+                                !watchVideo.videoData?.allowLikes && !watchVideo.videoData?.allowDislikes ? null : (
+                                    <div className={`likeDislike ${!watchVideo.videoData?.allowLikes || !watchVideo.videoData?.allowDislikes ? "none" : "" }`}>
+                                        {
+                                            watchVideo.videoData?.allowLikes === true && (
+                                                <div className="holder like">
+                                                    {
+                                                        watchVideo.videoData!.likedVideo ? <AiFillLike size={30} color="#FF3636" /> : <BiLike size={30} color="#FF3636" onClick={() => watchVideo.likeVideo()} />
+                                                    }
+                                                    <span>{watchVideo.videoData?.video.likes}</span>
+                                                </div>
+                                            )
+                                        }
+                                        {
+                                            watchVideo.videoData?.allowDislikes && (
+                                                <div className="holder">
+                                                    {
+                                                        watchVideo.videoData!.dislikedVideo ? <AiFillDislike size={30} color="#FF3636" /> : <BiDislike size={30} color="#FF3636" onClick={() => watchVideo.disLikeVideo()} />
+                                                    }
+                                                    <span>{watchVideo.videoData?.video.disLikes}</span>
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                )
+                            }
 
                             <div>
-                                <IoMdShareAlt size={30} color="#FF3636" />
+                                <ShareView
+                                    thumbnail={watchVideo.videoData?.video.thumbnail}
+                                    title={watchVideo.videoData?.video.title!}
+                                    url={window.location.href}
+                                    text={`Share ${watchVideo.videoData?.video.trainerName}'s Video`}
+                                    quote={`Come and watch ${watchVideo.videoData?.video.trainerName} Lifters... The #1 Home For All Things GYM!!!`}
+                                    share={{
+
+                                    }}
+                                />
                             </div>
 
                             <div>
                                 {
                                     watchVideo.videoData?.video.isClient ?
-                                        <AiOutlineDownload size={30} color="#FF3636" />
+                                        (
+                                            <AiOutlineDownload size={30} color="#FF3636" onClick={() => window.open(watchVideo.videoData?.video.url)}  className="icon" />
+                                        )
                                         : <MdOutlineFileDownloadOff size={30} color="#FF3636" />
                                 }
                             </div>
@@ -111,7 +136,7 @@ const WatchTrainerVideo: React.FC = () => {
 
                     <div className="description">
                         <div className="views-date">
-                            { shortenNumber( ( watchVideo.videoData?.video.views || 0 ) + 1 )} views &#8226; &nbsp;
+                            {shortenNumber((watchVideo.videoData?.video.views || 0) + 1)} views &#8226; &nbsp;
                             {getDiff(date, new Date(new Date().toLocaleString()))} ago
                         </div>
 
@@ -120,10 +145,11 @@ const WatchTrainerVideo: React.FC = () => {
                         </div>
                     </div>
 
-                    <CommentsContainer 
-                        comments={watchVideo.videoData?.comments!} 
-                        profilePicture={signedUser.data?.profilePicture!} 
+                    <CommentsContainer
+                        comments={watchVideo.videoData?.comments!}
+                        profilePicture={signedUser.data?.profilePicture!}
                         postComment={watchVideo.postComment}
+                        allowComments={watchVideo.videoData?.allowComments!}
                     />
 
                 </div>

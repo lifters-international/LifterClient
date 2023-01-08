@@ -1,12 +1,12 @@
 import './App.css';
 import * as React from 'react';
 import { Route, Routes } from "react-router-dom";
-import { Home, NotFound404, CreateAccount, CreateFood, Trainers, BecomeAClient, WatchTrainerVideo, TrainersDetails, LogIn, Profile, FoodView, FoodAnalysis, Preview, Messages, Matches, Search } from './components';
+import { Home, NotFound404, CreateAccount, CreateFood, WorkoutsPage, BecomeAClient, UserTrainers, WatchTrainerVideo, TrainersDetails, LogIn, Profile, FoodView, FoodAnalysis, Preview, Messages, Matches, Search } from './components';
 
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/matches" element={<Home />} />
       <Route path="/createAccount" element={<CreateAccount />} />
       <Route path="/logIn" element={<LogIn />} />
       <Route path="/profile" element={<Profile />} />
@@ -24,8 +24,9 @@ const App: React.FC = () => {
       <Route path="/food" element={<FoodView />}/>
       <Route path="/foodAnalysis" element={<FoodAnalysis />}/>
       <Route path="/createFood" element={<CreateFood />} />
-      <Route path="/trainers" element={<Trainers />} />
+      <Route path="/" element={<WorkoutsPage />} />
       <Route path="/trainer/:id" element={<TrainersDetails />} />
+      <Route path="/trainers" element={<UserTrainers />} />
       <Route path="/trainers/:id/client" element={<BecomeAClient />} />
       <Route path="/videos/:id" element={<WatchTrainerVideo />} />
       <Route path="*" element={<NotFound404 />} />

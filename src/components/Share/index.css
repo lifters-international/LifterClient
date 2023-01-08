@@ -1,0 +1,56 @@
+.ShareContainer {
+    width: 99vw;
+    height: 100vh;
+    position: fixed;
+    background: black;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    display: grid !important;
+}
+
+.ShareContainer .ShareWrapper {
+    border: 1px solid rgb(41, 41, 41);
+    border-radius: 10px;
+    padding: 10px;
+    background: rgb(14, 13, 13);
+    width: 50vw;
+    height: 30vh;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    top: 25vh;
+    display: grid !important;
+}
+
+.ShareContainer .ShareWrapper .share-text {
+    color: rgb(97, 96, 96);
+    font-size: 25px;
+}
+
+.ShareContainer .ShareWrapper .share-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ShareContainer .ShareWrapper .share-copy-link {
+    background: black;
+    border: 1px solid rgb(36, 35, 35);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.ShareContainer .ShareWrapper .share-copy-link .link {
+    color: rgb(71, 71, 71);
+}
+
+.ShareContainer .ShareWrapper .share-copy-link .copy-button {
+    color: #FF3636;
+    position: relative;
+    left: 13vw;
+    cursor: pointer;
+}

@@ -1,34 +1,35 @@
-.Trainers .TrainerHeader {
+.Videos .VideosHeader {
     color: hsl(0, 0%, 52%);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.Trainers .TrainerHeader div {
+.Videos .VideosHeader div {
     margin-top: 1%;
 }
 
-.Trainers .TrainerHeader .TrainersLink, .Trainers .TrainerHeader .VideosLink {
+.Videos .VideosHeader .TrainersLink, .Videos .VideosHeader .VideosLink {
     position: relative;
     right: 5vw;
     top: 0.5vh;
 }
 
-.Trainers .TrainerHeader .TrainersLink:hover, .Trainers .TrainerHeader .VideosLink:hover {
+.Videos .VideosHeader .TrainersLink:hover, .Videos .VideosHeader .VideosLink:hover {
     background: white;
     border-radius: 10px;
     color: black;
     text-align: center;
 }
 
-.Trainers .TrainersSearchView {
-    width: 70vw;
+.Videos .VideosSearchView {
+    width: 90vw;
+    height: 10vh;
     grid-template-columns: 95% 5%;
     margin-top: 1%;
 }
 
-.Trainers .TrainerSearchView__Icon {
+.Videos .VideosSearchView__Icon {
     height: 30%;
     width: 100%;
     position: relative;
@@ -36,22 +37,26 @@
     left: -4.9vw;
 }
 
-.Trainers .TrainerSearchView__Input {
+.Videos .VideosSearchView__Input {
     height: 30%;
     border-radius: 10px;
     color: hsl(0, 0%, 52%);
 }
 
-.Trainers .TrainerSearchView__Input::placeholder {
+.Videos .VideosSearchView__Input::placeholder {
     color: hsl(0, 0%, 52%);
 }
 
-.Trainers .NoTrainersFound {
-    background: white;
+.Videos .NoVideosFound {
+    background: rgb(27, 27, 27);
     border-radius: 10px;
     padding: 10px;
     width: 20vw;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
+}
+
+.Videos .VideoSummaryContainer, .Videos .NoVideosFound {
+    color: white;
 }

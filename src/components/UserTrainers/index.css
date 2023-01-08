@@ -1,0 +1,61 @@
+.TrainersClientPage .PendingClientsContainer {
+    border-radius: 5px;
+    overflow-x: auto;
+    overflow-y: none;
+    width: 99.8%;
+    height: 140px;
+}
+
+.TrainersClientPage .PendingClientsContainer 
+.PendingClientContainerContext {
+    color: red;
+    font-family: "IM FELL Great Primer SC", serif;
+    margin-top: 10px;
+    display: flex;
+}
+
+.TrainersClientPage .PendingClientsContainer 
+.PendingClientContainerContext .circle {
+    align-items: center;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    height: 5px;
+    justify-content: center;
+    left: -9vw;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    top: -5px;
+    width: 5px;
+}
+
+.TrainersClientPage .PendingClientsContainer 
+.PendingClientContain {
+    overflow-y: none;
+}
+
+.TrainersClientPage .PendingClientsContainer 
+.PendingClientContain .ClientsContain {
+    height: 100px;
+    overflow-y: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.TrainersClientPage .PendingClientsContainer 
+.PendingClientContain .ClientsContain .pending-clients {
+    margin-left: 10px;
+}
+
+.TrainersClientPage .PendingClientsContainer 
+.PendingClientContain .ClientsContain 
+.pending-clients .profile-pic {
+    cursor: pointer;
+    padding: 5px;
+    height: 70px;
+    width: 70px;
+    border: 1px solid red;
+    border-radius: 30px;
+}

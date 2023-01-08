@@ -10,6 +10,7 @@ export const userIsClient = `
             cancelCost
             hasDefaultPaymentMethod
             clientStatement
+            clientId
         }
     }
 `;

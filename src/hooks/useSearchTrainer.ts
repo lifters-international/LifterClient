@@ -1,5 +1,6 @@
-import { fetchGraphQl, TrainersSummary } from '../utils';
 import React, { useState, useEffect } from 'react';
+
+import { fetchGraphQl, TrainersSummary } from '../utils';
 
 import { searchTrainers } from "../graphQlQuieries";
 

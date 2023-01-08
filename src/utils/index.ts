@@ -7,7 +7,7 @@ export const getApiUrl = () => {
 }
 
 export const getWSApiUrl = () => {
-    return  `wss://${process.env.NODE_ENV === "production" ? "server.lifters.app" : "localhost:5000"}/graphql`;
+    return `wss://${process.env.NODE_ENV === "production" ? "server.lifters.app" : "localhost:5000"}/graphql`;
 }
 
 export const getImageUploadApi = () => {
@@ -35,6 +35,45 @@ export const fetchGraphQl = async (query: string, variables: any): Promise<Graph
     return data;
 }
 
+export type TrainersClientDetails = {
+    name: string;
+    profilePicture: string;
+    messages: TrainersClientMessage[];
+    canSeeUserFoodHistory: boolean;
+    /*
+        THIS IS A LATER FEATURE THAT IS NOT CURRENTLY SUPPORTED
+        canSeeUserWorkoutHistory: boolean;
+        canSeeUserWeightHistory: boolean;
+    */
+
+    trainersDecision: TrainersDecision;
+
+    dateCreated: number;
+}
+
+
+export type TrainerPendingClients = {
+    id: string;
+    profilePicture: string;
+    name: string;
+    date: number;
+}
+
+export type TrainersClientMessage = {
+    id: string;
+    status: "DELIVERED" | "READ";
+    timeRead: number | null;
+    whoSent: "LIFTERS" | "TRAINERS";
+    metaDataType: "TEXT" | "IMAGE" | "AUDIO" | "VIDEO";
+    message: string;
+    createdAt: number;
+};
+
+export type TrainerAcceptedClients = {
+    lastMessage: TrainersClientMessage | null;
+    lastMessageDate: number | null;
+    unreadMessages: number;
+} & TrainerPendingClients;
 
 export type TrainersSummary = {
     id: string;
@@ -76,7 +115,8 @@ export type TrainersGym = {
 export enum TrainersDecision {
     PENDING = "PENDING",
     ACCEPTED = "ACCEPTED",
-    DENIED = "DENIED"
+    DENIED = "DENIED",
+    VERIFYING_PAYMENT = "VERIFYING_PAYMENT"
 }
 
 export type TrainersClient = {
@@ -116,6 +156,10 @@ export type TrainerVideoSummary = {
     views: number
 }
 
+export type TrainerSearchVideoSummary = {
+    profilePicture: string;
+} & TrainerVideoSummary;
+
 export type WatchTrainerVideo = {
     recommendedVideos: {
         id: string;
@@ -140,6 +184,7 @@ export type WatchTrainerVideo = {
         disLikes: number;
         views: number;
         date: number;
+        thumbnail: string;
     }
 
     comments: {
@@ -153,6 +198,18 @@ export type WatchTrainerVideo = {
     }[];
 
     viewHistoryId: string;
+
+    allowLikes: boolean;
+
+    allowDislikes: boolean;
+
+    allowComments: boolean
+}
+
+export type UpdateTrainerClient = {
+    canSeeUserFoodHistory?: boolean;
+    canSeeUserWorkOutHistory?: boolean;
+    canSeeUserWeightHistory?: boolean;
 }
 
 export const getDiff = (start: Date, end: Date) => {
@@ -188,19 +245,19 @@ export const shortenText = (text: string, length = 20, end = "...") => {
     return text;
 }
 
-export const shortenNumber = ( num : number ) => {
+export const shortenNumber = (num: number) => {
     const thousand = 1000;
     const million = thousand * 1000;
     const billion = million * 100;
     const trillion = billion * 1000;
 
-    if ( num < thousand ) return `${num}`;
+    if (num < thousand) return `${num}`;
 
-    else if ( num / thousand < 1000 ) return `${Math.round(num / thousand)}k`;
+    else if (num / thousand < 1000) return `${Math.round(num / thousand)}k`;
 
-    else if ( num / million < 100 ) return `${Math.round(num/million)} mil`;
+    else if (num / million < 100) return `${Math.round(num / million)} mil`;
 
-    else if ( num / billion < 1000 ) return `${Math.round(num/billion)} billion`;
+    else if (num / billion < 1000) return `${Math.round(num / billion)} billion`;
 
-    else return `${num/trillion} trillion`;
+    else return `${num / trillion} trillion`;
 }
