@@ -8,6 +8,7 @@ import "./NavBar.css";
 import { useSignInUserData } from '../../hooks';
 import { IoMdSend } from "react-icons/io";
 import { IoFastFoodSharp } from "react-icons/io5";
+import { AiFillHeart } from "react-icons/ai";
 
 export type NavBarsProps = {
     token: string;
@@ -18,7 +19,7 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
     const signedInUser = useSignInUserData(token);
     const [dropDown, setDropDown] = useState(false);
 
-    if (signedInUser.loading) return <Loading/>;
+    if (signedInUser.loading) return <Loading />;
 
     if (signedInUser.error) return <></>;
 
@@ -42,6 +43,13 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
                     className="NavBarLottie"
                 />
 
+                <AiFillHeart
+                    size={60}
+                    color="red"
+                    onClick={() => navigate("/matches")}
+                    className="NavBarLottie"
+                />
+
                 <ProfilePicture image={signedInUser.data!.profilePicture} onClick={() => navigate("/profile")} imageClass="NavBarProfileImage" />
 
             </div>
@@ -51,7 +59,7 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
                 <SearchBar className="NavBarSearch" />
 
                 <div className="NavBarContainerMobileDropDown">
-                    <div className="NavBarContainerMobileDropDownMenu" onClick={ () => setDropDown(!dropDown) }>
+                    <div className="NavBarContainerMobileDropDownMenu" onClick={() => setDropDown(!dropDown)}>
                         Menu
                     </div>
 
@@ -70,6 +78,13 @@ const NavBar: React.FC<NavBarsProps> = ({ token }: NavBarsProps) => {
                                     size={60}
                                     color="red"
                                     onClick={() => navigate("/food")}
+                                    className="NavBarLottie"
+                                />
+
+                                <AiFillHeart
+                                    size={60}
+                                    color="red"
+                                    onClick={() => navigate("/matches")}
                                     className="NavBarLottie"
                                 />
 

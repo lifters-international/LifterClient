@@ -43,3 +43,31 @@ export * from "./getLiftersDailyFoodAnalytics";
 export * from "./subscribeToUnlimitedLifter";
 
 export * from "./UserCreateFood";
+
+export * from "./searchTrainers";
+
+export * from "./getTrainersDetailsById";
+
+export * from "./userGetAllTrainerVideo";
+
+export * from "./createTrainerRating";
+
+export * from "./watchTrainerVideo";
+
+export * from "./userIsClient";
+
+export * from "./becomeClientSubSecrets";
+
+export * from "./createTrainerClient";
+
+export * from "./searchVideos";
+
+export * from "./getClientPendingTrainers";
+
+export * from "./getAcceptedClientTrainers";
+
+export * from "./getClientTrainersAndMessages";
+
+export * from "./cancelCreateTrainersRequest";
+
+export * from "./updateTrainerClientSettings";

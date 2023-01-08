@@ -1,0 +1,62 @@
+.Videos .VideosHeader {
+    color: hsl(0, 0%, 52%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Videos .VideosHeader div {
+    margin-top: 1%;
+}
+
+.Videos .VideosHeader .TrainersLink, .Videos .VideosHeader .VideosLink {
+    position: relative;
+    right: 5vw;
+    top: 0.5vh;
+}
+
+.Videos .VideosHeader .TrainersLink:hover, .Videos .VideosHeader .VideosLink:hover {
+    background: white;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+}
+
+.Videos .VideosSearchView {
+    width: 90vw;
+    height: 10vh;
+    grid-template-columns: 95% 5%;
+    margin-top: 1%;
+}
+
+.Videos .VideosSearchView__Icon {
+    height: 30%;
+    width: 100%;
+    position: relative;
+    top: 0.2vw;
+    left: -4.9vw;
+}
+
+.Videos .VideosSearchView__Input {
+    height: 30%;
+    border-radius: 10px;
+    color: hsl(0, 0%, 52%);
+}
+
+.Videos .VideosSearchView__Input::placeholder {
+    color: hsl(0, 0%, 52%);
+}
+
+.Videos .NoVideosFound {
+    background: rgb(27, 27, 27);
+    border-radius: 10px;
+    padding: 10px;
+    width: 20vw;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.Videos .VideoSummaryContainer, .Videos .NoVideosFound {
+    color: white;
+}

@@ -1,0 +1,335 @@
+.ClientBox {
+    border: 1px solid hsl(0, 0%, 22%);
+    border-radius: 5px;
+    height: 69vh;
+}
+
+.ClientBoxLoading {
+    position: absolute;
+}
+
+.ClientBox .ClientBoxEmpty {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    top: 45%;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: hsl(0, 0%, 53%);
+}
+
+.ClientBox .ClientBoxDetails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ClientBox .ClientBoxDetails .client-infor {
+    display: flex;
+    color: hsl(0, 0%, 53%);
+    gap: 10px;
+}
+
+.ClientBox .ClientBoxDetails .client-infor 
+.profile-pic {
+    height: 40px;
+    width: 40px;
+}
+
+.ClientBox .ClientBoxDetails .client-infor .client-name {
+    color: #878787;
+    font-family: IM FELL Great Primer SC,serif;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    top: 10px;
+}
+
+.ClientBox .ClientBoxContent {
+    border-top: 1px solid hsl(0, 0%, 22%);
+    margin-top: 10px;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent {
+    border: 1px solid hsl(0, 0%, 22%);
+    border-radius: 10px;
+    padding: 10px;
+    width: 50vw;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    top: 2vh;
+    overflow-y: auto;
+    max-height: 56vh;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent::-webkit-scrollbar {
+    background: rgb(36, 35, 35);
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent::-webkit-thumb {
+    background: rgb(107, 107, 107);
+    border: 1px solid rgb(107, 107, 107);
+    border-radius: 10px;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent.accepted {
+    width: 70vw;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .name {
+    color: rgb(80, 80, 80);
+    text-align: center;
+    font-style: italic;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .date, .ClientBox .ClientBoxContent .AcceptClientBoxContent .dropdown .title {
+    color: rgb(80, 80, 80);
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent 
+.benefitContainer h1 {
+    color: rgb(54, 54, 54);
+    text-align: center;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent 
+.benefitContainer .benefits {
+    border-top: 1px solid rgb(87, 87, 87);
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent 
+.benefitContainer .benefits div {
+    border: 1px solid rgb(87, 86, 86);
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(83, 83, 83);
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .button {
+    position: relative;
+    top: 1%;
+    width: 30vw;
+    color: white;
+    background: #FF3636;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .button:hover {
+    background: red;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .button.accept {
+    background: rgb(60, 162, 230);
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .button.accept:hover {
+    background: rgb(0, 140, 255);
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent.accepted .button.save {
+    width: -moz-fit-content;
+    width: fit-content;
+    left: 33vw;
+    top: 1vh;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .dropdown {
+    border: 1px solid hsl(0, 0%, 22%);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .dropdown .title {
+    cursor: pointer;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .dropdown .arrow {
+    color: #FF3636;
+    float: right;
+    cursor: pointer;
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent .dropdown .contents {
+    border-top: 1px solid hsl(0, 0%, 22%);
+}
+
+.ClientBox .ClientBoxContent .AcceptClientBoxContent.accepted .button {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.MessageBoxContainer {
+    display: grid;
+    grid-template-rows: 7% 88% 5%;
+    height: 69vh;
+}
+
+.MessageBoxDetails {
+    display: flex;
+    gap: 10px;
+}
+
+.MessageBoxDetailsProfilePicture {
+    width: 40px;
+    height: 40px;
+}
+
+.MessageBoxDetailsName {
+    font-weight: bold;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 20px;
+    position: relative;
+    top: 10px;
+    color: hsl(0, 0%, 53%);
+}
+
+.MessageBoxInput {
+    border: 1px solid hsl(0, 0%, 22%);
+    border-radius: 10px;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: 2% 95% 3%;
+}
+
+.EmojiPickerReact {
+    position: absolute !important;
+    bottom: 60px;
+}
+
+.MessageBoxEmojiPicker {
+    position: relative;
+    top: 3.5px;
+    font-size: 20px;
+    color: #FF3636;
+    cursor: pointer;
+}
+
+.ClientMessage .MessageBoxSendButton {
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 5px;
+    color: #FF3636;
+    cursor: pointer;
+    background: none !important;
+}
+
+.MessageBoxTextInput {
+    border: none;
+    overflow: auto;
+    resize: none;
+    background: black;
+    color: white;
+}
+
+.MessageBoxTextInput:focus {
+    outline: none;
+}
+
+.MessageBoxSendButton:hover {
+    color: red;
+}
+
+.MessageBoxContent {
+    border-top: 1px solid hsl(0, 0%, 22%);
+    margin-top: 20px;
+}
+
+.NoMessages {
+    color: hsl(0, 0%, 53%);
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 45%;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.Content {
+    max-height: 67vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(8.9%, 10.5%));
+    gap: 10px;
+}
+
+.Content::-webkit-scrollbar {
+    width: 0px;
+}
+
+.divideTheySentYouSent {
+    margin-bottom: 10px;
+}
+
+.YouSentMessage, .TheySentMessage {
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 30vw;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    border: 0.5px solid #3e3e3e;
+}
+
+.TheySentMessage {
+    background: black;
+    color: white;
+}
+
+.YouSentMessage {
+    background: rgb(29, 134, 253);
+    color: white;
+    float: right;
+}
+
+.MessageViewDivDidSee::first-letter {
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width: 845px)  {
+    .ClientBox .ClientBoxContent .AcceptClientBoxContent, .ClientBox .ClientBoxContent .AcceptClientBoxContent.accepted {
+        width: 90vw;
+    }
+
+    .ClientBox .ClientBoxContent .AcceptClientBoxContent .button {
+        width: 60vw;
+    }
+
+    .MessageBoxEmojiPicker {
+        display: none;
+    }
+
+    .MessageBoxInput {
+        grid-template-columns: 85% 15%;
+        z-index: 4;
+    }
+
+    .MessageBoxContainer {
+        grid-template-rows: 7% 85% 6%;
+    }
+
+    .MessageViewDiv {
+        z-index: -1;
+    }
+}

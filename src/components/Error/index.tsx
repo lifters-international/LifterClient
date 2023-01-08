@@ -4,7 +4,10 @@ import "./Error.css";
 
 type ErrorProps = {
     reload?: boolean;
-} & GraphqlError;
+} & GraphqlError | {
+    message: string;
+    reload?: boolean;
+};
 
 const Error: React.FC<ErrorProps> = (props: ErrorProps) => {
     const ref = React.useRef<HTMLDivElement>(null);

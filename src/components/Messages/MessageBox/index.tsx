@@ -2,7 +2,7 @@ import React from "react";
 
 import ProfilePicture from "../../ProfilePicture";
 import MessageBoxContent from "../MessageBoxContent";
-import Picker from 'emoji-picker-react';
+import Picker, { Theme } from 'emoji-picker-react';
 import { SmileOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { useGetUserMessages } from "../../../hooks";
 import { MessageMetaDataType, MessageWhoSent } from '../../../utils';
@@ -62,10 +62,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ currentMatchId, token, name, pr
             <div className="MessageBoxInput">
                 {
                     showEmojiPicker ? (
-                        <Picker onEmojiClick={handleEmojiClick} pickerStyle={{
-                            position: "absolute",
-                            bottom: '40px'
-                        }}/>
+                        <Picker onEmojiClick={handleEmojiClick} theme={Theme.DARK} />
                     ) : null
                 }
                 <SmileOutlined className="MessageBoxEmojiPicker" onClick={() => setShowEmojiPicker(!showEmojiPicker)}/>

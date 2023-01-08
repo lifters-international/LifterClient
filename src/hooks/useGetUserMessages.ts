@@ -42,15 +42,15 @@ export const useGetUserMessages = ( token: string, matchId: string ): UserMessag
                         whoSent: data.getUserMessages.whoIsUser,
                         loading: false,
                         sendMessage: ( token: string, matchId: string, message: string, metaDataType: MessageMetaDataType) => {
-                            socket.emit("sendMessage", { token, matchId, message, metaDataType})
+                            socket.messagesEmit("sendMessage", { token, matchId, message, metaDataType})
                         },
                         sendReadMessage: ( messageId: string) => {
-                            socket.emit("sendReadMessage", { messageId, token, matchId })
+                            socket.messagesEmit("sendReadMessage", { messageId, token, matchId })
                         }
                     };
                 } );
         
-                socket.on("NewMessage", ( newMessage: { matchId: string, message: Message }) => {
+                socket.onMessages("NewMessage", ( newMessage: { matchId: string, message: Message }) => {
                     if ( newMessage.matchId === matchId ) {
                         setMessageState(prevState => {
                             return {

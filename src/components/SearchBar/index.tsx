@@ -1,6 +1,4 @@
 import React from 'react';
-import Lottie from 'react-lottie-player';
-import SearchIcon from "./search.json";
 import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 

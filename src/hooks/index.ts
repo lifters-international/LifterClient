@@ -33,3 +33,21 @@ export * from "./useAddFoodToLiftersDailyFood";
 export * from "./useGetDailyFoodAnalystics";
 
 export * from "./useIsMobile";
+
+export * from "./useSearchTrainer";
+
+export * from "./useGetTrainersDetailsById";
+
+export * from "./useUserGetAllTrainerVideo";
+
+export * from "./useWatchTrainerVideo";
+
+export * from "./useUserIsClient";
+
+export * from "./useSearchVideo";
+
+export * from "./usePendingTrainers";
+
+export * from "./useAcceptedTrainers";
+
+export * from "./useGetClientsTrainerAndMessages";

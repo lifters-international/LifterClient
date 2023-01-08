@@ -1,5 +1,7 @@
 export * from "./Home";
 
+export * from "./CheckBox";
+
 export { default as NotFound404 } from "./404";
 
 export { default as Loading } from "./Loading";
@@ -36,13 +38,6 @@ export { default as Matches } from "./Matches";
 
 export { default as Search } from "./Search";
 
-/*
-export { default as ChangeSubscription } from "./ChangeSubscription";
-
-export { default as ChangeSubscriptionWithToken } from "./ChangeSubscriptionWithToken";
-
-*/
-
 export { default as FoodView } from "./FoodView";
 
 export { default as FoodAnalysis } from "./FoodAnalysis";
@@ -50,3 +45,15 @@ export { default as FoodAnalysis } from "./FoodAnalysis";
 export { default as DailyMatchLimit } from "./DailyMatchLimit";
 
 export { default as CreateFood } from "./CreateFood";
+
+export { default as WorkoutsPage } from "./WorkoutsPage";
+
+export { default as TrainersDetails } from "./TrainersDetails";
+
+export { default as WatchTrainerVideo } from "./WatchTrainerVideo";
+
+export { default as BecomeAClient } from "./BecomeAClient";
+
+export { default as Share } from "./Share";
+
+export { default as UserTrainers } from "./UserTrainers";
