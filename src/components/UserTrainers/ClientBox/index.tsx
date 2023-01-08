@@ -21,7 +21,7 @@ const ClientBox: React.FC<{token : string}> = ({ token }) => {
         return (
             <div className="ClientBox">
                 <div className="ClientBoxEmpty">
-                    Click on a client to start talking with them
+                    Click on a trainer to start talking with them
                 </div>
             </div>
         )
