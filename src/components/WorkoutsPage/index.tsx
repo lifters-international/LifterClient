@@ -61,7 +61,7 @@ const Workouts: React.FC = () => {
                 </div>
 
                 {
-                    searchVideos.data.length === 0 && <div className="NoVideosFound">No Trainers Found</div>
+                    searchVideos.data.length === 0 && <div className="NoVideosFound">No Videos Found</div>
                 }
             </div>
         </div>
