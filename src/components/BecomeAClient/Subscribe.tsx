@@ -12,7 +12,7 @@ import Loading from "../Loading";
 
 import { SubscribeCheckOutForm } from "./SubscribeCheckOutForm";
 
-const stripePromise = loadStripe("switching to live keys");
+const stripePromise = loadStripe("pk_live_51LtTPwB5yAwp5CklX1Hyp6viNlcom8RXHF4ldHeJMS9hnemCELkREExZdUruXK5WNqXhHDPsMxg3bH4qYofwDp1800CFtfzMzc");
 
 export const Subscribe:React.FC<{ token: string }> = ({ token }) => {
     const { id: trainerId } = useParams();
