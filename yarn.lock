@@ -1643,6 +1643,7 @@
   version "2.1.0"
   resolved "https://npm.pkg.github.com/download/@lifters-international/lifters-utils/2.1.0/ab5b3ec547583959e36bf2be5527d59ec93c6023#ab5b3ec547583959e36bf2be5527d59ec93c6023"
   integrity sha512-I6wD4RuxeTAAMXr/l3B44p4zmnmNJDdfCsi3xPj+0CfBzcnJ2tOw8UyTFUIPoQK5niiIQattJxJDrh6JsRCZnA==
+
   dependencies:
     "@apollo/client" "^3.7.0"
     "@types/node" "^18.11.2"
