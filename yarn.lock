@@ -1639,10 +1639,11 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lifters-international/lifters-utils@2.0.4":
-  version "2.0.4"
-  resolved "https://npm.pkg.github.com/download/@lifters-international/lifters-utils/2.0.4/e2156addac55704ebd6c8f38fece4f598b14841a#e2156addac55704ebd6c8f38fece4f598b14841a"
-  integrity sha512-kWJKHXLrUsd0BhM009S5GNjjjF0QefkVxXL79kRwpGiUnN8wWTScM0qqYaOVAq/ZuvTedL31BxK+d/Ql86EdEQ==
+"@lifters-international/lifters-utils@2.1.0":
+  version "2.1.0"
+  resolved "https://npm.pkg.github.com/download/@lifters-international/lifters-utils/2.1.0/ab5b3ec547583959e36bf2be5527d59ec93c6023#ab5b3ec547583959e36bf2be5527d59ec93c6023"
+  integrity sha512-I6wD4RuxeTAAMXr/l3B44p4zmnmNJDdfCsi3xPj+0CfBzcnJ2tOw8UyTFUIPoQK5niiIQattJxJDrh6JsRCZnA==
+
   dependencies:
     "@apollo/client" "^3.7.0"
     "@types/node" "^18.11.2"
