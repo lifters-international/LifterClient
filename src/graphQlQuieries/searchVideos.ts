@@ -10,6 +10,8 @@ query SearchVideo($token: String!, $search: String!) {
       title
       updatedAt
       views
+      trainerId
+      trainerName
     }
   }
 `;

@@ -9,7 +9,6 @@ import { useSessionHandler, useWatchTrainerVideo, useSignInUserData } from "../.
 import { getDiff, shortenNumber, shortenText } from "../../utils";
 
 import { BiLike, BiDislike } from "react-icons/bi";
-import { IoMdShareAlt } from "react-icons/io";
 import { MdOutlineFileDownloadOff } from "react-icons/md";
 import { AiOutlineDownload, AiFillLike, AiFillDislike } from "react-icons/ai";
 
