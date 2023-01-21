@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { fetchGraphQl, TrainerSearchVideoSummary } from "../utils";
 
 import { searchVideos } from "../graphQlQuieries";
-import { BooleanLiteral } from "typescript";
 
 export type useSearchVideoState = {
     loading: boolean;

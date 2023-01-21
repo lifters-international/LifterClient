@@ -10,6 +10,7 @@ export type ClientTrainersAndMessageDetailsState = {
     trainersDecision: TrainersDecision;
     dateCreated: number;
     canSeeUserFoodHistory: boolean;
+    trainer: string;
 }
 
 export type ClientTrainersAndMessageState = {
@@ -27,7 +28,8 @@ export const useGetClientsTrainerAndMessages = ( token : string, clientId : stri
         profilePicture: "",
         trainersDecision: TrainersDecision.ACCEPTED,
         dateCreated: 0,
-        canSeeUserFoodHistory: false
+        canSeeUserFoodHistory: false,
+        trainer: ""
     });
 
     const [ messages, setMessages ] = useState<TrainersClientMessage[]>([]);
@@ -50,7 +52,7 @@ export const useGetClientsTrainerAndMessages = ( token : string, clientId : stri
             if ( res.errors ) {
                 setError(res.errors);
             } else {
-                let data : TrainersClientDetails = res.data.getClientTrainersAndMessages;
+                let data : { trainer : string } & TrainersClientDetails = res.data.getClientTrainersAndMessages;
 
                 setDetails(prev => {
                     return {
@@ -59,7 +61,8 @@ export const useGetClientsTrainerAndMessages = ( token : string, clientId : stri
                         profilePicture: data.profilePicture,
                         trainersDecision: data.trainersDecision,
                         dateCreated: data.dateCreated,
-                        canSeeUserFoodHistory: data.canSeeUserFoodHistory
+                        canSeeUserFoodHistory: data.canSeeUserFoodHistory,
+                        trainer: data.trainer
                     }
                 });
 

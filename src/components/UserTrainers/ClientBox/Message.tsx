@@ -23,12 +23,13 @@ export type MessageProps = {
     name: string;
     profilePicture: string;
     client: string;
+    trainer: string;
     messages: TrainersClientMessage[];
     sendMessage?: ( token: string, message: string, metaDataType: "TEXT" | "IMAGE" | "AUDIO" | "VIDEO" ) => void;
     sendReadMessage?: ( messageId: string ) => void;
 }
 
-export const Message: React.FC<MessageProps> = ({ token, name, profilePicture, client, messages, sendMessage, sendReadMessage }) => {
+export const Message: React.FC<MessageProps> = ({ token, name, profilePicture, client, trainer, messages, sendMessage, sendReadMessage }) => {
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const Messageref = useRef<HTMLTextAreaElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
@@ -46,10 +47,10 @@ export const Message: React.FC<MessageProps> = ({ token, name, profilePicture, c
     return (
         <div className="ClientMessage MessageBoxContainer">
             <div className="ClientBoxDetails">
-                <div className="client-infor">
+                <Link className="client-infor" to={`/trainer/${trainer}`}>
                     <img src={profilePicture} alt={name + " picture"} className="profile-pic" />
                     <div className="client-name">{name}</div>
-                </div>
+                </Link>
 
                 <div className="client-tabs">
                     <Link

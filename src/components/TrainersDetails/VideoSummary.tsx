@@ -6,7 +6,7 @@ import { BsFillShieldLockFill } from "react-icons/bs";
 
 import { TrainerVideoSummary, getDiff, shortenText, shortenNumber } from "../../utils";
 
-export const VideoSummary: React.FC<{ profilePicture?: string } & TrainerVideoSummary> = ({ id, thumbnail, duration, clientOnly, isClient, title, views, updatedAt, profilePicture }) => {
+export const VideoSummary: React.FC<{ profilePicture?: string, trainerName?: string } & TrainerVideoSummary> = ({ id, trainerName, thumbnail, duration, clientOnly, isClient, title, views, updatedAt, profilePicture }) => {
     const navigate = useNavigate();
 
     let durationSummary = new Date(duration * 1000).toISOString().substring(11, 19);
@@ -32,10 +32,15 @@ export const VideoSummary: React.FC<{ profilePicture?: string } & TrainerVideoSu
             </div>
 
             <div className={`bottom ${profilePicture ? "prof" : ""}`}>
-                <img className="profilePicture" src={profilePicture} alt="profilePicture" />
+                {
+                    profilePicture && <img className="profilePicture" src={profilePicture} alt="profilePicture" />
+                }
+
                 <div>
                     <div className="desc">{shortenText(title, 52)}</div>
                     <div className="dets">
+                        {shortenText(trainerName || "", 8)}
+                        {trainerName && <>&nbsp; &#8226; &nbsp;</>}
                         {shortenNumber(views)} views &#8226; &nbsp;
                         {getDiff(date, new Date(new Date().toLocaleString()))} ago &nbsp;
                         {
