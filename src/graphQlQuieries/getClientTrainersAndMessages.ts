@@ -15,6 +15,7 @@ query getClientTrainersAndMessages($clientId: String!, $token: String!) {
       profilePicture
       trainersDecision
       canSeeUserFoodHistory
+      trainer
     }
   }
 `;

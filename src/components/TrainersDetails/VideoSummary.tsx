@@ -39,7 +39,8 @@ export const VideoSummary: React.FC<{ profilePicture?: string, trainerName?: str
                 <div>
                     <div className="desc">{shortenText(title, 52)}</div>
                     <div className="dets">
-                        { shortenText(trainerName || "", 8) } &#8226; &nbsp;
+                        {shortenText(trainerName || "", 8)}
+                        {trainerName && <>&nbsp; &#8226; &nbsp;</>}
                         {shortenNumber(views)} views &#8226; &nbsp;
                         {getDiff(date, new Date(new Date().toLocaleString()))} ago &nbsp;
                         {

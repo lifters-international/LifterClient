@@ -9,7 +9,7 @@ export type MessageViewProps = {
 
 export const MessageView: React.FC<MessageViewProps> = ({ id, status, timeRead, whoSent, metaDataType, message, createdAt, sendReadMessage }) => {
     useEffect(() => {
-        if ( whoSent !== "TRAINERS" && status === "DELIVERED" ) sendReadMessage!(id);
+        if ( whoSent === "TRAINERS" && status === "DELIVERED" ) sendReadMessage!(id);
     }, [ ]);
 
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate, useParams, useNavigate } from "react-router-dom";
+import { Navigate, useParams, useNavigate, useLocation } from "react-router-dom";
 import Loading from "../Loading";
 import NavBar from "../NavBar";
 import Error from "../Error";

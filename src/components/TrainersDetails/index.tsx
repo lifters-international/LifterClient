@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Navigate, useLocation } from "react-router-dom";
+import { useParams, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 import { useSessionHandler, useGetTrainerDetails } from '../../hooks';
 
@@ -17,17 +17,18 @@ import ReactStars from "../ReactStars";
 import { MdVerifiedUser, MdAttachMoney, MdMoneyOff } from "react-icons/md";
 import { AiFillHome, AiFillMessage } from "react-icons/ai";
 import { BsStars } from "react-icons/bs";
-import { IoIosShareAlt } from "react-icons/io";
+import ShareView from "../Share";
 import { HiPencil } from "react-icons/hi";
 
 import "./index.css";
 
 const TrainersDetails: React.FC = () => {
     let { id } = useParams();
+    const navigation = useNavigate()
     const location = useLocation();
     let queryShow = new URLSearchParams(location.search).get("show");
 
-    queryShow = ["home", "reviews", "write"].includes(queryShow || "" ) ? queryShow : "home";
+    queryShow = ["home", "reviews", "write"].includes(queryShow || "") ? queryShow : "home";
 
     const authentication = useSessionHandler();
     const trainerDetails = useGetTrainerDetails({ id: id || "" });
@@ -69,8 +70,8 @@ const TrainersDetails: React.FC = () => {
                                 <div className="name-verification">
                                     <div className="trainerName">{trainerDetails.data?.name}</div>
                                     {
-                                        trainerDetails.data?.onBoardCompleted ? 
-                                        <MdVerifiedUser color="#FF3636" size={30} className="trainerVerified"/> : null
+                                        trainerDetails.data?.onBoardCompleted ?
+                                            <MdVerifiedUser color="#FF3636" size={30} className="trainerVerified" /> : null
                                     }
                                 </div>
                                 <ReactStars
@@ -84,12 +85,23 @@ const TrainersDetails: React.FC = () => {
                     </div>
 
                     <div className="trainer-dets-button">
-                        <AiFillMessage color="#FF3636" size={40} title="message" className="button" />
-                        <IoIosShareAlt color="#FF3636" size={40} title="share" className="button" />
+                        <AiFillMessage color="#FF3636" size={40} title="message" className="button" onClick={() => navigation(`/trainers/${id}/client?&redirectTab=messages`)}/>
+                        <ShareView
+                            thumbnail={trainerDetails.data?.bannerImage}
+                            title={`Come and check out ${trainerDetails.data?.name}'s trainers page on LiftersHome`}
+                            url={window.location.href}
+                            text={`Share ${trainerDetails.data?.name}'s trainer page`}
+                            quote={`Come and check out ${trainerDetails.data?.name}'s trainers page on LiftersHome... The #1 Home For All Things GYM!!!`}
+                            share={{
+                                color:"#FF3636", 
+                                size: 40,
+                                className: "button"
+                            }}
+                        />
                         {
                             trainerDetails.data?.onBoardCompleted ?
                                 <div className="trainer-price button">
-                                    <MdAttachMoney color="#FF3636" size={40} title={`Become a client for $${trainerDetails.data?.price}`} />
+                                    <MdAttachMoney color="#FF3636" size={40} title={`Become a client for $${trainerDetails.data?.price}`}  onClick={() => navigation(`/trainers/${id}/client?&redirectTab=settings`)} />
                                 </div> :
                                 <MdMoneyOff color="#FF3636" size={40} title="Can't become client until trainer is verified" className="button" />
                         }
@@ -99,19 +111,19 @@ const TrainersDetails: React.FC = () => {
                 <div className="TrainersSlides">
                     <div className="tabs">
                         <div className={`tab${show === "home" ? " showing" : ""}`} onClick={() => setShow("home")}>
-                            <AiFillHome color="#FF3636" size={40} title="home"/>
+                            <AiFillHome color="#FF3636" size={40} title="home" />
                         </div>
                         <div className={`tab${show === "reviews" ? " showing" : ""}`} onClick={() => setShow("reviews")}>
-                            <BsStars color="#FF3636" size={40} title="Reviews"/>
+                            <BsStars color="#FF3636" size={40} title="Reviews" />
                         </div>
                         <div className={`tab${show === "write" ? " showing" : ""}`} onClick={() => setShow("write")}>
                             <HiPencil color="#FF3636" size={40} title="Write A Review" />
                         </div>
                     </div>
                     <div className="slide">
-                        { show === "home" && <TrainerHomeSlide gyms={trainerDetails.data?.gyms!} trainerId={id}  token={authentication.token!} /> }
-                        { show === "reviews" && <TrainerRatingSlide ratings={trainerDetails.data?.ratings!} /> }
-                        { show === "write" && <TrainerWriteSlide token={authentication.token!} name={ trainerDetails.data?.name! } trainerId={id} /> }
+                        {show === "home" && <TrainerHomeSlide gyms={trainerDetails.data?.gyms!} trainerId={id} token={authentication.token!} />}
+                        {show === "reviews" && <TrainerRatingSlide ratings={trainerDetails.data?.ratings!} />}
+                        {show === "write" && <TrainerWriteSlide token={authentication.token!} name={trainerDetails.data?.name!} trainerId={id} />}
                     </div>
                 </div>
             </div>
