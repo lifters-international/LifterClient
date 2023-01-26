@@ -30,12 +30,18 @@
 
 .WatchTrainerVideoPage .detailsContainer .details div {
     display: flex;
+    height: 4.5vh;
 }
 
 
 .WatchTrainerVideoPage .detailsContainer .details .name-client-sub {
     flex-direction: row;
     gap: 10px;
+}
+
+.WatchTrainerVideoPage .detailsContainer .details .name-client-sub .profile {
+    width: 4.5vw;
+    height: 5vh;
 }
 
 .WatchTrainerVideoPage .detailsContainer .details .name-client-sub .trainer-name {
@@ -50,6 +56,7 @@
     cursor: pointer;
     width: -moz-fit-content;
     width: fit-content;
+    height: 2.5vh;
 }
 
 .WatchTrainerVideoPage .detailsContainer .details .name-client-sub .sub:hover {
@@ -95,6 +102,7 @@
     display: flex;
     gap: 10px;
     cursor: pointer;
+    align-items: center;
 }
 
 .WatchTrainerVideoPage .detailsContainer .details .buttons .likeDislike .holder.like {
@@ -217,10 +225,12 @@
     background: #FF3636;
     color: white;
     cursor: pointer;
+    border: 1px solid #FF3636;
 }
 
 .WatchTrainerVideoPage .comments .post-comment .comment-buttons button.cancel {
     background: rgb(29, 29, 29);
+    border: 1px solid rgb(29, 29, 29);
     color: rgb(143, 143, 143);
 }
 
@@ -255,6 +265,9 @@
 
 .WatchTrainerVideoPage .comments-container .comment .profile-pic {
     border-radius: 50px;
+    height: 4.5vh;
+    width: 5vw;
+    margin-right: 1.5vw;
 }
 
 .WatchTrainerVideoPage .comments-container .comment .name-date {
