@@ -71,3 +71,5 @@ export * from "./getClientTrainersAndMessages";
 export * from "./cancelCreateTrainersRequest";
 
 export * from "./updateTrainerClientSettings";
+
+export * from "./searchUserAndTrainers";

@@ -2,7 +2,7 @@ import React from 'react';
 import "./ProfilePicture.css";
 
 export type ProfilePictureType = {
-    image: string;
+    image?: string;
     alt?: string;
     imageClass?: string;
     containerClass?: string;

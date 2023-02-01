@@ -1,4 +1,36 @@
+import { UserData } from "@lifters-international/lifters-utils";
+
 export * from "@lifters-international/lifters-utils";
+
+export type TrainersSearchResult = {
+    id: string;
+
+    name: string;
+
+    bio: string;
+
+    profilePicture: string;
+
+    productId: string;
+
+    price: string;
+
+    ratingsAverage: number;
+}
+
+export type SearchLiftersAndTrainersResults = {
+    type: "lifters" | "trainers";
+
+    lifters?: UserData;
+
+    trianer?: TrainersSearchResult
+}
+
+export type SearchLiftersAndTrainers = {
+    searchUserAndTrainers: {
+        results: SearchLiftersAndTrainersResults[];
+    }
+}
 
 export const getDiff = (start: Date, end: Date) => {
     const msInSecond = 1000;
