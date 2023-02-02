@@ -1,11 +1,11 @@
 import React from "react";
 
-import { searchQuery } from "../graphQlQuieries";
+import { searchUserAndTrainers } from "../graphQlQuieries";
 
-import { SearchQueryResult, fetchGraphQl, UserData } from "../utils";
+import { SearchLiftersAndTrainers, fetchGraphQl, SearchLiftersAndTrainersResults } from "../utils";
 
 export type SearchQueryState = {
-    result?: UserData[] | null;
+    result?: SearchLiftersAndTrainersResults[] | null;
     loading: boolean;
     error: any;
 }
@@ -26,8 +26,8 @@ export const useSearchQuery = ( search: string, token: string ): SearchQueryStat
             };
         });
 
-        fetchGraphQl( searchQuery, { search, token }).then( result => {
-            let data: SearchQueryResult = result.data;
+        fetchGraphQl( searchUserAndTrainers, { search, token }).then( result => {
+            let data: SearchLiftersAndTrainers = result.data;
             
             if ( result.errors ) {
                 setState(prevState => {
@@ -41,7 +41,7 @@ export const useSearchQuery = ( search: string, token: string ): SearchQueryStat
                 setState(prevState => {
                     return {
                         ...prevState,
-                        result: data.searchUsers.results,
+                        result: data.searchUserAndTrainers.results,
                         loading: false
                     };
                 });
