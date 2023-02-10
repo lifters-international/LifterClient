@@ -149,6 +149,8 @@ const WatchTrainerVideo: React.FC = () => {
                         profilePicture={signedUser.data?.profilePicture!}
                         postComment={watchVideo.postComment}
                         allowComments={watchVideo.videoData?.allowComments!}
+                        askForChildren={watchVideo.askForChildren}
+                        removeChildren={watchVideo.removeChildren}
                     />
 
                 </div>

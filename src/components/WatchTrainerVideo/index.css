@@ -267,7 +267,6 @@
     border-radius: 50px;
     height: 4.5vh;
     width: 5vw;
-    margin-right: 1.5vw;
 }
 
 .WatchTrainerVideoPage .comments-container .comment .name-date {
@@ -276,6 +275,39 @@
 
 .WatchTrainerVideoPage .comments-container .comment .name-date .name {
     color: rgb(95, 93, 93);
+}
+
+.WatchTrainerVideoPage .comments-container .comment .com {
+    width: 54vw;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .com .comment-children .childrenDesc {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .com .comment-children .childrenDesc .button {
+    background:hsl(0, 0%, 7%);
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .com .comment-children .comment-buttons button {
+    width: 5vw;
+    text-align: center;
+    display: block;
+    height: 4vh;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .com .comment-children .comment-buttons button.cancel {
+    width: 3.5vw;
+}
+
+.WatchTrainerVideoPage .comments-container .comment .com .comment-children .children-container {
+    margin-top: 15px;
 }
 
 @media only screen and (max-width: 845px) {

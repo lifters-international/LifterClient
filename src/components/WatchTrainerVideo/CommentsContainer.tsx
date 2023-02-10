@@ -1,33 +1,34 @@
 import React, { useState, useRef } from "react";
 
-import { shortenNumber, getDiff } from "../../utils";
+import { shortenNumber, WatchTrainerVideoV401Comments } from "../../utils";
+import { Comment } from "./Comment";
 
 export type Props = {
-    comments: {
-        id: string;
-        comment: string;
-        whoCreatedId: string;
-        whoCreatedType: "lifters" | "trainers";
-        whoCreatedName: string;
-        whoCreatedProfilePicture: string;
-        updatedAt: number;
-    }[];
+    comments: WatchTrainerVideoV401Comments[];
 
     profilePicture: string;
 
     postComment: (comment: string) => void;
 
+    askForChildren: ( originalAncestor: string ) => void;
+
+    removeChildren: ( originalAncestor: string ) => void;
+
     allowComments: boolean;
 }
 
-export const CommentsContainer: React.FC<Props> = ({ comments, profilePicture, postComment, allowComments }) => {
+export const CommentsContainer: React.FC<Props> = ({ comments, profilePicture, postComment, allowComments, askForChildren, removeChildren }) => {
     const [text, setText] = useState("");
     const textRef = useRef<HTMLTextAreaElement>(null);
     const [showAll, setShowAll] = useState(false);
 
     return (
         <div className="comments">
-            <div className="comment-count">{shortenNumber(comments.length)} Comments</div>
+            <div className="comment-count">{
+                shortenNumber(
+                    comments.map(( v ) => v.childrenCount + 1 ).reduce( (a, b) => a + b ) 
+                ) 
+            } Comments</div>
 
             {
                 allowComments && (
@@ -69,22 +70,7 @@ export const CommentsContainer: React.FC<Props> = ({ comments, profilePicture, p
             <div className="comments-container">
                 {
                     (showAll || comments.length < 20 ? comments : comments.slice(0, 20)).map((comment, index) => {
-                        let date = new Date(new Date(comment.updatedAt!).toLocaleString());
-
-                        return (
-                            <div className="comment" key={index}>
-                                <img alt="profile" className="profile-pic" src={comment.whoCreatedProfilePicture} />
-
-                                <div className="det">
-                                    <div className="name-date">
-                                        <div className="name">{comment.whoCreatedName}</div>
-                                        <div className="date">&nbsp; {getDiff(date, new Date(new Date().toLocaleString()))} ago </div>
-                                    </div>
-
-                                    <div className="com">{comment.comment}</div>
-                                </div>
-                            </div>
-                        )
+                        return <Comment {...comment} profilePicture={profilePicture} allowComments={allowComments} askForChildren={askForChildren} removeChildren={removeChildren} key={index}/>;
                     })
                 }
 
