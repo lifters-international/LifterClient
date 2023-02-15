@@ -14,10 +14,6 @@ export type Props = {
 
     removeChildren: ( originalAncestor: string ) => void;
 
-    askForChildren: ( originalAncestor: string ) => void;
-
-    removeChildren: ( originalAncestor: string ) => void;
-
     allowComments: boolean;
 }
 
