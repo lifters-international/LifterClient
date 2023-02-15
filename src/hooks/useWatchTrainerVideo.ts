@@ -14,7 +14,7 @@ export type WatchTrainerVideoState = {
 
     likeVideo: () => void,
     disLikeVideo: () => void;
-    postComment: (comment: string) => void;
+    postComment: (comment: string, parentId?: string) => void;
     updateTime: (time: number) => void;
     askForChildren: (originalAncestor: string) => void;
     removeChildren: ( originalAncestor: string ) => void;
@@ -62,8 +62,8 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
                                 socket.videoEmit("dislikeVideo", { token, tokenType: "lifters", videoId })
                             },
 
-                            postComment: (comment: string) => {
-                                socket.videoEmit("postComment", { token, tokenType: "lifters", videoId, comment })
+                            postComment: (comment: string, parentId?: string) => {
+                                socket.videoEmit("postComment", { token, tokenType: "lifters", videoId, comment, parentId })
                             },
 
                             updateTime: (time: number) => {
@@ -185,6 +185,43 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
                     }
                 }
             })
+        });
+
+        socket.onVideo("newChildComment", ( newChildComment: { id: string, comment: string, whoCreatedId: string, whoCreatedType: "lifters" | "trainers", whoCreatedName: string, whoCreatedProfilePicture: string, videoId: string, parentId: string, ancestorId: string } ) => {
+            setState(prev => ({
+                ...prev,
+                videoData: {
+                    ...prev.videoData!,
+                    commens: (
+                        () => {
+                            let oldComment = prev.videoData?.comments!;
+
+                            let index = oldComment?.findIndex(v => v.id === newChildComment.ancestorId)
+
+                            if ( index !== -1 && index !== undefined ) {
+                                oldComment.splice(
+                                    index,
+                                    1,
+                                    (
+                                        () => {
+                                            let children = oldComment[index].children?.length > 0 ? [ ...oldComment[index].children, newChildComment ] : [];
+                                            let childrenCount = oldComment[index].childrenCount + 1;
+
+                                            return {
+                                                ...oldComment[index],
+                                                children,
+                                                childrenCount
+                                            }
+                                        }
+                                    )()
+                                );
+                            }
+
+                            return oldComment;
+                        }
+                    )()
+                }
+            }))
         });
 
         socket.onVideo("commentChildren", (commentChildren: { parent: string, children: WatchTrainerVideoV401CommentsChildren[] }) => {

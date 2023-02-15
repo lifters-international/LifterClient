@@ -6,9 +6,10 @@ type Props = {
     profilePicture: string; 
     askForChildren?: ( originalAncestor: string ) => void; 
     removeChildren?: ( originalAncestor: string ) => void;
+    postComment: ( text: string, parentId?: string ) => void;
 } & WatchTrainerVideoV401Comments;
 
-export const Comment: React.FC<Props> = ({ id, comment, updatedAt, allowComments, profilePicture, removeChildren, askForChildren, children, childrenCount, whoCreatedName, whoCreatedProfilePicture }) => {
+export const Comment: React.FC<Props> = ({ id, comment, updatedAt, allowComments, profilePicture, removeChildren, askForChildren, children, childrenCount, whoCreatedName, whoCreatedProfilePicture, parentId, postComment }) => {
     let date = new Date(new Date(updatedAt).toLocaleString());
 
     const [replying, setReplying] = useState(false);
@@ -58,7 +59,9 @@ export const Comment: React.FC<Props> = ({ id, comment, updatedAt, allowComments
                                 childrenCount > 0 && <div className="childrenCount button" onClick={toggelChildren}>{shortenNumber(childrenCount)} replies</div>
                             }
 
-                            <div onClick={toggle} className="replyToComment button">Reply</div>
+                            {
+                                !replying && <div onClick={toggle} className="replyToComment button">Reply</div>
+                            }
                         </div>
 
                         <div className="createChild">
@@ -84,7 +87,7 @@ export const Comment: React.FC<Props> = ({ id, comment, updatedAt, allowComments
                                                 <button type="button" className="comment" onClick={
                                                     () => {
                                                         if (text.length > 0) {
-                                                            //postComment(text);
+                                                            postComment(text, parentId || id );
                                                             toggle()
                                                         }
                                                     }
@@ -98,7 +101,7 @@ export const Comment: React.FC<Props> = ({ id, comment, updatedAt, allowComments
 
                         <div className="children-container">
                             {
-                                children?.map( child => ( <Comment {...child} allowComments={allowComments} profilePicture={profilePicture} childrenCount={0} children={[]} /> ))
+                                children?.map( (child, index) => ( <Comment {...child} allowComments={allowComments} profilePicture={profilePicture} childrenCount={0} children={[]} postComment={postComment} key={`com-child${index}`}/> ))
                             }
                         </div>
 
