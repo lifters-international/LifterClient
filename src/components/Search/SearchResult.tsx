@@ -3,6 +3,8 @@ import { useSearchQuery, useAcceptDeclineMatch } from '../../hooks';
 import { HeartFilled } from '@ant-design/icons';
 import Loading from '../Loading';
 import ProfilePicture from "../ProfilePicture";
+import TrainersDetails from '../TrainersDetails';
+import TrainersCard from '../TrainersCard';
 
 export type SearchResultProps = {
     query: string;
@@ -27,7 +29,6 @@ const SearchResult: React.FC<SearchResultProps> = ({ query, token }: SearchResul
 
     if (showDiv) showDiv = queryResult.result!.length > 0 ? true : false;
 
-    console.log(showDiv, queryResult);
     return (
         <div>
             <h1>Search Result</h1>
@@ -36,24 +37,28 @@ const SearchResult: React.FC<SearchResultProps> = ({ query, token }: SearchResul
                     (
                         <div className="SearchResultVisualDiv">
                             {
-                                queryResult.result?.map((user, index) => {
+                                queryResult.result?.map((result, index) => {
                                     return (
-                                        <div key={`user-search-result-${index}`} className={`UserSearchResult`}>
-                                            <ProfilePicture image={user.profilePicture} alt={`${user.username}-profilePicture`} imageClass="ProfilePicture" />
-                                            <div className="name center">{user.username}</div>
-                                            <div className="bio center" title={user.bio}>{shortText(user.bio)}</div>
-                                            <div className="homeGym center">{user.homeGymLocation}</div>
-                                            <div className="X centerB" onClick={() => acceptMatch(false, user.id)} >X</div>
-                                            <div className="Heart centerB" onClick={() => acceptMatch(true, user.id)} >
-                                                <HeartFilled twoToneColor="#eb2f96" style={
-                                                    {
-                                                        verticalAlign: 'middle'
-                                                    }
-                                                } />
-                                            </div>
-                                        </div>
-
-
+                                        <>
+                                            {
+                                                result.type === "lifters" ? (
+                                                    <div key={`user-search-result-${index}`} className={`UserSearchResult`}>
+                                                        <ProfilePicture image={result.lifters?.profilePicture} alt={`${result.lifters?.username}-profilePicture`} imageClass="ProfilePicture" />
+                                                        <div className="name center">{result.lifters?.username}</div>
+                                                        <div className="bio center" title={result.lifters?.bio}>{shortText(result.lifters?.bio || "")}</div>
+                                                        <div className="homeGym center">{result.lifters?.homeGymLocation}</div>
+                                                        <div className="X centerB" onClick={() => acceptMatch(false, result.lifters?.id || "" )} >X</div>
+                                                        <div className="Heart centerB" onClick={() => acceptMatch(true, result.lifters?.id || "")} >
+                                                            <HeartFilled twoToneColor="#eb2f96" style={
+                                                                {
+                                                                    verticalAlign: 'middle'
+                                                                }
+                                                            } />
+                                                        </div>
+                                                    </div>
+                                                ) : <TrainersCard {...result.trianer!} />
+                                            }
+                                        </>
                                     )
                                 })
                             }
