@@ -8,7 +8,11 @@ export type Props = {
 
     profilePicture: string;
 
-    postComment: (comment: string) => void;
+    postComment: (comment: string, parentId?: string) => void;
+
+    askForChildren: ( originalAncestor: string ) => void;
+
+    removeChildren: ( originalAncestor: string ) => void;
 
     askForChildren: ( originalAncestor: string ) => void;
 
@@ -70,7 +74,7 @@ export const CommentsContainer: React.FC<Props> = ({ comments, profilePicture, p
             <div className="comments-container">
                 {
                     (showAll || comments.length < 20 ? comments : comments.slice(0, 20)).map((comment, index) => {
-                        return <Comment {...comment} profilePicture={profilePicture} allowComments={allowComments} askForChildren={askForChildren} removeChildren={removeChildren} key={index}/>;
+                        return <Comment {...comment} profilePicture={profilePicture} allowComments={allowComments} askForChildren={askForChildren} removeChildren={removeChildren} key={`comment-${index}`} postComment={postComment}/>;
                     })
                 }
 
