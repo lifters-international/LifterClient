@@ -186,7 +186,7 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
                 }
             })
         });
-
+        
         socket.onVideo("newChildComment", ( newChildComment: { id: string, comment: string, whoCreatedId: string, whoCreatedType: "lifters" | "trainers", whoCreatedName: string, whoCreatedProfilePicture: string, videoId: string, parentId: string, ancestorId: string } ) => {
             setState(prev => ({
                 ...prev,
@@ -223,7 +223,7 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
                 }
             }))
         });
-
+        
         socket.onVideo("commentChildren", (commentChildren: { parent: string, children: WatchTrainerVideoV401CommentsChildren[] }) => {
 
             setState(prev => ({
