@@ -99,7 +99,6 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
                                         )()
                                     }
                                 }))
-
                             },
 
                             videoData: {
