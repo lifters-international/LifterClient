@@ -67,7 +67,39 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
                             },
 
                             updateTime: (time: number) => {
-                                socket.videoEmit("updateVideoTime", { token, tokenType: "lifters", time, videoId, viewHistoryId: res.data.WatchTrainerVideo.viewHistoryId! })
+                                socket.videoEmit("updateVideoTime", { token, tokenType: "lifters", time, videoId, viewHistoryId: res.data.WatchTrainerVideoV401.viewHistoryId! })
+                            },
+
+                            askForChildren: (originalAncestor: string) => {
+                                socket.videoEmit('askForOriginalCommentAncestor', { commentId: originalAncestor });
+                            },
+
+                            removeChildren: ( originalAncestor: string ) => {
+                                setState(prev => ({
+                                    ...prev,
+                                    videoData: {
+                                        ...prev.videoData!,
+                                        comments: (
+                                            () => {
+                                                let oldComment = prev.videoData?.comments!;
+                    
+                                                let index = oldComment?.findIndex(v => v.id === originalAncestor);
+                    
+                                                if( index !== -1 && index !== undefined) oldComment?.splice(
+                                                    index,
+                                                    1,
+                                                    {
+                                                        ...oldComment[index],
+                                                        children: []
+                                                    }
+                                                )
+                    
+                                                return oldComment;
+                                            }
+                                        )()
+                                    }
+                                }))
+
                             },
 
                             askForChildren: (originalAncestor: string) => {
