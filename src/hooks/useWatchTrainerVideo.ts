@@ -102,37 +102,6 @@ export const useWatchTrainerVideo = (token: string, videoId: string) => {
 
                             },
 
-                            askForChildren: (originalAncestor: string) => {
-                                socket.videoEmit('askForOriginalCommentAncestor', { commentId: originalAncestor });
-                            },
-
-                            removeChildren: ( originalAncestor: string ) => {
-                                setState(prev => ({
-                                    ...prev,
-                                    videoData: {
-                                        ...prev.videoData!,
-                                        comments: (
-                                            () => {
-                                                let oldComment = prev.videoData?.comments!;
-                    
-                                                let index = oldComment?.findIndex(v => v.id === originalAncestor);
-                    
-                                                if( index !== -1 && index !== undefined) oldComment?.splice(
-                                                    index,
-                                                    1,
-                                                    {
-                                                        ...oldComment[index],
-                                                        children: []
-                                                    }
-                                                )
-                    
-                                                return oldComment;
-                                            }
-                                        )()
-                                    }
-                                }))
-                            },
-
                             videoData: {
                                 likedVideo: false,
                                 dislikedVideo: false,
