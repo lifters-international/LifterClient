@@ -1,0 +1,117 @@
+.EditProfilePicture {
+    width: 80vw;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: auto; 
+    margin-left: auto;
+    margin-top: 3vh;
+    border: 1px solid hsl(0, 0%, 22%);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.EditProfilePictureButton {
+    float: right;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background: #f75252;
+    color: white;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 15px;
+}
+
+.EditProfilePictureButton:hover {
+    background: red;
+}
+
+.EditProfile {
+    width: 80vw;
+    margin-top: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid hsl(0, 0%, 22%);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.EditProfileTitle {
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 35px;
+    font-size: bold;
+}
+
+.EditProfileInputJoin {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.EditProfileInputJoin .EditProfileInput {
+    width: 100%;
+}
+
+
+.EditProfileInput {
+    width: 50%;
+}
+
+.EditProfileInputTitle {
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 23px;
+    font-size: bold;
+    margin-bottom: 10px;
+}
+
+.EditProfileInputField, .EditProfileInputBio {
+    width: 80%;
+    border: 2px solid hsl(0, 0%, 22%);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 2%;
+}
+
+.EditProfileInputBio {
+    width: 97%;
+    height: 10vh;
+    overflow: auto;
+    background: hsl(0, 0%, 15%);
+    color:hsl(0, 0%, 65%);
+}
+
+.EditProfileInputField:active, .EditProfileInputBio:active {
+    border: 2px solid black;
+}
+
+.EditProfileButtons {
+    position: relative;
+    text-align: right;
+    bottom: 5vh;
+}
+
+.EditProfileButton {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background: #f75252;
+    color: white;
+    font-family: "IM FELL Great Primer SC", serif;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.EditProfileButton:hover {
+    background: red;
+}
+
+.EditProfileInput {
+    display: grid;
+}
+
+.ChangePasswordModal {
+    position: relative;
+    top: 20%;
+    transform: translate(0, -50%);
+}

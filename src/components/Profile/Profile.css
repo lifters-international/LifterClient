@@ -1,117 +1,103 @@
-.EditProfilePicture {
+.profile-page .profile-container {
     width: 80vw;
-    height: 50vh;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin-right: auto; 
-    margin-left: auto;
-    margin-top: 3vh;
-    border: 1px solid hsl(0, 0%, 22%);
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.EditProfilePictureButton {
-    float: right;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    background: #f75252;
-    color: white;
-    font-family: "IM FELL Great Primer SC", serif;
-    font-size: 15px;
-}
-
-.EditProfilePictureButton:hover {
-    background: red;
-}
-
-.EditProfile {
-    width: 80vw;
-    margin-top: 3vh;
-    margin-left: auto;
+    margin-top: 2vh;
     margin-right: auto;
-    border: 2px solid hsl(0, 0%, 22%);
-    border-radius: 10px;
+    margin-left: auto;
+}
+
+.profile-page .profile-container .profile-edit-container {
+    width: 50vw;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.profile-page .profile-container .profile-edit-container .profilePicture {
+    width: 10vw;
+    border-radius: 50%;
+}
+
+.profile-page .profile-container .profile-edit-container .side-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-page .profile-container .profile-edit-container .side-container .edit-u-b {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.profile-page .profile-container .profile-edit-container .side-container .username {
+    font-size: 28px;
+    color: white;
+}
+
+.profile-page .profile-container .profile-edit-container .side-container .editButton {
+    font-size: 20;
+    text-decoration: none;
+    background: #FF3636;
     padding: 10px;
+    border-radius: 10px;
+    color: white;
 }
 
-.EditProfileTitle {
-    font-family: "IM FELL Great Primer SC", serif;
-    font-size: 35px;
-    font-size: bold;
+.profile-page .profile-container .profile-edit-container .side-container .data-rows {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin-top: 2vh;
+    color: white;
 }
 
-.EditProfileInputJoin {
-    display: grid;
-    grid-template-columns: 50% 50%;
+.profile-page .profile-container .profile-edit-container .side-container .bio {
+    color: white;
+    font-size: 16px;
+    margin-top: 2vh;
 }
 
-.EditProfileInputJoin .EditProfileInput {
-    width: 100%;
+.profile-page .profile-container .viewSelectors {
+    width: 20vw;
+    margin-top: 5vh;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #FF3636;
 }
 
-
-.EditProfileInput {
-    width: 50%;
-}
-
-.EditProfileInputTitle {
-    font-family: "IM FELL Great Primer SC", serif;
-    font-size: 23px;
-    font-size: bold;
+.profile-page .profile-container .viewSelectors .viewSelect {
+    cursor: pointer;
     margin-bottom: 10px;
 }
 
-.EditProfileInputField, .EditProfileInputBio {
-    width: 80%;
-    border: 2px solid hsl(0, 0%, 22%);
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 2%;
+.profile-page .profile-container .viewSelectors .viewSelect.selected {
+    border-bottom: 1px solid #FF3636;
+    margin-bottom: 2vh;
 }
 
-.EditProfileInputBio {
-    width: 97%;
-    height: 10vh;
-    overflow: auto;
-    background: hsl(0, 0%, 15%);
-    color:hsl(0, 0%, 65%);
-}
-
-.EditProfileInputField:active, .EditProfileInputBio:active {
-    border: 2px solid black;
-}
-
-.EditProfileButtons {
+.profile-page .profile-container .viewSelectors .viewSelect-bookmark {
     position: relative;
-    text-align: right;
-    bottom: 5vh;
+    top: 0.4vh;
 }
 
-.EditProfileButton {
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    background: #f75252;
-    color: white;
-    font-family: "IM FELL Great Primer SC", serif;
-    font-size: 15px;
-    margin-right: 10px;
+.profile-page .profile-container .reel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
 }
 
-.EditProfileButton:hover {
-    background: red;
+.profile-page .profile-container .reel-container .reel-row-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
 }
 
-.EditProfileInput {
-    display: grid;
-}
-
-.ChangePasswordModal {
-    position: relative;
-    top: 20%;
-    transform: translate(0, -50%);
+.profile-page .profile-container .reel-container .reel-row-container .reel-container {
+    width: 50px;
+    height: 50px;
 }

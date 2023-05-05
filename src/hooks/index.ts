@@ -51,3 +51,5 @@ export * from "./usePendingTrainers";
 export * from "./useAcceptedTrainers";
 
 export * from "./useGetClientsTrainerAndMessages";
+
+export * from "./useLoggedInUserHomePage";

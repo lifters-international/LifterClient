@@ -73,3 +73,5 @@ export * from "./cancelCreateTrainersRequest";
 export * from "./updateTrainerClientSettings";
 
 export * from "./searchUserAndTrainers";
+
+export * from "./getLoggedInUserHomePageDetails";

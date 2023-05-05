@@ -49,3 +49,17 @@ export const shortenNumber = (num: number) => {
 
     else return `${num / trillion} trillion`;
 }
+
+export const turnArrayIntoDimensionalArray = ( sourceArray: any[], dimension = 3 ): any[] => {
+    return sourceArray.reduce( ( prev, current, index ) => {
+        if ( index === 0 ) {
+            prev.push( [ current ] );
+        }else if ( prev[ prev.length - 1 ].length < dimension ) {
+            prev[prev.length - 1 ].push( current ); 
+        }else {
+            prev.push( [ current ] );
+        }
+
+        return prev;
+    }, [])
+} 

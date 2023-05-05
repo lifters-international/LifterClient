@@ -1,7 +1,7 @@
 import './App.css';
 import * as React from 'react';
 import { Route, Routes } from "react-router-dom";
-import { Home, NotFound404, CreateAccount, CreateFood, WorkoutsPage, BecomeAClient, UserTrainers, WatchTrainerVideo, TrainersDetails, LogIn, Profile, FoodView, FoodAnalysis, Preview, Messages, Matches, Search } from './components';
+import { Home, NotFound404, CreateAccount, CreateFood, WorkoutsPage, BecomeAClient, UserTrainers, WatchTrainerVideo, TrainersDetails, LogIn, Profile, ProfileSettings, FoodView, FoodAnalysis, Preview, Messages, Matches, Search } from './components';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +10,7 @@ const App: React.FC = () => {
       <Route path="/createAccount" element={<CreateAccount />} />
       <Route path="/logIn" element={<LogIn />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/settings" element={<ProfileSettings />} />
       <Route path="/preview" element={<Preview />} />
       <Route path="/messages" element={<Messages />} />
       {

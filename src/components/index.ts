@@ -22,6 +22,8 @@ export { default as PeerMatch } from "./PeerMatch";
 
 export { default as Profile } from "./Profile";
 
+export { default as ProfileSettings } from "./ProfileSettings";
+
 export { default as ProfilePicture } from "./ProfilePicture";
 
 export { default as SearchBar } from "./SearchBar";
